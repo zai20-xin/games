@@ -1,5 +1,7 @@
 # 🕹️ 二十年小飞侠 · 小游戏作品集
 
+[English](README.en.md) | 简体中文
+
 > 19 个从原型到可发布的网页小游戏，外加一套游戏工程化管理体系——契约注册、端口自动分配、统一入口面板、交付质量门禁，全部开源。
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
