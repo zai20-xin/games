@@ -1,0 +1,21 @@
+{
+  "id": "ski-adventure",
+  "name": "滑雪大冒险",
+  "description": "类地铁跑酷的 3 轨滑雪无尽跑酷（HTML5 Canvas + ES Modules）",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "跑酷",
+    "滑雪",
+    "canvas"
+  ],
+  "tech": [
+    "vite6",
+    "vanilla-js"
+  ],
+  "port": 4111,
+  "run": "GAME_BASE=/g/ski-adventure/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

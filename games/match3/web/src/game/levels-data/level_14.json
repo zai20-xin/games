@@ -1,0 +1,59 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 4
+    },
+    {
+      "type": "score",
+      "target": 2450
+    }
+  ],
+  "height": 8,
+  "id": 14,
+  "moves": 44,
+  "name": "糖霜回廊 2",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        5
+      ]
+    }
+  ],
+  "stars": [
+    2450,
+    3552,
+    4777
+  ],
+  "width": 7
+}

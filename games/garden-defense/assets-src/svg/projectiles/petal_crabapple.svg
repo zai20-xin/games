@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 海棠花瓣：心形苞片，胭脂粉 -->
+  <defs>
+    <radialGradient id="g" cx="0.5" cy="0.25" r="1.05">
+      <stop offset="0" stop-color="#ffdce9"/>
+      <stop offset="0.5" stop-color="#ff7fb5"/>
+      <stop offset="1" stop-color="#e0347c"/>
+    </radialGradient>
+  </defs>
+  <path d="M16 30 C8 25 6 17 10 10 C13 4 21 4 24 10 C27 17 24 25 16 30Z" fill="url(#g)" stroke="#c22263" stroke-width="0.9"/>
+  <path d="M16 28 C12 22 12 14 15 9" stroke="#c22263" stroke-width="1" fill="none" opacity="0.45"/>
+  <path d="M12.5 15 C13.5 11.5 14.5 9.5 16 8.5" stroke="#ffe0ec" stroke-width="1" fill="none" opacity="0.6"/>
+  <ellipse cx="15" cy="9.5" rx="3.2" ry="2.2" fill="#ffe4ef" opacity="0.75" transform="rotate(-16 15 9.5)"/>
+  <ellipse cx="21" cy="20" rx="2.4" ry="1.4" fill="#c22263" opacity="0.22" transform="rotate(28 21 20)"/>
+</svg>

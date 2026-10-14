@@ -1,0 +1,74 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 3,
+      "count": 21,
+      "type": "collect"
+    },
+    {
+      "target": 3550,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 22,
+  "moves": 40,
+  "name": "风暴之眼 1",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        4
+      ]
+    }
+  ],
+  "stars": [
+    3550,
+    5147,
+    6922
+  ],
+  "width": 7
+}

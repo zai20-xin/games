@@ -1,0 +1,107 @@
+<svg width="160" height="180" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a6b35"/>
+      <stop offset="0.5" stop-color="#6a994e"/>
+      <stop offset="1" stop-color="#386641"/>
+    </linearGradient>
+    <linearGradient id="leafG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f772d"/>
+      <stop offset="1" stop-color="#90a955"/>
+    </linearGradient>
+    <radialGradient id="petalG" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#d9ead2"/>
+      <stop offset="0.3" stop-color="#f6f9f0"/>
+      <stop offset="0.75" stop-color="#fdfdfa"/>
+      <stop offset="1" stop-color="#fffefb"/>
+    </radialGradient>
+    <radialGradient id="petalInG" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#e3f0dc"/>
+      <stop offset="0.5" stop-color="#fafdf6"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </radialGradient>
+    <!-- 玉玲珑：玉色副冠 -->
+    <radialGradient id="coronaG" cx="0.42" cy="0.38" r="0.95">
+      <stop offset="0" stop-color="#f2f7d5"/>
+      <stop offset="0.5" stop-color="#dceda8"/>
+      <stop offset="0.85" stop-color="#c3e084"/>
+      <stop offset="1" stop-color="#a9cf5e"/>
+    </radialGradient>
+    <radialGradient id="coronaIn" cx="0.5" cy="0.45" r="0.9">
+      <stop offset="0" stop-color="#b8d878"/>
+      <stop offset="1" stop-color="#e3f2b8"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c1a0d" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#2c1a0d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#9ad1ff" stop-opacity="0.3"/>
+      <stop offset="0.65" stop-color="#9ad1ff" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#9ad1ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 地面投影 -->
+  <ellipse cx="80" cy="168" rx="32" ry="7" fill="url(#shadowG)"/>
+
+  <!-- 带状叶 -->
+  <path d="M76 168 C66 138 62 106 70 84 C74 104 76 138 80 168 Z" fill="url(#leafG)"/>
+  <path d="M80 168 C88 140 92 112 88 92 C84 112 82 140 82.5 168 Z" fill="url(#leafG)" opacity="0.9"/>
+
+  <!-- 花茎 -->
+  <path d="M79 100 C78.5 124 80 146 80 168 L82 168 C82 146 81.5 124 81 100 Z" fill="url(#stemG)"/>
+
+  <!-- 珍稀光晕 -->
+  <circle cx="80" cy="64" r="52" fill="url(#auraG)"/>
+
+  <!-- 花头（低头） -->
+  <g transform="rotate(14 80 88) translate(80 66)">
+    <!-- 外层花被 -->
+    <g fill="url(#petalG)" stroke="#e5e8d8" stroke-opacity="0.7" stroke-width="0.8">
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(0)"/>
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(60)"/>
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(120)"/>
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(180)"/>
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(240)"/>
+      <path d="M0 0 C-10 -12 -13 -36 -6 -52 C-2.5 -58 2.5 -58 6 -52 C13 -36 10 -12 0 0 Z" transform="rotate(300)"/>
+    </g>
+    <!-- 内层花被（重瓣短瓣） -->
+    <g fill="url(#petalInG)" stroke="#dfe5d0" stroke-opacity="0.6" stroke-width="0.7">
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(30) scale(0.9)"/>
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(90) scale(0.9)"/>
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(150) scale(0.9)"/>
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(210) scale(0.9)"/>
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(270) scale(0.9)"/>
+      <path d="M0 0 C-9 -10 -11 -26 -5 -38 C-2 -42 2 -42 5 -38 C11 -26 9 -10 0 0 Z" transform="rotate(330) scale(0.9)"/>
+    </g>
+    <!-- 玉色副冠 -->
+    <circle r="13" fill="url(#coronaG)"/>
+    <g fill="url(#coronaG)">
+      <circle cx="0" cy="-13" r="2.6"/>
+      <circle cx="9.2" cy="-9.2" r="2.6"/>
+      <circle cx="13" cy="0" r="2.6"/>
+      <circle cx="9.2" cy="9.2" r="2.6"/>
+      <circle cx="0" cy="13" r="2.6"/>
+      <circle cx="-9.2" cy="9.2" r="2.6"/>
+      <circle cx="-13" cy="0" r="2.6"/>
+      <circle cx="-9.2" cy="-9.2" r="2.6"/>
+    </g>
+    <circle r="9.5" fill="url(#coronaIn)"/>
+    <circle r="9.5" fill="none" stroke="#a9cf5e" stroke-width="1" opacity="0.6"/>
+    <circle r="4.5" fill="#b8d878" opacity="0.85"/>
+    <g fill="#8fb558" opacity="0.8">
+      <circle cx="0" cy="1.8" r="0.8"/>
+      <circle cx="1.8" cy="0" r="0.8"/>
+      <circle cx="-1.8" cy="0" r="0.8"/>
+      <circle cx="0" cy="-1.8" r="0.8"/>
+    </g>
+    <ellipse cx="-5" cy="-6" rx="4.5" ry="3" fill="#f8fde8" opacity="0.7"/>
+  </g>
+
+  <!-- 花苞 -->
+  <g transform="translate(63 108) rotate(-18)">
+    <path d="M0 0 C-5 -6 -6 -16 -3 -24 C-1 -27 1 -27 3 -24 C6 -16 5 -6 0 0 Z" fill="#e9f0e2" stroke="#d5dec9" stroke-width="0.7"/>
+    <path d="M-4 0 C-5 8 -4 14 -2 20 L2 20 C4 14 5 8 4 0 Z" fill="#6a994e"/>
+  </g>
+</svg>

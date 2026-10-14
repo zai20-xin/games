@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "name": "初次见面",
+  "width": 7,
+  "height": 8,
+  "colors": 4,
+  "moves": 26,
+  "obstacles": [],
+  "goals": [
+    { "type": "score", "target": 500 }
+  ],
+  "stars": [500, 1000, 1500],
+  "features": ["basic"]
+}

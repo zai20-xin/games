@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cat",
+    "name": "小猫",
+    "size": "medium",
+    "hp": 280,
+    "speed": 36,
+    "unlockWave": 1,
+    "texture": "pet_cat",
+    "ability": { "type": "jump", "cooldownMs": 5000, "jumpCells": 1 }
+  },
+  {
+    "id": "duck",
+    "name": "鸭子",
+    "size": "small",
+    "hp": 600,
+    "speed": 18,
+    "unlockWave": 4,
+    "texture": "pet_duck",
+    "ability": { "type": "slow_resist", "cooldownMs": 0, "slowResist": 0.5 }
+  },
+  {
+    "id": "dog",
+    "name": "小狗",
+    "size": "large",
+    "hp": 500,
+    "speed": 42,
+    "unlockWave": 5,
+    "texture": "pet_dog",
+    "ability": { "type": "fast", "cooldownMs": 0 }
+  }
+]

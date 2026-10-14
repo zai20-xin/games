@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rose",
+    "name": "月季",
+    "family": "shooter",
+    "baseStats": { "attack": 22, "health": 320, "speed": 1.0 },
+    "cost": 80,
+    "texture": "flower_rose"
+  },
+  {
+    "id": "daffodil",
+    "name": "水仙",
+    "family": "shooter_slow",
+    "baseStats": { "attack": 18, "health": 300, "speed": 1.0 },
+    "cost": 100,
+    "texture": "flower_daffodil"
+  },
+  {
+    "id": "crabapple",
+    "name": "海棠",
+    "family": "shooter_double",
+    "baseStats": { "attack": 18, "health": 320, "speed": 0.9 },
+    "cost": 120,
+    "texture": "flower_crabapple"
+  },
+  {
+    "id": "chrysanthemum",
+    "name": "小球菊",
+    "family": "aoe_ground",
+    "baseStats": { "attack": 60, "health": 380, "speed": 1.0 },
+    "cost": 150,
+    "texture": "flower_chrysanthemum"
+  },
+  {
+    "id": "lotus",
+    "name": "荷花",
+    "family": "aoe_parabola",
+    "baseStats": { "attack": 80, "health": 400, "speed": 1.0 },
+    "cost": 175,
+    "texture": "flower_lotus"
+  },
+  {
+    "id": "orchid",
+    "name": "兰花",
+    "family": "buffer",
+    "baseStats": { "attack": 0, "health": 280, "speed": 1.0 },
+    "cost": 125,
+    "texture": "flower_orchid"
+  }
+]

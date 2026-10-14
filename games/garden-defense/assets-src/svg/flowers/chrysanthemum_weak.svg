@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="WEAKFORM" x="-20%" y="-20%" width="140%" height="140%"><feColorMatrix type="matrix" values="0.55 0.3 0.15 0 0 0.55 0.3 0.15 0 0 0.55 0.3 0.15 0 0 0 0 0 1 0"/><feColorMatrix type="matrix" values="0.82 0 0 0 0 0 0.82 0 0 0 0 0 0.82 0 0 0 0 0 1 0"/></filter></defs>
+<g transform="translate(80 90) scale(0.9) rotate(-5) translate(-80 -90)" filter="url(#WEAKFORM)">
+
+  <defs>
+    <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2d5a27"/>
+      <stop offset="0.5" stop-color="#4c9a2a"/>
+      <stop offset="1" stop-color="#2d6a31"/>
+    </linearGradient>
+    <radialGradient id="qBack" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#8f2500"/>
+      <stop offset="0.6" stop-color="#c23b0e"/>
+      <stop offset="1" stop-color="#e8590c"/>
+    </radialGradient>
+    <radialGradient id="qOuter" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#a63a00"/>
+      <stop offset="0.55" stop-color="#d9480f"/>
+      <stop offset="1" stop-color="#ff7b1c"/>
+    </radialGradient>
+    <radialGradient id="qMid" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#c25c00"/>
+      <stop offset="0.55" stop-color="#f76707"/>
+      <stop offset="1" stop-color="#ffa94d"/>
+    </radialGradient>
+    <radialGradient id="qInner" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#e8890c"/>
+      <stop offset="0.6" stop-color="#ffaa1f"/>
+      <stop offset="1" stop-color="#ffd43b"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c1a0d" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#2c1a0d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sheenG" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#fff8e1" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#fff8e1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 地面投影 -->
+  <ellipse cx="80" cy="168" rx="28" ry="7" fill="url(#shadowG)"/>
+
+  <!-- 花茎 -->
+  <path d="M78.5 106 C77 128 79 148 78 168 L82 168 C81 148 83 128 81.5 106 Z" fill="url(#stemG)"/>
+
+  <!-- 菊叶（羽状深裂） -->
+  <path d="M79 130 C68 124 58 124 52 129 C56 131 54 135 50 136 C55 138 54 142 49 143 C55 145 55 149 51 151 C58 153 68 150 79 144 Z" fill="#4c9a2a" opacity="0.92"/>
+  <path d="M79 135 L54 132 M79 138 L53 138 M79 141 L56 144" stroke="#2d5a27" stroke-width="0.7" opacity="0.4"/>
+  <path d="M80 146 C91 140 101 141 107 146 C103 148 105 152 109 153 C103 155 104 159 100 161 C93 162 84 158 80 153 Z" fill="#4c9a2a" opacity="0.88"/>
+  <path d="M80 151 L105 149 M80 154 L103 156" stroke="#2d5a27" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- 花头：三环管瓣球 -->
+  <g transform="translate(80 70)">
+    <!-- 后环 18 瓣 -->
+    <g fill="url(#qBack)" stroke="#8f2500" stroke-opacity="0.3" stroke-width="0.6">
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(10)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(30)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(50)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(70)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(90)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(110)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(130)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(150)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(170)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(190)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(210)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(230)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(250)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(270)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(290)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(310)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(330)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(350)"/>
+    </g>
+    <!-- 中环 16 瓣 -->
+    <g fill="url(#qOuter)" stroke="#a63a00" stroke-opacity="0.3" stroke-width="0.6">
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(20) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(42.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(65) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(87.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(110) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(132.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(155) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(177.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(200) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(222.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(245) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(267.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(290) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(312.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(335) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(357.5) scale(0.94)"/>
+    </g>
+    <!-- 内环 14 瓣（向心拢起） -->
+    <g fill="url(#qMid)" stroke="#c25c00" stroke-opacity="0.28" stroke-width="0.6">
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(13) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(39) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(65) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(91) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(117) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(143) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(169) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(195) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(221) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(247) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(273) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(299) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(325) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(351) scale(0.8)"/>
+    </g>
+    <!-- 心瓣（亮黄短瓣拢成球心） -->
+    <g fill="url(#qInner)" stroke="#e8890c" stroke-opacity="0.25" stroke-width="0.5">
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(26) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(78) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(130) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(182) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(234) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(286) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(338) scale(0.8)"/>
+    </g>
+    <circle r="5" fill="#ffe066"/>
+    <circle cx="-1.5" cy="-1.5" r="2" fill="#fff3bf" opacity="0.85"/>
+    <!-- 顶部受光 -->
+    <ellipse cx="-9" cy="-13" rx="22" ry="18" fill="url(#sheenG)"/>
+  </g>
+
+</g>
+</svg>

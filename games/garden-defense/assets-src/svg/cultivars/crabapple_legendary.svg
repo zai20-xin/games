@@ -1,0 +1,99 @@
+<svg width="160" height="180" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d3b3e"/>
+      <stop offset="0.5" stop-color="#a63d40"/>
+      <stop offset="1" stop-color="#7a2e31"/>
+    </linearGradient>
+    <linearGradient id="leafG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d6b42"/>
+      <stop offset="1" stop-color="#588157"/>
+    </linearGradient>
+    <!-- 重瓣海棠：浓粉重瓣 -->
+    <radialGradient id="pBack" cx="0.5" cy="0.92" r="1.05">
+      <stop offset="0" stop-color="#c9184a"/>
+      <stop offset="0.3" stop-color="#f06292"/>
+      <stop offset="0.7" stop-color="#ff8fab"/>
+      <stop offset="1" stop-color="#ffd7e4"/>
+    </radialGradient>
+    <radialGradient id="pMid" cx="0.5" cy="0.92" r="1.05">
+      <stop offset="0" stop-color="#d81b60"/>
+      <stop offset="0.35" stop-color="#ff5d8f"/>
+      <stop offset="0.75" stop-color="#ffa6c1"/>
+      <stop offset="1" stop-color="#ffe3ee"/>
+    </radialGradient>
+    <radialGradient id="pInner" cx="0.5" cy="0.92" r="1.05">
+      <stop offset="0" stop-color="#e75480"/>
+      <stop offset="0.5" stop-color="#ff8fab"/>
+      <stop offset="1" stop-color="#fff0f5"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c1a0d" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#2c1a0d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd700" stop-opacity="0.3"/>
+      <stop offset="0.6" stop-color="#ffd700" stop-opacity="0.11"/>
+      <stop offset="1" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sheenG" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 地面投影 -->
+  <ellipse cx="80" cy="168" rx="27" ry="7" fill="url(#shadowG)"/>
+
+  <!-- 花梗 -->
+  <path d="M78.5 106 C77 128 79 148 78 168 L81.5 168 C80.5 148 82.5 128 81.5 106 Z" fill="url(#stemG)"/>
+
+  <!-- 嫩叶 -->
+  <path d="M79 134 C70 130 60 130 54 136 C60 143 71 143 79 139 Z" fill="url(#leafG)"/>
+  <path d="M80 148 C89 144 99 145 105 151 C99 158 88 158 80 153 Z" fill="url(#leafG)" opacity="0.92"/>
+
+  <!-- 花萼 -->
+  <g transform="translate(80 104)" fill="#b23a48">
+    <path d="M0 0 C-7 -3 -11 -9 -12 -18 C-6 -12 -2 -6 0 -2 Z"/>
+    <path d="M0 0 C7 -3 11 -9 12 -18 C6 -12 2 -6 0 -2 Z"/>
+  </g>
+
+  <!-- 名贵金晕 -->
+  <circle cx="80" cy="72" r="56" fill="url(#auraG)"/>
+
+  <!-- 花头：重瓣三轮十五瓣 -->
+  <g transform="translate(80 72)">
+    <!-- 外轮 5 瓣 -->
+    <g fill="url(#pBack)" stroke="#d61f69" stroke-opacity="0.35" stroke-width="0.8">
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(-90)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(-18)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(54)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(126)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(198)"/>
+    </g>
+    <!-- 中轮 5 瓣 -->
+    <g fill="url(#pMid)" stroke="#e75480" stroke-opacity="0.32" stroke-width="0.7">
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(-54) scale(0.8)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(18) scale(0.8)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(90) scale(0.8)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(162) scale(0.8)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(234) scale(0.8)"/>
+    </g>
+    <!-- 内轮 5 瓣 -->
+    <g fill="url(#pInner)" stroke="#ff5d8f" stroke-opacity="0.3" stroke-width="0.6">
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(-90) scale(0.58)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(-18) scale(0.58)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(54) scale(0.58)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(126) scale(0.58)"/>
+      <path d="M0 0 C-22 -8 -30 -30 -19 -48 C-10 -62 10 -62 19 -48 C30 -30 22 -8 0 0 Z" transform="rotate(198) scale(0.58)"/>
+    </g>
+    <!-- 重瓣花心（无蕊，深粉心团） -->
+    <g fill="#ff5d8f">
+      <circle cx="0" cy="0" r="7" fill="#f06292"/>
+      <circle cx="-3" cy="-2" r="4.5" fill="#ff8fab"/>
+      <circle cx="0" cy="-3" r="3" fill="#ffa6c1"/>
+      <circle cx="-1" cy="-4" r="1.5" fill="#ffd7e4"/>
+    </g>
+    <ellipse cx="-8" cy="-12" rx="22" ry="18" fill="url(#sheenG)"/>
+  </g>
+</svg>

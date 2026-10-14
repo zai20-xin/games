@@ -1,0 +1,26 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 花雨弹跳（epic）：弹跳轨迹花瓣 -->
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#3a2a16"/>
+      <stop offset="1" stop-color="#1c1208"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#d0a4ff"/>
+      <stop offset="1" stop-color="#7a2fd0"/>
+    </linearGradient>
+    <radialGradient id="petal" cx="0.5" cy="0.3" r="1">
+      <stop offset="0" stop-color="#ffe4f2"/>
+      <stop offset="0.55" stop-color="#ff9ecb"/>
+      <stop offset="1" stop-color="#e0347c"/>
+    </radialGradient>
+  </defs>
+  <circle cx="16" cy="16" r="15" fill="url(#rim)"/>
+  <circle cx="16" cy="16" r="12.5" fill="url(#bg)" stroke="#d8ab72" stroke-width="0.8"/>
+  <path d="M5.5 24 C8 14 12 10 16 10 C20 10 24 14 26.5 24" fill="none" stroke="#d0a4ff" stroke-width="1.3" stroke-dasharray="2.4 2.2" opacity="0.85"/>
+  <path d="M13.5 21 C9.5 19 8.5 14.5 11 11 C13 8.5 17.5 8.5 19.5 11 C21.5 13.5 20 19.5 13.5 21 Z" fill="url(#petal)" stroke="#b82465" stroke-width="0.8"/>
+  <ellipse cx="13.5" cy="12.5" rx="2.6" ry="1.7" fill="#ffe4f2" opacity="0.7" transform="rotate(-20 13.5 12.5)"/>
+  <path d="M26.5 24 L24.5 21.2 M26.5 24 L23.2 24.4" stroke="#d0a4ff" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  <ellipse cx="7" cy="25.5" rx="2.2" ry="0.9" fill="#d0a4ff" opacity="0.45"/>
+  <ellipse cx="16" cy="27" rx="2.6" ry="1" fill="#d0a4ff" opacity="0.45"/>
+</svg>

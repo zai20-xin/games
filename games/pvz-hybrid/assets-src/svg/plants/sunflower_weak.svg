@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="petal" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#c9c295"/>
+      <stop offset="100%" stop-color="#9a8f6a"/>
+    </radialGradient>
+    <radialGradient id="disc" cx="40%" cy="34%" r="72%">
+      <stop offset="0%" stop-color="#8a7650"/>
+      <stop offset="100%" stop-color="#5a4c30"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9a9a7a"/>
+      <stop offset="100%" stop-color="#7a7a5c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 垂软弯茎 -->
+  <path d="M64 80 C 74 94 56 106 68 122" stroke="#3d3a30" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M64 80 C 74 94 56 106 68 122" stroke="#7d7d56" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 枯叶卷边 -->
+  <g stroke="#3d3a30" stroke-width="4">
+    <ellipse cx="42" cy="112" rx="14" ry="6" fill="url(#leaf)" transform="rotate(66 42 112)"/>
+    <ellipse cx="86" cy="114" rx="14" ry="6" fill="url(#leaf)" transform="rotate(94 86 114)"/>
+  </g>
+
+  <!-- 垂头花瓣 -->
+  <g stroke="#3d3a30" stroke-width="4" stroke-linejoin="round">
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(24 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(58 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(92 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(126 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(160 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(194 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(228 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(262 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(296 64 46)"/>
+    <ellipse cx="60" cy="40" rx="8" ry="17" fill="url(#petal)" transform="rotate(330 64 46)"/>
+  </g>
+
+  <!-- 干枯头盘（歪垂、花盘朝下） -->
+  <circle cx="63" cy="40" r="33" fill="#9a9a7a" opacity="0.25"/>
+  <circle cx="64" cy="47" r="30" fill="url(#disc)" stroke="#3d3a30" stroke-width="4.5" transform="rotate(34 64 47)"/>
+  <path d="M42 52 C 50 58 60 61 84 52" stroke="#3d3a30" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M50 30 C 54 26 58 27 61 31" stroke="#3d3a30" stroke-width="2" fill="none" opacity="0.6"/>
+
+  <!-- 昏闭眼 -->
+  <path d="M52 42 q 4 -3 9 -1" stroke="#3d3a30" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path d="M67 42 q 5 -3 10 -1" stroke="#3d3a30" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path d="M54 55 Q 64 62 74 54 Q 64 59 54 55 Z" fill="#3a3326" stroke="#3d3a30" stroke-width="2" stroke-linejoin="round"/>
+</svg>

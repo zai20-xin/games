@@ -1,0 +1,82 @@
+<svg width="160" height="180" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a5a40"/>
+      <stop offset="0.5" stop-color="#588157"/>
+      <stop offset="1" stop-color="#3a5a40"/>
+    </linearGradient>
+    <!-- 宋梅：梅瓣圆头，苹果绿萼，白唇双红点 -->
+    <radialGradient id="sepalG" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#8fbc8f"/>
+      <stop offset="0.4" stop-color="#cdeac0"/>
+      <stop offset="0.8" stop-color="#e9f7e3"/>
+      <stop offset="1" stop-color="#f5fbf2"/>
+    </radialGradient>
+    <radialGradient id="petalG" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#a3c9a0"/>
+      <stop offset="0.45" stop-color="#d6efd1"/>
+      <stop offset="1" stop-color="#f0faf0"/>
+    </radialGradient>
+    <linearGradient id="lipG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffef7"/>
+      <stop offset="0.6" stop-color="#fdfbf0"/>
+      <stop offset="1" stop-color="#f5f1d8"/>
+    </linearGradient>
+    <radialGradient id="colG" cx="0.4" cy="0.4" r="0.9">
+      <stop offset="0" stop-color="#fff3b0"/>
+      <stop offset="1" stop-color="#ffd60a"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c1a0d" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#2c1a0d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd700" stop-opacity="0.28"/>
+      <stop offset="0.6" stop-color="#ffd700" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 地面投影 -->
+  <ellipse cx="80" cy="168" rx="30" ry="7" fill="url(#shadowG)"/>
+
+  <!-- 剑形叶 -->
+  <path d="M78 168 C62 132 58 96 70 66" fill="none" stroke="#4f772d" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M78 168 C62 132 58 96 70 66" fill="none" stroke="#6a994e" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <path d="M81 168 C96 136 100 104 92 78" fill="none" stroke="#588157" stroke-width="5" stroke-linecap="round"/>
+  <path d="M80 168 C76 146 76 126 82 108" fill="none" stroke="#3a5a40" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- 花茎 -->
+  <path d="M79 120 C77 136 78.5 152 78 166 L81.5 166 C81 152 82.5 136 81 120 Z" fill="url(#stemG)"/>
+
+  <!-- 名贵金晕 -->
+  <circle cx="80" cy="76" r="54" fill="url(#auraG)"/>
+
+  <!-- 花头：宋梅（梅瓣收圆） -->
+  <g transform="translate(80 76)">
+    <!-- 中萼（圆头梅瓣） -->
+    <path d="M0 2 C-11 -8 -13 -28 -7 -42 C-4 -49 4 -49 7 -42 C13 -28 11 -8 0 2 Z" fill="url(#sepalG)" stroke="#a8c9a5" stroke-opacity="0.5" stroke-width="0.7" transform="rotate(6)"/>
+    <!-- 侧萼 -->
+    <path d="M0 2 C-11 -8 -13 -28 -7 -42 C-4 -49 4 -49 7 -42 C13 -28 11 -8 0 2 Z" fill="url(#sepalG)" stroke="#a8c9a5" stroke-opacity="0.5" stroke-width="0.7" transform="rotate(-50) scale(0.94)"/>
+    <path d="M0 2 C-11 -8 -13 -28 -7 -42 C-4 -49 4 -49 7 -42 C13 -28 11 -8 0 2 Z" fill="url(#sepalG)" stroke="#a8c9a5" stroke-opacity="0.5" stroke-width="0.7" transform="rotate(62) scale(0.94)"/>
+    <!-- 捧瓣（短圆收根） -->
+    <g transform="rotate(-22) scale(0.68)">
+      <path d="M0 0 C-12 -7 -15 -24 -8 -36 C-4 -42 4 -42 8 -36 C15 -24 12 -7 0 0 Z" fill="url(#petalG)" stroke="#b5d6b2" stroke-opacity="0.55" stroke-width="0.7"/>
+    </g>
+    <g transform="rotate(34) scale(0.68)">
+      <path d="M0 0 C-12 -7 -15 -24 -8 -36 C-4 -42 4 -42 8 -36 C15 -24 12 -7 0 0 Z" fill="url(#petalG)" stroke="#b5d6b2" stroke-opacity="0.55" stroke-width="0.7"/>
+    </g>
+    <!-- 白唇（宋梅标志双红点） -->
+    <path d="M0 -2 C-13 -4 -18 7 -13 18 C-8 27 -2 31 0 33 C2 31 8 27 13 18 C18 7 13 -4 0 -2 Z" fill="url(#lipG)" stroke="#ded7b2" stroke-opacity="0.6" stroke-width="0.7"/>
+    <path d="M0 -2 C-9 2 -11 13 -6 22 C-3 27 -1 29 0 30" fill="none" stroke="#d5cda4" stroke-width="0.8" opacity="0.45"/>
+    <path d="M0 -2 C9 2 11 13 6 22 C3 27 1 29 0 30" fill="none" stroke="#d5cda4" stroke-width="0.8" opacity="0.45"/>
+    <g fill="#c1121f" opacity="0.85">
+      <circle cx="-5" cy="9" r="1.8"/>
+      <circle cx="5" cy="9" r="1.8"/>
+    </g>
+    <circle cx="0" cy="16" r="1.2" fill="#c1121f" opacity="0.6"/>
+    <!-- 蕊柱 -->
+    <path d="M-4 -6 C-5 0 -3 4 0 5 C3 4 5 0 4 -6 C2 -9 -2 -9 -4 -6 Z" fill="url(#colG)" stroke="#d4a017" stroke-width="0.6"/>
+    <circle cx="0" cy="-4" r="1.6" fill="#fff3b0"/>
+  </g>
+</svg>

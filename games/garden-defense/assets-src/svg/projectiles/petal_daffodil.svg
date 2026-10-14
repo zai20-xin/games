@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 水仙花冠：喇叭状长管，鎏金渐变 -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="1" x2="0.45" y2="0">
+      <stop offset="0" stop-color="#d99a10"/>
+      <stop offset="0.45" stop-color="#f9c21c"/>
+      <stop offset="0.8" stop-color="#ffeb3b"/>
+      <stop offset="1" stop-color="#fff9c4"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 30 C9 24 11 20 14 16 L14 8 C14 5.5 18 5.5 18 8 L18 16 C21 20 23 24 22 30 C18 32 14 32 10 30Z" fill="url(#g)" stroke="#b8860b" stroke-width="0.9"/>
+  <path d="M12 28 C15 30 17 30 20 28" stroke="#b8860b" stroke-width="1" fill="none" opacity="0.65"/>
+  <path d="M13 20 C15 21 17 21 19 20" stroke="#fff59d" stroke-width="1" fill="none" opacity="0.6"/>
+  <ellipse cx="16" cy="8" rx="4" ry="2.6" fill="#ffe282" stroke="#d4a017" stroke-width="0.8"/>
+  <ellipse cx="15" cy="7.2" rx="1.8" ry="0.9" fill="#fffde0" opacity="0.85"/>
+</svg>

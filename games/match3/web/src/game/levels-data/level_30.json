@@ -1,0 +1,81 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 1,
+      "count": 23,
+      "type": "collect"
+    },
+    {
+      "target": 4455,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 30,
+  "moves": 43,
+  "name": "星屑之路 3",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        2
+      ]
+    }
+  ],
+  "stars": [
+    4455,
+    6459,
+    8687
+  ],
+  "width": 7
+}

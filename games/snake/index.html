@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代贪吃蛇游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+            <button class="nav-btn active" onclick="switchPage('game', this)">游戏</button>
+            <button class="nav-btn" onclick="switchPage('shop', this)">皮肤商店</button>
+            <button class="nav-btn" onclick="switchPage('mall', this)">积分商城</button>
+            <button class="nav-btn" onclick="switchPage('leaderboard', this)">排行榜</button>
+            <button class="nav-btn" onclick="switchPage('achievements', this)">成就</button>
+        </div>
+        
+        <!-- 游戏信息（移到游戏区域内） -->
+        
+        <!-- 游戏页面 -->
+        <div class="page active" id="game">
+            <div class="game-wrapper">
+                <!-- 设置按钮 -->
+                <button class="settings-btn" onclick="showGameControlModal()" title="游戏设置">⚙️</button>
+                
+                <!-- 半透明统计栏 -->
+                <div class="stats-overlay">
+                    <span class="stat-item">🏆 <span id="score">0</span></span>
+                    <span class="stat-item">🪙 <span id="coins">150</span></span>
+                    <span class="stat-item">💎 <span id="diamonds">10000</span></span>
+                    <span class="stat-item">📏 <span id="length">3</span></span>
+                    <span class="stat-item">⏱️ <span id="time">--</span></span>
+                </div>
+                
+                <!-- 开始游戏按钮 -->
+                <button class="start-game-btn" onclick="showNameInput()">🎮 开始游戏</button>
+                
+                <canvas id="gameCanvas" width="600" height="400"></canvas>
+                <div class="skills">
+                    <button class="skill-btn" onclick="useSkill('speed')" data-skill="speed">加速</button>
+                    <button class="skill-btn" onclick="useSkill('wall')" data-skill="wall">穿墙</button>
+                    <button class="skill-btn" onclick="useSkill('clone')" data-skill="clone">分身</button>
+                </div>
+                <!-- 实时排行榜 -->
+                <div id="liveLeaderboard" class="live-leaderboard" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <!-- 游戏控制弹窗 -->
+        <div id="gameControlModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>游戏设置</h2>
+                
+                <div class="game-mode-selector">
+                    <h3>游戏模式</h3>
+                    <button class="mode-btn active" data-mode="classic">常规模式</button>
+                    <button class="mode-btn" data-mode="battle">乱斗模式</button>
+                </div>
+                
+                <div class="difficulty-selector">
+                    <h3>难度</h3>
+                    <button class="difficulty-btn active" data-difficulty="easy">简单</button>
+                    <button class="difficulty-btn" data-difficulty="medium">中等</button>
+                    <button class="difficulty-btn" data-difficulty="hard">困难</button>
+                    <button class="difficulty-btn" data-difficulty="extreme">极限</button>
+                </div>
+
+                <div class="game-mode-selector">
+                    <h3>穿墙模式</h3>
+                    <button class="wrap-btn active" id="wrapOff">关闭</button>
+                    <button class="wrap-btn" id="wrapOn">开启</button>
+                    <p class="setting-tip">开启后撞墙不再结束，从对侧穿出（对局中随时生效）</p>
+                </div>
+
+                <div class="controls">
+                    <button onclick="showNameInput()">开始游戏</button>
+                    <button onclick="pauseGame()">暂停 (P)</button>
+                    <button onclick="resetGame()">重新开始 (R)</button>
+                    <button onclick="closeGameControlModal()">关闭</button>
+                </div>
+                <p class="setting-tip">操作：方向键 / WASD 移动 · 空格或 P 暂停 · R 重开 · M 静音</p>
+            </div>
+        </div>
+        
+        <!-- 名字输入弹窗 -->
+        <div id="nameInputModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>请输入你的名字</h2>
+                <div class="name-input">
+                    <input type="text" id="playerName" placeholder="输入你的名字" maxlength="10">
+                    <button onclick="confirmName()">确认</button>
+                    <button onclick="closeNameInput()">取消</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 皮肤商店页面 -->
+        <div class="page" id="shop">
+            <div class="skin-shop">
+                <h3 class="shop-title">皮肤商店</h3>
+                <div class="skins">
+                    <div class="skin-item selected" data-skin="0">
+                        <div class="skin-color" style="background-color: #4CAF50;"></div>
+                        <div class="skin-name">默认皮肤</div>
+                        <div class="skin-price">已拥有</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="1">
+                        <div class="skin-color" style="background-color: #2196F3;"></div>
+                        <div class="skin-name">蓝色皮肤</div>
+                        <div class="skin-price">100金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="2">
+                        <div class="skin-color" style="background-color: #FF9800;"></div>
+                        <div class="skin-name">橙色皮肤</div>
+                        <div class="skin-price">100金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="3">
+                        <div class="skin-color" style="background-color: #9C27B0;"></div>
+                        <div class="skin-name">紫色皮肤</div>
+                        <div class="skin-price">100金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="4">
+                        <div class="skin-color" style="background-color: #F44336;"></div>
+                        <div class="skin-name">红色皮肤</div>
+                        <div class="skin-price">100金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="5">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, red, blue);"></div>
+                        <div class="skin-name">蜘蛛侠</div>
+                        <div class="skin-price">6000钻石</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="6">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, red, gold);"></div>
+                        <div class="skin-name">钢铁侠</div>
+                        <div class="skin-price">6000钻石</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="7">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);"></div>
+                        <div class="skin-name">彩虹皮肤</div>
+                        <div class="skin-price">200金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="8">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, #00FFFF, #00FF00, #FF00FF);"></div>
+                        <div class="skin-name">霓虹皮肤</div>
+                        <div class="skin-price">300金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="9">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, #2E7D32, #4CAF50, #81C784);"></div>
+                        <div class="skin-name">森林皮肤</div>
+                        <div class="skin-price">250金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="10">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, #1565C0, #2196F3, #64B5F6);"></div>
+                        <div class="skin-name">海洋皮肤</div>
+                        <div class="skin-price">250金币</div>
+                    </div>
+                    <div class="skin-item locked" data-skin="11">
+                        <div class="skin-color gradient" style="background: linear-gradient(45deg, #C62828, #E53935, #FF5252);"></div>
+                        <div class="skin-name">火焰皮肤</div>
+                        <div class="skin-price">300金币</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 积分商城页面 -->
+        <div class="page" id="mall">
+            <div class="积分商城">
+                <h3 class="商城-title">积分商城</h3>
+                <div class="商城-items" id="商城Items">
+                    <!-- 商城物品将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 排行榜页面 -->
+        <div class="page" id="leaderboard">
+            <div class="leaderboard">
+                <h3 class="leaderboard-title">全球排行榜</h3>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- 排行榜数据将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 成就系统页面 -->
+        <div class="page" id="achievements">
+            <div class="achievements">
+                <h3 class="achievements-title">成就系统</h3>
+                <div class="achievements-list" id="achievementsList">
+                    <!-- 成就数据将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="gameOver" class="game-over" style="display: none;">
+        <h2>游戏结束</h2>
+        <p>最终分数: <span id="finalScore">0</span></p>
+        <p>最高分数: <span class="high-score" id="highScore">0</span></p>
+        <p>蛇的长度: <span id="finalLength">3</span></p>
+        <div class="game-over-buttons">
+            <button onclick="resetGame()">再玩一次</button>
+            <button onclick="closeGameOver()">关闭</button>
+        </div>
+    </div>
+    
+    <!-- 音效元素 -->
+    <audio id="bgMusic" loop preload="none">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="eatSound" preload="none">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameOverSound" preload="none">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2002/2002-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="skillSound" preload="none">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2004/2004-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="buySound" preload="none">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2006/2006-preview.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

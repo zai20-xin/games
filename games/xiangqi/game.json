@@ -1,0 +1,16 @@
+{
+  "id": "xiangqi",
+  "name": "亲子象棋",
+  "description": "亲子趣味对战中国象棋，PWA 可安装（含 Service Worker）",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "棋类",
+    "亲子",
+    "pwa"
+  ],
+  "port": 4107,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

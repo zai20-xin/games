@@ -1,0 +1,130 @@
+[
+  {
+    "id": "peashooter",
+    "name": "豌豆射手",
+    "family": "shooter",
+    "baseStats": { "attack": 20, "health": 300, "speed": 1.0 },
+    "cost": 100,
+    "texture": "peashooter"
+  },
+  {
+    "id": "snowpea",
+    "name": "寒冰射手",
+    "family": "shooter",
+    "baseStats": { "attack": 20, "health": 300, "speed": 1.0 },
+    "cost": 175,
+    "texture": "snowpea"
+  },
+  {
+    "id": "repeater",
+    "name": "双发射手",
+    "family": "shooter",
+    "baseStats": { "attack": 20, "health": 300, "speed": 0.8 },
+    "cost": 100,
+    "texture": "repeater"
+  },
+  {
+    "id": "wallnut",
+    "name": "坚果墙",
+    "family": "wall",
+    "baseStats": { "attack": 0, "health": 4000, "speed": 1.0 },
+    "cost": 50,
+    "texture": "wallnut"
+  },
+  {
+    "id": "tallnut",
+    "name": "高坚果",
+    "family": "wall",
+    "baseStats": { "attack": 0, "health": 8000, "speed": 1.0 },
+    "cost": 125,
+    "texture": "tallnut"
+  },
+  {
+    "id": "cherrybomb",
+    "name": "樱桃炸弹",
+    "family": "explosive",
+    "baseStats": { "attack": 1800, "health": 300, "speed": 1.0 },
+    "cost": 150,
+    "texture": "cherrybomb"
+  },
+  {
+    "id": "potatomine",
+    "name": "土豆地雷",
+    "family": "explosive",
+    "baseStats": { "attack": 9999, "health": 300, "speed": 1.0 },
+    "cost": 25,
+    "texture": "potatomine"
+  },
+  {
+    "id": "jalapeno",
+    "name": "火爆辣椒",
+    "family": "explosive",
+    "baseStats": { "attack": 1800, "health": 300, "speed": 1.0 },
+    "cost": 175,
+    "texture": "jalapeno"
+  },
+  {
+    "id": "threepeater",
+    "name": "三线射手",
+    "family": "shooter",
+    "baseStats": { "attack": 20, "health": 320, "speed": 1.2 },
+    "cost": 200,
+    "texture": "threepeater"
+  },
+  {
+    "id": "chomper",
+    "name": "大嘴花",
+    "family": "melee",
+    "baseStats": { "attack": 10000, "health": 2000, "speed": 1.0 },
+    "cost": 150,
+    "texture": "chomper"
+  },
+  {
+    "id": "wintermelon",
+    "name": "冰西瓜",
+    "family": "aoe",
+    "baseStats": { "attack": 60, "health": 400, "speed": 1.0 },
+    "cost": 200,
+    "texture": "wintermelon"
+  },
+  {
+    "id": "cactusball",
+    "name": "仙人球",
+    "family": "shooter",
+    "baseStats": { "attack": 20, "health": 250, "speed": 1.0 },
+    "cost": 150,
+    "texture": "cactusball"
+  },
+  {
+    "id": "fireflower",
+    "name": "火焰花",
+    "family": "shooter",
+    "baseStats": { "attack": 30, "health": 280, "speed": 1.0 },
+    "cost": 175,
+    "texture": "fireflower"
+  },
+  {
+    "id": "cactus",
+    "name": "仙人掌",
+    "family": "shooter",
+    "baseStats": { "attack": 25, "health": 300, "speed": 1.0 },
+    "cost": 125,
+    "texture": "cactus"
+  },
+  {
+    "id": "spikeweed",
+    "name": "地刺",
+    "family": "melee",
+    "baseStats": { "attack": 10, "health": 200, "speed": 1.0 },
+    "cost": 50,
+    "texture": "spikeweed"
+  },
+  {
+    "id": "flakcannon",
+    "name": "高射炮",
+    "family": "shooter",
+    "baseStats": { "attack": 40, "health": 350, "speed": 1.0 },
+    "cost": 200,
+    "texture": "flakcannon"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "name": "garden-defense",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "assets": "node scripts/derive-forms.mjs && node scripts/render-assets.mjs",
+    "cover": "node scripts/render-cover.mjs"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^20.12.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.2.0",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^2.0.0"
+  }
+}

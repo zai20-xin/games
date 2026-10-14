@@ -1,0 +1,14 @@
+{
+  "id": 2,
+  "name": "渐入佳境",
+  "width": 7,
+  "height": 8,
+  "colors": 4,
+  "moves": 22,
+  "obstacles": [],
+  "goals": [
+    { "type": "score", "target": 1200 }
+  ],
+  "stars": [1200, 2200, 3200],
+  "features": ["basic"]
+}

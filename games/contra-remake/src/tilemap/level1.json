@@ -1,0 +1,9 @@
+{
+  "width": 320,
+  "height": 15,
+  "tilewidth": 8,
+  "tileheight": 16,
+  "layers": [
+    { "name": "ground", "type": "tilelayer", "data": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] }
+  ]
+}

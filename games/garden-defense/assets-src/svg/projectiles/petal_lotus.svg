@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 荷花瓣：宽椭圆收尖，霞粉 -->
+  <defs>
+    <radialGradient id="g" cx="0.5" cy="0.25" r="1.05">
+      <stop offset="0" stop-color="#ffe4ef"/>
+      <stop offset="0.5" stop-color="#ff86bd"/>
+      <stop offset="1" stop-color="#e13f8f"/>
+    </radialGradient>
+  </defs>
+  <path d="M16 31 C6.5 25 5.5 14.5 11 6.5 C14.5 1.5 22.5 2 25.5 7.5 C29.5 15.5 25 25 16 31Z" fill="url(#g)" stroke="#c22d75" stroke-width="0.9"/>
+  <path d="M16 29 L16 9" stroke="#c22d75" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M11.5 15 C13 11.5 15 9.5 16 9" stroke="#ffd9e9" stroke-width="1" fill="none" opacity="0.6"/>
+  <path d="M20.5 15 C19 11.5 17 9.5 16 9" stroke="#ffd9e9" stroke-width="1" fill="none" opacity="0.6"/>
+  <ellipse cx="16" cy="12" rx="3.4" ry="2.4" fill="#fff0f6" opacity="0.6" transform="rotate(-12 16 12)"/>
+</svg>

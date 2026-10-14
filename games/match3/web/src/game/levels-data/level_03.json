@@ -1,0 +1,14 @@
+{
+  "id": 3,
+  "name": "小试锋芒",
+  "width": 7,
+  "height": 8,
+  "colors": 4,
+  "moves": 18,
+  "obstacles": [],
+  "goals": [
+    { "type": "score", "target": 1800 }
+  ],
+  "stars": [1800, 2800, 3800],
+  "features": ["basic"]
+}

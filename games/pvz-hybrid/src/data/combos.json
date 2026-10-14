@@ -1,0 +1,72 @@
+[
+  {
+    "id": "deepfreeze",
+    "name": "极寒冰痕",
+    "requires": { "plants": ["peashooter", "snowpea"], "form": "ice", "skill": "slow" },
+    "tier": "legendary",
+    "specialEffect": "冰弹命中大范围减速，持续冻结"
+  },
+  {
+    "id": "solargun",
+    "name": "火焰连射",
+    "requires": { "plants": ["peashooter", "fireflower"], "form": "flame", "skill": "rapidfire" },
+    "tier": "legendary",
+    "specialEffect": "连射火焰弹，灼烧整行"
+  },
+  {
+    "id": "steeljaw",
+    "name": "钢铁巨颚",
+    "requires": { "plants": ["chomper", "wallnut"], "form": "lightning", "skill": "stun" },
+    "tier": "legendary",
+    "specialEffect": "吞噬眩晕，高概率定身"
+  },
+  {
+    "id": "megasplash",
+    "name": "暴雨冰瓜",
+    "requires": { "plants": ["repeater", "wintermelon"], "form": "ice", "skill": "slow" },
+    "tier": "legendary",
+    "specialEffect": "双倍溅射范围，大范围减速"
+  },
+  {
+    "id": "tricold",
+    "name": "三重寒冰",
+    "requires": { "plants": ["snowpea", "threepeater"], "form": "ice", "skill": "rapidfire" },
+    "tier": "legendary",
+    "specialEffect": "三线冰冻射击，全部减速"
+  },
+  {
+    "id": "chaosstorm",
+    "name": "混沌风暴",
+    "requires": { "plants": ["cherrybomb", "jalapeno"], "form": "flame", "skill": "explode" },
+    "tier": "legendary",
+    "specialEffect": "连锁爆炸，火焰弹射全屏"
+  },
+  {
+    "id": "airattack",
+    "name": "天空猎手",
+    "requires": { "plants": ["cactus", "balloon"], "form": "air", "skill": "pierce" },
+    "tier": "rare",
+    "specialEffect": "穿刺射击，优先穿透气球僵尸"
+  },
+  {
+    "id": "thorns",
+    "name": "荆棘壁垒",
+    "requires": { "plants": ["spikeweed", "wallnut"], "form": "base", "skill": "thorns" },
+    "tier": "rare",
+    "specialEffect": "地面反伤，近战僵尸受到脉冲伤害"
+  },
+  {
+    "id": "fireice",
+    "name": "冰火两重天",
+    "requires": { "plants": ["fireflower", "snowpea"], "form": "flame", "skill": "burn" },
+    "tier": "epic",
+    "specialEffect": "火焰灼烧+冰冻减速，双重控制"
+  },
+  {
+    "id": "tripleShot",
+    "name": "三连炮",
+    "requires": { "plants": ["flakcannon", "threepeater"], "form": "laser", "skill": "rapidfire" },
+    "tier": "rare",
+    "specialEffect": "三连发范围爆炸，对空对地兼备"
+  }
+]

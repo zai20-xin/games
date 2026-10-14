@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>幻装旅者 · 原型 v0.1</title>
+<style>
+  html,body{margin:0;padding:0;background:#14121f;height:100%;overflow:hidden}
+  #wrap{display:flex;align-items:center;justify-content:center;height:100vh}
+  canvas{background:#22302a;border-radius:10px;box-shadow:0 0 60px rgba(0,0,0,.7)}
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="1280" height="720"></canvas></div>
+<script>window.__errList=[];window.onerror=function(m,s,l,c){window.__errList.push(m+' @'+l+':'+c);};</script>
+<script src="js/config.js"></script>
+<script src="js/tuning.js"></script>
+<script src="js/outfit_bias.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/player.js"></script>
+<script src="js/enemies.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/skills2.js"></script>
+<script src="js/relics.js"></script>
+<script src="js/loot.js"></script>
+<script src="js/meta.js"></script>
+<script src="js/outfit_glam.js"></script>
+<script src="js/resonance.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/biome.js"></script>
+<script src="js/mirror.js"></script>
+<script src="js/juice.js"></script>
+<script src="js/evolution.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/art_player_v2.js"></script>
+<script src="js/art_enemy_v2.js"></script>
+<script src="js/newenemies.js"></script>
+<script src="js/art_newenemies.js"></script>
+<script src="js/chapters.js"></script>
+<script src="js/skill_branches.js"></script>
+<script src="js/bgm.js"></script>
+<script src="js/events.js"></script>
+<script src="js/challenge.js"></script>
+<script src="js/challenge_ui.js"></script>
+<script src="js/challenge_hooks.js"></script>
+<script src="js/boss_special.js"></script>
+<script src="js/art_boss_special.js"></script>
+<script src="js/duel.js"></script>
+<script src="js/duel_skills.js"></script>
+<script src="js/gadgets.js"></script>
+<script src="js/gadget_ui.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/art_life_v2.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+<!-- 覆写层：包装 drawWorld/drawHUD/drawStartScreen/render，必须在 ui.js/main.js 之后加载 -->
+<script src="js/art_world_v2.js"></script>
+<script src="js/art_hud_v2.js"></script>
+<script src="js/art_vfx_v2.js"></script>
+<script src="js/art_ui_v2.js"></script>
+<script src="js/art_feel_v2.js"></script>
+</body>
+</html>

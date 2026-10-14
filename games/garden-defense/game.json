@@ -1,0 +1,24 @@
+{
+  "id": "garden-defense",
+  "name": "花园保卫战",
+  "description": "竖屏 10 行网格种花：种子种植、花粉进化到 Lv5 名品；追踪/旋风/激光/抛物多弹道，守住 3 颗心",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "塔防",
+    "园艺",
+    "phaser",
+    "竖屏",
+    "无尽"
+  ],
+  "tech": [
+    "vite",
+    "phaser3",
+    "ts"
+  ],
+  "port": 4103,
+  "run": "GAME_BASE=/g/garden-defense/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

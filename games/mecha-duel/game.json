@@ -1,0 +1,15 @@
+{
+  "id": "mecha-duel",
+  "name": "像素机甲对决",
+  "description": "复古像素机甲对战，街霸式必杀(升龙/发波)+连段",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "arcade",
+    "fighting"
+  ],
+  "port": 4115,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

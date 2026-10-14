@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="starfield">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="color-scheme" content="dark light">
+<title>生命游戏 · Conway's Game of Life</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span><b>生命游戏</b><i>Conway's Game of Life</i></div>
+    <div class="top-actions">
+      <button id="btnWhat" class="pill">这是什么？</button>
+      <button id="btnTheme" class="pill icon" aria-label="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="board"></canvas>
+    <div class="flash" id="flash" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="stat"><b id="statGen" class="num">0</b><span>代数</span></div>
+      <div class="stat"><b id="statLive" class="num">0</b><span>活细胞</span></div>
+      <div class="stat"><b id="statPeak" class="num">0</b><span>峰值</span></div>
+      <div class="stat spark-wrap"><canvas class="spark" id="spark" width="128" height="48"></canvas><span>人口</span></div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="ritual-hint" id="ritualHint" hidden>按住屏幕，为宇宙注入能量 ✦</div>
+    <div class="freeze-bar" id="freezeBar" role="status" aria-live="polite">
+      <span class="fz-badge" id="freezeBadge">稀有</span>
+      <span class="fz-text">新发现 <b id="freezeName"></b></span>
+      <button class="fz-go" id="btnFreezeGo">继续</button>
+    </div>
+    <button class="fab" id="btnPatterns">符号盒</button>
+  </main>
+
+  <footer class="dock">
+    <div class="dock-inner">
+      <button id="btnPlay" class="play" aria-label="开始 / 暂停">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path id="icoPlay" d="M8 5.2v13.6L19 12z" fill="currentColor"/>
+          <g id="icoPause" hidden><rect x="7.5" y="5.5" width="3.2" height="13" rx="1.2" fill="currentColor"/><rect x="13.3" y="5.5" width="3.2" height="13" rx="1.2" fill="currentColor"/></g>
+        </svg>
+      </button>
+      <label class="speed" id="speedWrap">速度<input id="speed" type="range" min="0" max="100" value="36"><b id="speedVal" class="num">12</b></label>
+    </div>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><b>符号盒</b><button id="btnCloseDrawer" aria-label="关闭">✕</button></div>
+    <div class="drawer-body">
+      <div class="sec-title">已点亮 <span id="dexCount"></span></div>
+      <div class="dex-detail" id="dexDetail" hidden>
+        <div class="dx-head"><b id="dxName"></b><span class="dx-badge" id="dxBadge"></span></div>
+        <div class="dx-type" id="dxType"></div>
+        <p class="dx-desc" id="dxDesc"></p>
+        <div class="dx-best num" id="dxBest"></div>
+      </div>
+      <div class="best" id="bestRec">最佳：活过 0 代 · 人口峰值 0</div>
+      <div class="dex" id="dexList"></div>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="规则说明">
+      <h2>这是什么？</h2>
+      <p class="lead">1970 年，数学家约翰·康威设计的一场「细胞自动机」。规则只有三条，却能演化出无穷花样。</p>
+      <div class="demo-wrap">
+        <canvas id="ruleDemo" width="200" height="200" aria-hidden="true"></canvas>
+        <div class="demo-txt" id="ruleDemoText"></div>
+      </div>
+      <ul class="rules">
+        <li>每个格子只有两种状态：<b>活着</b> 或 <b>空的</b>。</li>
+        <li>看它周围 8 个格子：有 <b>2 或 3</b> 个活邻居，活细胞就继续活着。</li>
+        <li>空格的活邻居正好是 <b>3</b> 个，就会诞生新生命。</li>
+        <li>其余情况（太孤单或太拥挤）一律死亡。</li>
+        <li>全部格子同时更新，然后重复——这就是「一代」。</li>
+      </ul>
+      <button class="close" id="btnCloseModal">开始玩</button>
+    </div>
+  </div>
+
+  <!-- v5.0 许愿卡：首屏仪式入口 -->
+  <div class="wish" id="wishLayer">
+    <div class="wish-card" role="dialog" aria-modal="true" aria-label="向宇宙许愿">
+      <div class="w-eyebrow">COSMIC WISH</div>
+      <h2>向宇宙许个愿</h2>
+      <p class="w-lead">写下心愿，宇宙会为你演化，<br>并从混沌里凝出一个属于你的符号 ✦</p>
+      <div class="wish-field">
+        <label for="wishInput">我的心愿</label>
+        <input id="wishInput" maxlength="30" placeholder="例：希望早日脱单 / 考试上岸 / 平安健康" autocomplete="off">
+        <div class="wish-chips" id="wishChips">
+          <button data-wish="平安顺遂">平安</button>
+          <button data-wish="好运连连">好运</button>
+          <button data-wish="爱意满满">爱意</button>
+          <button data-wish="向喜欢的人告白">告白</button>
+          <button data-wish="生日快乐">生日</button>
+          <button data-wish="早日暴富">暴富</button>
+          <button data-wish="考试上岸">上岸</button>
+        </div>
+      </div>
+      <div class="wish-field">
+        <label for="wishBday">我的生日（选填 · 同一天生日的人，宇宙长得一模一样）</label>
+        <input id="wishBday" type="date">
+      </div>
+      <div class="wish-field">
+        <label for="wishLetter">我的首字母（选填 · 盖在你的宇宙之卡上）</label>
+        <input id="wishLetter" maxlength="1" autocapitalize="characters" autocomplete="off" placeholder="例：K">
+      </div>
+      <button class="wish-go" id="btnWishGo">开启我的宇宙 ✦</button>
+      <button class="wish-skip" id="btnWishSkip">不填了，随便看看</button>
+    </div>
+  </div>
+
+  <!-- v5.0 宇宙之卡：仪式结果（可保存分享） -->
+  <div class="cosmos" id="cosmosLayer" hidden>
+    <div class="cosmos-wrap">
+      <div class="cosmos-card" id="cosmosCard">
+        <canvas class="c-texture" id="cosmosTexture" width="340" height="453"></canvas>
+        <div class="c-eyebrow">MY UNIVERSE</div>
+        <canvas class="c-symbol" id="cosmosSymbol" width="240" height="240"></canvas>
+        <div class="c-wish" id="cosmosWish"></div>
+        <div class="c-fortune" id="cosmosFortune"></div>
+        <div class="c-meta" id="cosmosMeta"></div>
+        <div class="c-stamp" id="cosmosStamp" hidden></div>
+      </div>
+      <div class="cosmos-actions">
+        <button class="c-save" id="btnCosmosSave">保存图片</button>
+        <button class="c-again" id="btnCosmosAgain">再许一愿</button>
+        <button class="c-close" id="btnCosmosClose">继续看宇宙</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- v5.2 横屏遮罩：只做竖屏体验，横屏时提示转正 -->
+  <div class="rotate-hint" aria-hidden="true">
+    <div class="phone"></div>
+    <b>请竖屏体验</b>
+    <p>这个宇宙只在手机竖屏里生长 ✦</p>
+  </div>
+
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

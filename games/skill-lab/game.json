@@ -1,0 +1,17 @@
+{
+  "id": "skill-lab",
+  "name": "技能实验室",
+  "description": "角色·技能·特效试验场：物理行为基因融合实验室",
+  "status": "prototype",
+  "type": "web",
+  "tags": [
+    "arcade",
+    "fusion",
+    "particles"
+  ],
+  "port": 4113,
+  "run": "GAME_BASE=/g/skill-lab/ npm run dev -- --port {port}",
+  "entry": "/",
+  "prefix": true,
+  "cover": ""
+}

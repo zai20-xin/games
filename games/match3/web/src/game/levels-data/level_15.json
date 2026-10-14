@@ -1,0 +1,67 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 1,
+      "count": 18,
+      "type": "collect"
+    },
+    {
+      "target": 2700,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 15,
+  "moves": 46,
+  "name": "糖霜回廊 3",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        2
+      ]
+    }
+  ],
+  "stars": [
+    2700,
+    3915,
+    5265
+  ],
+  "width": 7
+}

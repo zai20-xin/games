@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>星际防线 - 太空塔防</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛸</text></svg>" />
+  <link rel="stylesheet" href="./styles/theme.css" />
+</head>
+<body>
+
+<!-- 概率公示入口按钮（仅主菜单/结算页可见，由 ProbabilityOverlay 控制显隐） -->
+<button id="probabilityMenuBtn" class="probability-menu-btn hidden" type="button" title="查看概率公示" aria-label="概率公示">🎲 概率公示</button>
+
+<div id="gameContainer">
+  <!-- 主菜单背景画布（多层视差星空） -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- 顶部状态栏 -->
+  <div id="topBar">
+    <div class="stat-item">
+      <span class="stat-label">生命值</span>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="stat-value hp" id="hpDisplay">20</span>
+        <div class="stat-bar-container">
+          <div class="stat-bar hp" id="hpBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">星尘</span>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="stat-value energy" id="energyDisplay">50</span>
+        <div class="stat-bar-container">
+          <div class="stat-bar energy" id="energyBar"></div>
+        </div>
+      </div>
+      <span id="interestDisplay" style="font-size:11px;color:#88aa44;margin-left:2px;"></span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">击杀</span>
+      <span class="stat-value kills" id="killDisplay" style="color:#ff8844;">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">波次</span>
+      <span class="stat-value wave" id="waveDisplay">0 / 5</span>
+    </div>
+    <div class="stat-item achievement-stat" id="stardustStatItem" title="持久化星尘结晶（用于星际图谱）">
+      <span class="stat-label">✦ 星尘结晶</span>
+      <span class="stat-value stardust" id="stardustDisplay" style="color:#ffcc55;">0</span>
+    </div>
+    <div id="speedControls">
+      <button id="speedPause" title="暂停">&#9208;</button>
+      <button id="speed1" class="active" title="1倍速">&#9654;1x</button>
+      <button id="speed2" title="2倍速">&#9197;2x</button>
+      <button id="speed3" title="3倍速">&#9197;&#9197;3x</button>
+      <button id="muteBtn" title="静音">&#128266;</button>
+      <button id="retreatBtn" title="放弃关卡" style="margin-left:6px;font-size:12px;padding:2px 8px;">&#9664; 撤退</button>
+    </div>
+  </div>
+
+  <!-- 游戏画布 -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- 开始波次按钮（已隐藏，改为自动波次系统） -->
+  <button id="waveBtn" style="display:none;">开始波次</button>
+
+  <!-- 波次预览 -->
+  <div id="wavePreview" class="hidden"></div>
+
+  <!-- 底部卡牌栏 -->
+  <div id="bottomBar"></div>
+
+  <!-- 暂停覆盖 -->
+  <div id="pauseOverlay"><div class="pause-text">已暂停</div></div>
+
+  <!-- 连击显示 -->
+  <div id="comboDisplay"></div>
+
+  <!-- 波次公告 -->
+  <div id="waveAnnouncement" class="wave-announcement"></div>
+
+  <!-- 塔信息面板 -->
+  <div id="towerPanel">
+    <div class="panel-title" id="panelTitle"></div>
+    <div class="panel-level" id="panelLevel"></div>
+    <div class="panel-stats" id="panelStats"></div>
+    <div class="panel-buttons">
+      <button class="panel-btn btn-upgrade" id="panelUpgrade">升级</button>
+      <button class="panel-btn btn-sell" id="panelSell">出售</button>
+      <button class="panel-btn btn-close-panel">关闭</button>
+    </div>
+  </div>
+
+  <!-- 选卡界面（每波结束3选1） -->
+  <div id="cardSelect" class="hidden"></div>
+
+  <!-- 宝箱奖励界面 -->
+  <div id="chestReward" class="hidden"></div>
+
+  <!-- 覆盖层 -->
+  <div id="overlay">
+    <div class="overlay-title" id="overlayTitle" style="color:#ff8866;">星际防线</div>
+    <div class="overlay-subtitle" id="overlaySubtitle">保卫你的太空基地，抵御外星入侵！</div>
+    <div id="overlayButtons"></div>
+  </div>
+
+  <!-- 关卡选择界面 -->
+  <div id="levelSelect" class="hidden"></div>
+
+  <!-- 提示框 -->
+  <div id="tooltip"></div>
+</div>
+
+<!-- 概率公示浮层：side-effect 模块，文件末尾会自动 new 全局单例（避免 Vite tree-shake） -->
+<script type="module" src="/src/ui/ProbabilityOverlay.js"></script>
+<script type="module" src="/main.js"></script>
+</body>
+</html>

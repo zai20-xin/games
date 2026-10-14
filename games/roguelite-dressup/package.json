@@ -1,0 +1,14 @@
+{
+  "name": "roguelite-dressup",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Roguelite×换装玩法网页游戏（纯静态 canvas + 全局脚本按序加载）",
+  "scripts": {
+    "dev": "python3 -m http.server 4108",
+    "build": "node scripts/build-static.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "lint": "node scripts/lint-static.mjs"
+  },
+  "devDependencies": {}
+}

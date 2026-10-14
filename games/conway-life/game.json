@@ -1,0 +1,17 @@
+{
+  "id": "conway-life",
+  "name": "生命游戏",
+  "description": "宇宙许愿池：写下心愿，看混沌为你凝出专属符号，生成宇宙之卡分享；同生日凝出同一个宇宙",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "许愿",
+    "治愈",
+    "模拟",
+    "收集",
+    "分享"
+  ],
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "port": 4118
+}

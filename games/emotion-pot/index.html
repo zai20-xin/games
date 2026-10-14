@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a120b" />
+  <meta name="description" content="情绪下锅：丢进锅里让它出糗，笑一下，气就少一点。" />
+  <title>情绪下锅</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div id="app" data-route="home">
+    <!-- ===== 首页 ===== -->
+    <section id="page-home" class="page page-home" data-page="home" aria-label="首页">
+      <div class="home-stars" aria-hidden="true"></div>
+      <button id="btn-sound-home" class="sound-toggle" type="button" aria-pressed="false" aria-label="音效开关"></button>
+      <div class="home-inner">
+        <header class="brand">
+          <div class="brand-pot" id="brand-pot" aria-hidden="true"></div>
+          <h1 class="brand-title">情绪下锅</h1>
+          <p class="brand-slogan">丢进去，看它出糗。笑一下，气就少一点。</p>
+        </header>
+
+        <div class="home-card">
+          <p class="home-question">今天什么惹你了？</p>
+          <label class="sr-only" for="emotion-input">情绪对象</label>
+          <input
+            id="emotion-input"
+            class="emotion-input"
+            type="text"
+            maxlength="40"
+            autocomplete="off"
+            enterkeyhint="go"
+            placeholder="那个临时改需求的人"
+            aria-describedby="input-hint"
+          />
+          <div class="chip-row" id="chip-row" aria-label="快捷下锅">
+            <!-- filled by JS -->
+          </div>
+          <button id="btn-dump" class="btn btn-dump" type="button" disabled>
+            <span class="btn-ico" id="ico-dump" aria-hidden="true"></span>
+            扔进锅
+          </button>
+          <p class="home-hint">不用打字也行，点上面一个词就能开锅。</p>
+        </div>
+
+        <nav class="home-nav" aria-label="次级入口">
+          <a class="nav-pill" href="#/pot">
+            <span class="nav-ico" id="nav-pot-ico" aria-hidden="true"></span>
+            <span>我的锅</span>
+            <span id="count-pot" class="nav-count mono">0</span>
+          </a>
+          <a class="nav-pill" href="#/archive">
+            <span class="nav-ico" id="nav-arch-ico" aria-hidden="true"></span>
+            <span>已出锅</span>
+            <span id="count-archive" class="nav-count mono">0</span>
+          </a>
+        </nav>
+
+        <p class="home-foot">本地保存 · 不上传 · 不评判 · 只负责瞎胡闹</p>
+      </div>
+
+      <div id="drop-overlay" class="drop-overlay hidden" aria-hidden="true">
+        <div id="drop-token" class="drop-token"></div>
+        <div class="drop-pot">🫕</div>
+        <div class="drop-steam"></div>
+      </div>
+    </section>
+
+    <!-- ===== 料理页 ===== -->
+    <section id="page-cook" class="page page-cook hidden" data-page="cook" aria-label="料理">
+      <header class="cook-top">
+        <a class="icon-btn" href="#/pot" id="cook-back" aria-label="返回我的锅"></a>
+        <div class="cook-title-wrap">
+          <div id="cook-name" class="cook-name">—</div>
+          <div id="cook-hint" class="cook-hint"></div>
+        </div>
+        <div class="heat-badge" aria-live="polite" title="锅里热闹程度">
+          <span class="heat-ico" id="heat-ico" aria-hidden="true"></span>
+          <span class="mono" id="heat-display">0</span>
+        </div>
+        <button id="btn-sound-cook" class="icon-btn sound-toggle-cook" type="button" aria-pressed="false" aria-label="音效开关"></button>
+      </header>
+
+      <div class="heat-bar-wrap" aria-hidden="true">
+        <div id="heat-bar" class="heat-bar" style="width:0%"></div>
+      </div>
+      <div class="heat-row">
+        <div id="heat-status" class="heat-status" aria-live="polite">锅气：淡定</div>
+        <div id="form-nick" class="form-nick">淡定脸</div>
+      </div>
+
+      <div class="cook-stage">
+        <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+        <div id="speech" class="speech hidden" role="status">
+          <div class="speech-bubble" id="speech-text"></div>
+        </div>
+
+        <div id="pot-scene" class="pot-scene heat-0" role="img" aria-label="锅">
+          <div class="flame-wrap" id="flame-wrap" aria-hidden="true"></div>
+          <div class="steam-wrap" id="steam-wrap" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="pot-stage-art" id="pot-art" aria-hidden="true"></div>
+          <div class="bubbles-layer" id="bubbles-layer" aria-hidden="true"></div>
+          <div class="steams-layer" id="steams-layer" aria-hidden="true"></div>
+          <div id="object-form" class="object-form" aria-hidden="true"></div>
+          <div class="pot-lid" id="pot-lid" aria-hidden="true"></div>
+        </div>
+
+        <div id="braise-banner" class="braise-banner hidden" aria-hidden="true">
+          <div class="braise-emoji">🫕</div>
+          <div class="braise-text">焖着呢……让它自己尴尬一会儿</div>
+          <div id="braise-time" class="braise-time mono">01:00</div>
+          <button id="btn-open-lid" class="btn btn-ghost btn-sm" type="button">掀盖</button>
+        </div>
+
+        <div id="event-toast" class="event-toast hidden" role="status">
+          <div class="event-title" id="event-title"></div>
+          <div class="event-body" id="event-body"></div>
+        </div>
+      </div>
+
+      <div class="cook-panel">
+        <!-- 连招条 -->
+        <div id="combo-bar" class="combo-bar hidden" aria-live="polite">
+          <span class="combo-fire" id="combo-fire"></span>
+          <span id="combo-count" class="combo-count mono">0</span>
+          <span id="combo-title" class="combo-title">连招</span>
+        </div>
+
+        <!-- 零思考主操作 -->
+        <div class="action-row action-row-main">
+          <button id="btn-poke" class="act-btn act-poke" type="button" aria-label="戳一戳">
+            <span class="act-ico" id="ico-poke"></span>
+            <span class="act-label">戳一戳</span>
+          </button>
+          <button id="btn-chaos" class="act-btn act-chaos" type="button" aria-label="乱炖">
+            <span class="act-ico" id="ico-chaos"></span>
+            <span class="act-label">乱炖</span>
+            <span id="chaos-hint" class="act-sub">按住不放</span>
+          </button>
+          <button id="btn-steam" class="act-btn" type="button" aria-label="焖一会儿">
+            <span class="act-ico" id="ico-steam"></span>
+            <span class="act-label">焖一会儿</span>
+          </button>
+        </div>
+
+        <!-- 横向道具坞 -->
+        <div class="weapon-dock" aria-label="恶搞道具">
+          <div class="weapon-dock-label">道具</div>
+          <div class="ing-row" id="ing-row"></div>
+        </div>
+
+        <button id="btn-finish" class="btn btn-finish" type="button">够了，出锅</button>
+      </div>
+    </section>
+
+    <!-- ===== 我的锅 ===== -->
+    <section id="page-pot" class="page page-list hidden" data-page="pot" aria-label="我的锅">
+      <header class="list-top">
+        <a class="icon-btn" href="#/" aria-label="回首页">←</a>
+        <div>
+          <h1 class="list-title">我的锅</h1>
+          <p class="list-sub">锅里那些还在表演的家伙……</p>
+        </div>
+      </header>
+      <div id="pot-list" class="card-list"></div>
+      <div id="pot-empty" class="empty-state hidden">
+        <div class="empty-art" id="empty-pot-art"></div>
+        <p class="empty-title">锅里空空的。</p>
+        <p class="empty-sub">今天暂时没有需要出糗的东西。</p>
+        <a class="btn btn-dump" href="#/">找点东西下锅</a>
+      </div>
+    </section>
+
+    <!-- ===== 已出锅 ===== -->
+    <section id="page-archive" class="page page-list page-archive hidden" data-page="archive" aria-label="已出锅">
+      <header class="list-top">
+        <a class="icon-btn" href="#/" aria-label="回首页">←</a>
+        <div>
+          <h1 class="list-title">✨ 已经出锅</h1>
+          <p id="archive-sub" class="list-sub">曾经占过你的锅，现在只剩菜名。</p>
+        </div>
+      </header>
+      <div class="archive-stats">
+        <div class="stat-box">
+          <div class="stat-num mono" id="stat-month">0</div>
+          <div class="stat-label">本月出锅</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num mono" id="stat-total">0</div>
+          <div class="stat-label">累计出锅</div>
+        </div>
+      </div>
+      <div id="archive-list" class="card-list"></div>
+      <div id="archive-empty" class="empty-state hidden">
+        <div class="empty-art" id="empty-arch-art"></div>
+        <p class="empty-title">还没有出锅记录。</p>
+        <p class="empty-sub">等第一锅炖完，就会变成奇怪的菜名。</p>
+        <a class="btn btn-dump" href="#/">先去下锅</a>
+      </div>
+    </section>
+
+    <nav id="bottom-nav" class="bottom-nav hidden" aria-label="主导航">
+      <a href="#/pot" data-nav="pot">
+        <span aria-hidden="true">🫕</span>
+        <span>我的锅</span>
+      </a>
+      <a href="#/archive" data-nav="archive">
+        <span aria-hidden="true">✨</span>
+        <span>已出锅</span>
+      </a>
+    </nav>
+
+    <div id="modal-root" class="modal-root hidden" role="presentation">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <div id="modal-body" class="modal-body"></div>
+        <div id="modal-actions" class="modal-actions"></div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

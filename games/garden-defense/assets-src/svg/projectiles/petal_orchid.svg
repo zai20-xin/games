@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 兰花唇瓣：狭长弯钩，黛紫 -->
+  <defs>
+    <linearGradient id="g" x1="0.25" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#e6c8f0"/>
+      <stop offset="0.5" stop-color="#b060cd"/>
+      <stop offset="1" stop-color="#7b1fa2"/>
+    </linearGradient>
+  </defs>
+  <path d="M17 6 C21 9 21.5 15 20.5 20.5 C19.5 26 23.5 30.5 27 28 C29 26.5 27 22 25 19 C27.5 20 29.5 19 29.5 16.8 C29.5 14.6 26.5 14.4 24.5 15.6 C24 10.5 22 7.5 17 6Z" fill="url(#g)" stroke="#6a1b8c" stroke-width="0.9"/>
+  <path d="M20 20 C21 15 21 11 20 8" stroke="#6a1b8c" stroke-width="0.9" fill="none" opacity="0.55"/>
+  <path d="M20.5 16.5 C21 13 21 10.5 20.5 9" stroke="#f0d8f8" stroke-width="0.9" fill="none" opacity="0.55"/>
+  <circle cx="18.5" cy="7" r="1.9" fill="#fff59d" stroke="#d4a017" stroke-width="0.7"/>
+  <ellipse cx="23" cy="23" rx="1.3" ry="2.6" fill="#6a1b8c" opacity="0.3" transform="rotate(30 23 23)"/>
+</svg>

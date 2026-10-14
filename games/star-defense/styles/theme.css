@@ -1,0 +1,473 @@
+/* ============================================================
+   星际防线 - UI 主题样式 (Glassmorphism v2)
+   - 集中所有 UI 主题色（CSS 变量）与主 style.css 对齐
+   - 提供 .glass-panel 玻璃拟态面板基类
+   - 概率公示浮层样式
+   ============================================================ */
+
+/* ========== 主题色变量（与 style.css design token 对齐） ========== */
+:root {
+  /* 深空背景 */
+  --bg-deep:      #060b1e;
+  --bg-mid:       #0d1535;
+  --bg-panel:     rgba(18, 28, 60, 0.55);
+  --bg-glass:     rgba(20, 30, 65, 0.42);
+  --bg-glass-strong: rgba(15, 24, 55, 0.75);
+
+  /* 主题色：深蓝、紫、金、橙 */
+  --accent-blue:   #4fc3f7;
+  --accent-purple: #b388ff;
+  --accent-gold:   #ffd54f;
+  --accent-orange: #ff8a50;
+  --accent-red:    #ff5e7e;
+  --accent-cyan:   #84ffff;
+  --accent-green:  #69f0ae;
+
+  /* 功能色 */
+  --hp-color:     #ff5e7e;
+  --energy-color: #7c4dff;
+  --gold-color:   #ffd54f;
+  --orange-color: #ff8a50;
+
+  /* 文字 */
+  --text-primary:   #eef1ff;
+  --text-secondary: #a5b0d5;
+  --text-dim:       #6d7ba8;
+
+  /* 玻璃面板 */
+  --glass-blur:      blur(20px);
+  --glass-blur-sm:   blur(12px);
+  --glass-border:    rgba(255, 255, 255, 0.12);
+  --glass-border-hi: rgba(255, 255, 255, 0.25);
+  --glass-shadow:    0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --glass-shadow-hi: 0 12px 48px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  /* 旧变量兼容 */
+  --bg-deep-legacy:  #0a0612;
+  --bg-mid-legacy:   #1a0f1e;
+  --bg-light-legacy: #2a1830;
+  --accent-primary:  #ff5e7e;
+  --accent-energy:   #4fc3f7;
+  --accent-magic:    #b388ff;
+  --border-glow:     rgba(179, 136, 255, 0.4);
+
+  /* 动画曲线 */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== 玻璃拟态基类 ========== */
+.glass-panel {
+  background: linear-gradient(135deg,
+    rgba(30, 42, 85, 0.55) 0%,
+    rgba(15, 22, 52, 0.65) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 玻璃面板高光顶边 */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%);
+}
+
+/* 强玻璃面板 */
+.glass-panel--strong {
+  background: linear-gradient(135deg,
+    rgba(25, 38, 80, 0.72) 0%,
+    rgba(12, 18, 45, 0.80) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ========== 工具类 ========== */
+.hidden { display: none !important; }
+
+/* 文字发光 */
+.text-glow {
+  text-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+}
+
+/* 呼吸动画 */
+.animate-pulse-glow {
+  animation: themePulseGlow 2s ease-in-out infinite;
+}
+@keyframes themePulseGlow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 6px currentColor); }
+  50%      { filter: brightness(1.3) drop-shadow(0 0 18px currentColor); }
+}
+
+/* 浮动动画 */
+.animate-float {
+  animation: themeFloat 3s ease-in-out infinite;
+}
+@keyframes themeFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ========== 概率公示入口按钮（主菜单右下角） ========== */
+.probability-menu-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-family: 'Nunito', 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  background: linear-gradient(135deg,
+    rgba(124, 77, 255, 0.15),
+    rgba(79, 195, 247, 0.15));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(179, 136, 255, 0.5);
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s var(--ease-out),
+              box-shadow 0.3s,
+              border-color 0.3s,
+              background 0.3s;
+  box-shadow:
+    0 4px 20px rgba(124, 77, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 8px rgba(179, 136, 255, 0.5);
+  animation: probabilityBtnPulse 2.4s ease-in-out infinite;
+}
+
+.probability-menu-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(255, 213, 79, 0.7);
+  background: linear-gradient(135deg,
+    rgba(255, 213, 79, 0.2),
+    rgba(179, 136, 255, 0.2));
+  box-shadow:
+    0 8px 28px rgba(255, 213, 79, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.probability-menu-btn:active {
+  transform: scale(0.96);
+  transition: transform 0.1s;
+}
+
+@keyframes probabilityBtnPulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 20px rgba(124, 77, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 6px 30px rgba(179, 136, 255, 0.4),
+      0 0 20px rgba(179, 136, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* ========== 概率公示浮层 ========== */
+.probability-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background: linear-gradient(180deg,
+    rgba(6, 11, 30, 0.85) 0%,
+    rgba(12, 18, 45, 0.78) 50%,
+    rgba(8, 12, 30, 0.88) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow-y: auto;
+  animation: probabilityFadeIn 0.35s var(--ease-out);
+}
+
+.probability-overlay.hidden { display: none !important; }
+
+@keyframes probabilityFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); }
+  to   { opacity: 1; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+}
+
+.probability-modal {
+  width: min(720px, 92vw);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px 20px;
+  color: var(--text-primary);
+  font-family: 'Nunito', 'Microsoft YaHei', sans-serif;
+  animation: probabilityScaleIn 0.45s var(--ease-out);
+  background: linear-gradient(135deg,
+    rgba(30, 42, 85, 0.7) 0%,
+    rgba(15, 22, 52, 0.8) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+@keyframes probabilityScaleIn {
+  from { opacity: 0; transform: scale(0.9) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.probability-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(179, 136, 255, 0.25);
+  margin-bottom: 16px;
+}
+
+.probability-modal-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  font-family: 'Orbitron', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #ffd54f 0%, #b388ff 50%, #4fc3f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(179, 136, 255, 0.3));
+}
+
+.probability-close-btn {
+  background: rgba(255, 94, 126, 0.1);
+  border: 1px solid rgba(255, 94, 126, 0.4);
+  color: #ff9aaa;
+  font-size: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-out);
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.probability-close-btn:hover {
+  background: rgba(255, 94, 126, 0.25);
+  color: #fff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 16px rgba(255, 94, 126, 0.5);
+}
+
+.probability-disclaimer {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 10px 14px;
+  background: rgba(255, 213, 79, 0.06);
+  border-left: 3px solid rgba(255, 213, 79, 0.5);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  letter-spacing: 0.3px;
+}
+
+.probability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 4px 6px 8px 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.probability-list::-webkit-scrollbar { width: 6px; }
+.probability-list::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); border-radius: 3px; }
+.probability-list::-webkit-scrollbar-thumb {
+  background: rgba(179, 136, 255, 0.4);
+  border-radius: 3px;
+}
+.probability-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(179, 136, 255, 0.6);
+}
+
+.probability-card {
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg,
+    rgba(25, 35, 70, 0.5) 0%,
+    rgba(12, 18, 42, 0.55) 100%);
+  border-radius: 12px;
+  transition: all 0.25s var(--ease-out);
+}
+
+.probability-card:hover {
+  border-color: rgba(179, 136, 255, 0.35);
+  transform: translateX(3px);
+  background: linear-gradient(135deg,
+    rgba(30, 42, 85, 0.55) 0%,
+    rgba(15, 22, 52, 0.6) 100%);
+}
+
+.probability-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.probability-card-icon {
+  font-size: 22px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.probability-card-title {
+  font-size: 16px;
+  font-weight: 900;
+  font-family: 'Orbitron', 'Microsoft YaHei', sans-serif;
+  color: var(--text-primary);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.probability-card-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+
+.probability-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.probability-row {
+  display: grid;
+  grid-template-columns: 110px 60px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-size: 12.5px;
+  border-left: 3px solid transparent;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.probability-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.probability-tier-label {
+  font-weight: 900;
+  font-family: 'Orbitron', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px currentColor;
+}
+
+.probability-tier-weight {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--text-primary);
+  text-align: right;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+.probability-tier-example {
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+
+.probability-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* 概率行按 tier 颜色匹配左边框 */
+.probability-row:has(.probability-tier-label[style*="ff5e7e"]),
+.probability-row:has(.probability-tier-label[style*="ff5577"]) {
+  border-left-color: #ff5e7e;
+}
+.probability-row:has(.probability-tier-label[style*="b388ff"]),
+.probability-row:has(.probability-tier-label[style*="cc44ff"]) {
+  border-left-color: #b388ff;
+}
+.probability-row:has(.probability-tier-label[style*="4fc3f7"]),
+.probability-row:has(.probability-tier-label[style*="44ddff"]) {
+  border-left-color: #4fc3f7;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 600px) {
+  .probability-menu-btn {
+    right: 14px;
+    bottom: 14px;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  .probability-modal {
+    padding: 18px 16px 14px;
+    border-radius: 16px;
+  }
+  .probability-modal-title {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .probability-row {
+    grid-template-columns: 80px 50px 1fr;
+    gap: 6px;
+    padding: 5px 8px;
+    font-size: 11.5px;
+  }
+  .probability-tier-weight { font-size: 13px; }
+  .probability-tier-example { font-size: 10.5px; }
+}

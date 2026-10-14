@@ -1,0 +1,101 @@
+[
+  {
+    "id": "frost-rose",
+    "name": "凌霜月季",
+    "requires": {
+      "flowers": ["rose", "daffodil"],
+      "form": "ice",
+      "skill": "slow"
+    },
+    "tier": "legendary",
+    "specialEffect": "冰冻强化单发：减速50%持续5s"
+  },
+  {
+    "id": "bloom-rose",
+    "name": "繁花月季",
+    "requires": {
+      "flowers": ["rose", "crabapple"],
+      "form": "double",
+      "skill": "rapidfire"
+    },
+    "tier": "legendary",
+    "specialEffect": "双发玫瑰：同时发射2颗花粉弹"
+  },
+  {
+    "id": "twin-daffodil",
+    "name": "双生水仙",
+    "requires": {
+      "flowers": ["daffodil", "crabapple"],
+      "form": "double",
+      "skill": "slow"
+    },
+    "tier": "legendary",
+    "specialEffect": "双发冰弹：双发+减速叠加"
+  },
+  {
+    "id": "chrys-lotus",
+    "name": "金莲绽放",
+    "requires": {
+      "flowers": ["chrysanthemum", "lotus"],
+      "form": "explode",
+      "skill": "explode"
+    },
+    "tier": "legendary",
+    "specialEffect": "地面+抛物线双AOE切换"
+  },
+  {
+    "id": "heart-rose",
+    "name": "蕊心月季",
+    "requires": {
+      "flowers": ["rose", "orchid"],
+      "form": "buffer",
+      "skill": "crit"
+    },
+    "tier": "legendary",
+    "specialEffect": "攻击+15%、暴击+10%"
+  },
+  {
+    "id": "clear-daffodil",
+    "name": "清香水仙",
+    "requires": {
+      "flowers": ["daffodil", "orchid"],
+      "form": "ice",
+      "skill": "slow"
+    },
+    "tier": "legendary",
+    "specialEffect": "减速强化+周围花卉攻速+10%"
+  },
+  {
+    "id": "gold-chrys",
+    "name": "鎏金菊",
+    "requires": {
+      "flowers": ["chrysanthemum", "orchid"],
+      "form": "explode",
+      "skill": "explode"
+    },
+    "tier": "legendary",
+    "specialEffect": "AOE范围+20%"
+  },
+  {
+    "id": "jade-lotus",
+    "name": "玉露荷",
+    "requires": {
+      "flowers": ["lotus", "orchid"],
+      "form": "aoe",
+      "skill": "explode"
+    },
+    "tier": "legendary",
+    "specialEffect": "抛物线AOE范围+15%"
+  },
+  {
+    "id": "drunk-crab",
+    "name": "醉霞棠",
+    "requires": {
+      "flowers": ["crabapple", "orchid"],
+      "form": "double",
+      "skill": "rapidfire"
+    },
+    "tier": "legendary",
+    "specialEffect": "双发+攻速+10%"
+  }
+]

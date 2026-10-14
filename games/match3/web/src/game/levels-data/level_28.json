@@ -1,0 +1,81 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 4,
+      "count": 23,
+      "type": "collect"
+    },
+    {
+      "target": 4005,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 28,
+  "moves": 39,
+  "name": "星屑之路 1",
+  "obstacles": [
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        4
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        6,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        0,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        1,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        4,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        5,
+        2
+      ]
+    }
+  ],
+  "stars": [
+    4005,
+    5807,
+    7809
+  ],
+  "width": 8
+}

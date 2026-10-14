@@ -1,0 +1,29 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 花粉爆破（epic）：花粉云爆裂 -->
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#3a2a16"/>
+      <stop offset="1" stop-color="#1c1208"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#d0a4ff"/>
+      <stop offset="1" stop-color="#7a2fd0"/>
+    </linearGradient>
+    <radialGradient id="boom" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#fff6c8"/>
+      <stop offset="0.45" stop-color="#ffd257"/>
+      <stop offset="0.8" stop-color="#ff8c1a"/>
+      <stop offset="1" stop-color="#d8302a" stop-opacity="0.2"/>
+    </radialGradient>
+  </defs>
+  <circle cx="16" cy="16" r="15" fill="url(#rim)"/>
+  <circle cx="16" cy="16" r="12.5" fill="url(#bg)" stroke="#d8ab72" stroke-width="0.8"/>
+  <path d="M16 3.5 L18.5 11.5 L27 10 L21 15.5 L27.5 22 L19 19.5 L16 28 L13 19.5 L4.5 22 L11 15.5 L5 10 L13.5 11.5 Z" fill="url(#boom)" stroke="#d4900a" stroke-width="0.8"/>
+  <circle cx="16" cy="16" r="3.4" fill="#fffbe0"/>
+  <g fill="#ffd257">
+    <circle cx="8" cy="8" r="1.2" opacity="0.8"/>
+    <circle cx="24.5" cy="8.5" r="1" opacity="0.7"/>
+    <circle cx="26" cy="24" r="1.2" opacity="0.8"/>
+    <circle cx="6.5" cy="23.5" r="1" opacity="0.65"/>
+  </g>
+</svg>

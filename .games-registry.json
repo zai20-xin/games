@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-11",
+  "games": {
+    "garden-defense": {
+      "port": 4103,
+      "registeredAt": "2026-08-28"
+    },
+    "skill-lab": {
+      "port": 4113,
+      "registeredAt": "2026-08-28"
+    },
+    "pvz-hybrid": {
+      "port": 4114,
+      "registeredAt": "2026-08-28"
+    },
+    "roguelite-dressup": {
+      "port": 4108,
+      "registeredAt": "2026-08-29"
+    },
+    "coastal-skate": {
+      "port": 4109,
+      "registeredAt": "2026-08-29"
+    },
+    "football-shootout": {
+      "port": 4112,
+      "registeredAt": "2026-08-29"
+    },
+    "xiangqi": {
+      "port": 4107,
+      "registeredAt": "2026-08-29"
+    },
+    "contra-remake": {
+      "port": 4104,
+      "registeredAt": "2026-08-29"
+    },
+    "hello-game": {
+      "port": 4100,
+      "registeredAt": "2026-08-29"
+    },
+    "infinite-evolution": {
+      "port": 4102,
+      "registeredAt": "2026-08-29"
+    },
+    "match3": {
+      "port": 4106,
+      "registeredAt": "2026-08-29"
+    },
+    "queens-daily": {
+      "port": 4110,
+      "registeredAt": "2026-08-29"
+    },
+    "ski-adventure": {
+      "port": 4111,
+      "registeredAt": "2026-08-29"
+    },
+    "snake": {
+      "port": 4101,
+      "registeredAt": "2026-08-29"
+    },
+    "star-defense": {
+      "port": 4105,
+      "registeredAt": "2026-08-29"
+    },
+    "mecha-duel": {
+      "port": 4115,
+      "registeredAt": "2026-08-31"
+    },
+    "lying-flat": {
+      "port": 4116,
+      "registeredAt": "2026-09-15"
+    },
+    "emotion-pot": {
+      "port": 4117,
+      "registeredAt": "2026-09-24"
+    },
+    "conway-life": {
+      "port": 4118,
+      "registeredAt": "2026-10-11"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+# —— 依赖与构建产物 ——
+node_modules/
+dist/
+dist-minitool/
+.venv/
+__pycache__/
+*.pyc
+*.zip
+*.timestamp-*.mjs
+
+# —— 本地工具/运行时状态 ——
+.DS_Store
+dashboard/.run/
+*.log
+.shots/
+.workbuddy/
+.playwright-cli/
+
+# —— 旧 git 历史备份（本地留存，不入库）——
+.git.bak-*/
+
+# —— 过程性记录与个人思考（隐私，不公开）——
+**/.codebuddy/
+**/.opencode/
+**/.claude/
+**/.trae/
+**/.cursor/
+games/*/archive/
+games/*/openspec/
+games/*/docs/devlog.md
+games/*/docs/quality-standard.md
+games/*/docs/STATUS.md
+games/*/docs/DEV_PLAN.md
+games/*/docs/DESIGN_NOTES.md
+games/*/docs/superpowers/
+games/*/docs/shots/
+games/*/docs/note-assets/
+games/*/docs/shot-*.png
+games/*/docs/upgrade-*.md
+games/*/docs/zombie-enhancement-*.md
+games/*/docs/xiaohongshu-*.md
+games/*/docs/*-analysis.md
+knowledge/
+
+# —— 第三方版权素材（PopCap/EA 原版资产，禁止对外发布）——
+shared/
+
+# —— 测试过程截图 ——
+games/*/tests/shot_*.png
+games/pvz-hybrid/docs/pvz_hybrid_设计文档.md
+
+# —— AI 工具私有配置与自媒体平台工具链（不公开）——
+**/.skill/
+games/*/scripts/xhs-*.mjs
+games/*/scripts/minitool-*.mjs
+dist-xhs/

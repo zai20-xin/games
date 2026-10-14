@@ -1,0 +1,130 @@
+<svg width="160" height="180" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2d5a27"/>
+      <stop offset="0.5" stop-color="#4c9a2a"/>
+      <stop offset="1" stop-color="#2d6a31"/>
+    </linearGradient>
+    <!-- 绿牡丹：翠绿球菊 -->
+    <radialGradient id="gBack" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#4c9a6b"/>
+      <stop offset="0.55" stop-color="#6fcf97"/>
+      <stop offset="1" stop-color="#a7e8c2"/>
+    </radialGradient>
+    <radialGradient id="gOuter" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#57b57f"/>
+      <stop offset="0.55" stop-color="#8fd694"/>
+      <stop offset="1" stop-color="#c4f0cb"/>
+    </radialGradient>
+    <radialGradient id="gMid" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#66c28f"/>
+      <stop offset="0.6" stop-color="#a7e8c2"/>
+      <stop offset="1" stop-color="#d3f9d8"/>
+    </radialGradient>
+    <radialGradient id="gInner" cx="0.5" cy="0.95" r="1.1">
+      <stop offset="0" stop-color="#74d19d"/>
+      <stop offset="0.6" stop-color="#b2f2bb"/>
+      <stop offset="1" stop-color="#e6fcf0"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c1a0d" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#2c1a0d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auraG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffd700" stop-opacity="0.28"/>
+      <stop offset="0.6" stop-color="#ffd700" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sheenG" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 地面投影 -->
+  <ellipse cx="80" cy="168" rx="28" ry="7" fill="url(#shadowG)"/>
+
+  <!-- 花茎 -->
+  <path d="M78.5 106 C77 128 79 148 78 168 L82 168 C81 148 83 128 81.5 106 Z" fill="url(#stemG)"/>
+
+  <!-- 菊叶 -->
+  <path d="M79 130 C68 124 58 124 52 129 C56 131 54 135 50 136 C55 138 54 142 49 143 C55 145 55 149 51 151 C58 153 68 150 79 144 Z" fill="#4c9a2a" opacity="0.92"/>
+  <path d="M80 146 C91 140 101 141 107 146 C103 148 105 152 109 153 C103 155 104 159 100 161 C93 162 84 158 80 153 Z" fill="#4c9a2a" opacity="0.88"/>
+
+  <!-- 名贵金晕 -->
+  <circle cx="80" cy="70" r="56" fill="url(#auraG)"/>
+
+  <!-- 花头：绿牡丹球 -->
+  <g transform="translate(80 70)">
+    <!-- 后环 18 瓣（深绿） -->
+    <g fill="url(#gBack)" stroke="#4c9a6b" stroke-opacity="0.35" stroke-width="0.6">
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(10)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(30)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(50)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(70)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(90)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(110)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(130)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(150)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(170)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(190)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(210)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(230)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(250)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(270)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(290)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(310)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(330)"/>
+      <path d="M0 0 C-4.5 -14 -5 -36 -2 -50 C-0.7 -54 0.7 -54 2 -50 C5 -36 4.5 -14 0 0 Z" transform="rotate(350)"/>
+    </g>
+    <!-- 中环 16 瓣 -->
+    <g fill="url(#gOuter)" stroke="#57b57f" stroke-opacity="0.32" stroke-width="0.6">
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(20) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(42.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(65) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(87.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(110) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(132.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(155) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(177.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(200) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(222.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(245) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(267.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(290) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(312.5) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(335) scale(0.94)"/>
+      <path d="M0 0 C-4.5 -14 -5 -34 -2 -47 C-0.7 -50.5 0.7 -50.5 2 -47 C5 -34 4.5 -14 0 0 Z" transform="rotate(357.5) scale(0.94)"/>
+    </g>
+    <!-- 内环 14 瓣 -->
+    <g fill="url(#gMid)" stroke="#66c28f" stroke-opacity="0.3" stroke-width="0.5">
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(13) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(39) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(65) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(91) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(117) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(143) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(169) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(195) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(221) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(247) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(273) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(299) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(325) scale(0.8)"/>
+      <path d="M0 0 C-4.5 -13 -5 -28 -2 -38 C-0.7 -41 0.7 -41 2 -38 C5 -28 4.5 -13 0 0 Z" transform="rotate(351) scale(0.8)"/>
+    </g>
+    <!-- 心瓣（嫩绿） -->
+    <g fill="url(#gInner)" stroke="#74d19d" stroke-opacity="0.28" stroke-width="0.5">
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(26) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(78) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(130) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(182) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(234) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(286) scale(0.8)"/>
+      <path d="M0 0 C-4 -10 -4.5 -20 -2 -27 C-0.7 -29 0.7 -29 2 -27 C4.5 -20 4 -10 0 0 Z" transform="rotate(338) scale(0.8)"/>
+    </g>
+    <circle r="5" fill="#c9f7d1"/>
+    <circle cx="-1.5" cy="-1.5" r="2" fill="#f1fffb" opacity="0.9"/>
+    <ellipse cx="-9" cy="-13" rx="22" ry="18" fill="url(#sheenG)"/>
+  </g>
+</svg>

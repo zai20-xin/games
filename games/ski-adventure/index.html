@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>滑雪大冒险 · Ski Runner</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; background:#bfe3f2;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  #wrap { position:relative; width:100vw; height:100vh; }
+  canvas { display:block; width:100%; height:100%; touch-action:none; }
+  #hud { position:absolute; top:0; left:0; padding:14px 18px; color:#1b3a4b;
+    font-weight:700; font-size:16px; text-shadow:0 1px 2px rgba(255,255,255,.6); pointer-events:none; z-index:4; }
+  #hud .score { font-size:22px; }
+  #hud .pts { color:#1b3a4b; }
+  #hud .row { margin-bottom:2px; }
+  #hud .coins { color:#d98324; }
+  #power { position:absolute; top:14px; left:50%; transform:translateX(-50%);
+    display:flex; gap:8px; pointer-events:none; z-index:4; }
+  #power .badge { padding:5px 12px; border-radius:20px; font-weight:700; font-size:14px;
+    color:#fff; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+  #power .star { background:#ffb400; }
+  #power .boost { background:#1fb6c9; }
+  #power .stun { background:#9b59b6; }
+  #power .fever { background:#e67e22; }
+  #power .magnet { background:#e74c3c; }
+  #power .shield { background:#3498db; }
+  #power .double { background:#f1c40f; color:#1b3a4b; }
+  #power .rocket { background:#7f8c8d; }
+  #power .surge { background:#c0392b; }
+  #hud .combo { color:#ffd34d; font-size:18px; text-shadow:0 1px 2px rgba(0,0,0,.35); }
+  #hud .badge.phase { background:rgba(120,170,255,.85); }
+  #hud .badge.phase.calm { background:rgba(120,200,140,.9); }
+  #hud .badge.phase.surge { background:rgba(255,140,60,.95); }
+  #questPanel { margin-top:8px; max-width:240px; font-size:13px; font-weight:600; }
+  #questPanel .q { display:flex; justify-content:space-between; gap:10px; padding:2px 0; color:#1b3a4b; opacity:.92; }
+  #questPanel .q .qt { flex:1; }
+  #questPanel .q.done { color:#27ae60; text-decoration:line-through; }
+  #questPanel .q .qp { font-variant-numeric:tabular-nums; white-space:nowrap; }
+  #questPanel .q.done .qp::after { content:' ✓'; }
+  #feverBar { width:150px; height:10px; border-radius:5px; background:rgba(20,40,60,.35);
+    margin-top:6px; overflow:hidden; border:1px solid rgba(255,255,255,.35); }
+  #feverFill { height:100%; width:0; border-radius:5px; background:linear-gradient(90deg,#f1c40f,#e67e22);
+    transition:width .15s; }
+  #feverFill.on { background:linear-gradient(90deg,#ffd34d,#ff9f43); box-shadow:0 0 8px #ffd34d; }
+
+  .panel { position:absolute; inset:0; display:none; flex-direction:column;
+    align-items:center; justify-content:center; color:#fff; text-align:center; }
+  .panel.show { display:flex; }
+  .btn { font-size:18px; padding:12px 34px; border:none; border-radius:30px;
+    background:#ff6b6b; color:#fff; font-weight:700; cursor:pointer; margin:7px;
+    box-shadow:0 6px 16px rgba(0,0,0,.25); }
+  .btn:active { transform:translateY(1px); }
+  .btn.ghost { background:rgba(255,255,255,.22); }
+  .btn.coin { background:#ffcf33; color:#1b3a4b; }
+
+  #menu { background:rgba(20,40,60,.4); backdrop-filter:blur(2px); z-index:5; }
+  #menu h1 { font-size:42px; letter-spacing:3px; margin-bottom:4px; text-shadow:0 3px 10px rgba(0,0,0,.35); }
+  #menu .sub { font-size:14px; opacity:.85; margin-bottom:18px; }
+  #menu .wallet { font-size:22px; font-weight:700; color:#ffcf33; margin-bottom:16px; text-shadow:0 2px 6px rgba(0,0,0,.3); }
+  #menu .best { font-size:14px; opacity:.8; margin-top:16px; }
+  #menu .modeSel { display:flex; gap:10px; margin:2px 0 6px; }
+  #menu .modeBtn { padding:9px 18px; border:none; border-radius:22px; background:rgba(255,255,255,.2);
+    color:#fff; font-weight:700; cursor:pointer; font-size:15px; }
+  #menu .modeBtn.active { background:#1fb6c9; color:#fff; }
+
+  #overlay { background:rgba(20,40,60,.45); backdrop-filter:blur(2px); z-index:6; }
+  #overlay h1 { font-size:34px; margin-bottom:8px; letter-spacing:2px; }
+  #overlay .final { font-size:20px; margin-bottom:6px; opacity:.92; }
+  #overlay .finalScore { font-size:22px; margin-bottom:6px; color:#ffd34d; font-weight:700; }
+  #overlay .finalCoins { font-size:16px; margin-bottom:4px; opacity:.85; }
+  #overlay .death-detail { font-size:16px; font-weight:700; color:#e74c3c; margin-bottom:4px; }
+  #overlay .death-tip { font-size:13px; color:#2b6cb0; margin-bottom:10px; opacity:.9; }
+  #overlay .questResult { width:280px; max-width:80vw; margin:8px auto 14px; text-align:left;
+    background:rgba(255,255,255,.55); border-radius:12px; padding:10px 14px; font-size:14px; }
+  #overlay .questResult .qr-title { font-weight:800; margin-bottom:6px; color:#1b3a4b; text-align:center; }
+  #overlay .questResult .qr { display:flex; justify-content:space-between; gap:10px; padding:2px 0; color:#1b3a4b; }
+  #overlay .questResult .qr.done { color:#27ae60; }
+  #overlay .questResult .qr .qr-p { font-variant-numeric:tabular-nums; }
+  #overlay .questResult .qr-reward { margin-top:8px; text-align:center; font-weight:800; color:#d98324; }
+  #overlay .wallet { font-size:16px; margin-bottom:20px; color:#ffcf33; opacity:.95; }
+  #newBest { display:none; font-size:24px; font-weight:800; letter-spacing:2px; margin-bottom:10px;
+    color:#fff; padding:8px 18px; border-radius:30px; background:linear-gradient(90deg,#ff9a3c,#ffd34d,#ff9a3c);
+    box-shadow:0 0 22px rgba(255,200,80,.8); animation:nbPulse 0.9s ease-in-out infinite; }
+  @keyframes nbPulse { 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
+  #overlay.celebrate { background:rgba(40,30,10,.5); backdrop-filter:blur(2px); animation:ovGlow .8s ease; }
+  @keyframes ovGlow { 0%{ box-shadow:inset 0 0 0 0 rgba(255,210,80,0); } 40%{ box-shadow:inset 0 0 120px 20px rgba(255,210,80,.5); } 100%{ box-shadow:inset 0 0 0 0 rgba(255,210,80,0); } }
+
+  #pause { background:rgba(20,40,60,.55); backdrop-filter:blur(3px); z-index:7; }
+  #pause h1 { font-size:36px; margin-bottom:14px; letter-spacing:3px; }
+
+  #shop { background:rgba(15,30,45,.8); backdrop-filter:blur(4px); z-index:8; }
+  .shop-head { position:absolute; top:0; left:0; right:0; display:flex; align-items:center;
+    justify-content:space-between; padding:16px 18px; }
+  .shop-head h2 { font-size:24px; }
+  .shop-head .wallet { color:#ffcf33; font-weight:700; font-size:18px; }
+  .shop-head .btn { margin:0; font-size:15px; padding:8px 18px; }
+  .shop-tabs { display:flex; gap:10px; margin:74px 0 14px; }
+  .shop-tabs button { padding:9px 20px; border:none; border-radius:22px; background:rgba(255,255,255,.2);
+    color:#fff; font-weight:700; cursor:pointer; font-size:15px; }
+  .shop-tabs button.active { background:#ffcf33; color:#1b3a4b; }
+  .shop-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:14px;
+    width:min(92%,580px); max-height:60vh; overflow-y:auto; padding:6px; }
+  .skin-card { position:relative; background:rgba(255,255,255,.12); border-radius:14px; padding:14px 10px;
+    text-align:center; border:1px solid rgba(255,255,255,.14); transition:transform .15s, box-shadow .15s; }
+  .skin-card:hover { transform:translateY(-3px); }
+  .skin-card.r1 { border-color:rgba(83,164,255,.65); box-shadow:0 0 12px rgba(83,164,255,.18); }
+  .skin-card.r2 { border-color:rgba(255,204,92,.75); box-shadow:0 0 16px rgba(255,204,92,.28); }
+  .rarity { position:absolute; top:8px; left:8px; font-size:11px; font-weight:700; padding:2px 8px;
+    border-radius:10px; color:#fff; letter-spacing:1px; }
+  .rarity.r1 { background:#2d7dd2; }
+  .rarity.r2 { background:linear-gradient(90deg,#e67e22,#f1c40f); color:#5b3a00; }
+  .skin-prev .scarf { position:absolute; left:14px; bottom:5px; width:26px; height:8px; border-radius:4px; }
+  .skin-prev .trailDot { position:absolute; right:5px; bottom:5px; width:12px; height:12px; border-radius:50%;
+    border:2px solid rgba(255,255,255,.75); box-shadow:0 0 6px rgba(255,255,255,.4); }
+  .skin-name { font-size:14px; font-weight:700; margin-bottom:6px; }
+  .skin-stats { display:flex; flex-wrap:wrap; gap:4px; justify-content:center; margin-bottom:6px; }
+  .skin-stats .stat-tag { font-size:10px; font-weight:700; padding:2px 6px; border-radius:10px;
+    background:rgba(255,211,77,.22); color:#ffe08a; border:1px solid rgba(255,211,77,.4); }
+  .skin-cost { font-size:12px; color:#ffd9a0; opacity:.92; margin-bottom:10px; }
+  .skin-btn { width:100%; padding:8px 0; border:none; border-radius:18px; font-weight:700;
+    cursor:pointer; font-size:13px; background:#ffcf33; color:#1b3a4b; }
+  .skin-btn.equipped { background:rgba(255,255,255,.28); color:#fff; cursor:default; }
+  .skin-btn.locked { background:rgba(255,255,255,.14); color:#cfd8dc; cursor:not-allowed; }
+  .skin-prev { position:relative; width:54px; height:54px; border-radius:50%; margin:0 auto 8px; background:var(--body);
+    box-shadow:inset -6px -4px 10px rgba(0,0,0,.22), inset 4px 3px 8px rgba(255,255,255,.28); }
+  .skin-prev .hat { position:absolute; left:9px; top:3px; width:36px; height:15px; border-radius:8px; background:var(--hat); }
+  .skin-prev.board { border-radius:12px; background:var(--board); overflow:hidden; }
+  .skin-prev.board::after { content:''; position:absolute; left:8%; top:14%; width:84%; height:26%;
+    background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0)); border-radius:6px; }
+  .skin-prev.board .board-art { width:100%; height:100%; object-fit:contain; display:block; }
+
+  #tip { position:absolute; bottom:16px; left:0; right:0; text-align:center;
+    color:#1b3a4b; font-size:13px; opacity:.75; pointer-events:none; z-index:4; }
+  #music { position:absolute; top:14px; right:16px; z-index:7; cursor:pointer;
+    background:rgba(255,255,255,.22); color:#fff; font-weight:700; font-size:14px;
+    padding:6px 14px; border-radius:20px; user-select:none; backdrop-filter:blur(2px);
+    box-shadow:0 2px 6px rgba(0,0,0,.18); }
+  #music:active { transform:translateY(1px); }
+  #music.off { background:rgba(120,120,120,.4); }
+
+  /* ---- 打雪仗屏幕控制（触屏/鼠标）---- */
+  #fightControls { position:absolute; bottom:0; left:0; right:0; display:none; z-index:6; pointer-events:none; }
+  #fightControls.show { display:block; }
+  #fightControls .fc-row { display:flex; justify-content:space-between; align-items:flex-end; padding:10px 14px 18px; gap:10px; }
+  #fightControls .fc-move { display:flex; gap:10px; }
+  #fightControls button { pointer-events:auto; border:none; border-radius:18px; font-weight:700; font-size:16px;
+    color:#fff; background:rgba(43,108,176,.85); box-shadow:0 4px 12px rgba(0,0,0,.3); padding:14px 18px; }
+  #fightControls button:active { transform:translateY(2px); }
+  #fightControls .fc-throw { background:#e74c3c; font-size:18px; padding:18px 26px; }
+  #fightControls .fc-up { background:#27ae60; }
+  #fightControls .fc-pause { background:rgba(60,60,60,.8); }
+
+  /* ---- 成就面板 ---- */
+  #achv { background:rgba(15,30,45,.86); backdrop-filter:blur(4px); z-index:8; overflow-y:auto; }
+  #achv h2 { font-size:26px; margin-bottom:4px; }
+  #achv .sub { font-size:13px; opacity:.8; margin-bottom:12px; }
+  .achv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; width:min(92%,640px); margin-bottom:16px; }
+  .achv-card { background:rgba(255,255,255,.1); border-radius:12px; padding:12px; text-align:left; border:1px solid rgba(255,255,255,.12); }
+  .achv-card.done { border-color:#ffd34d; box-shadow:0 0 12px rgba(255,211,77,.3); background:rgba(255,211,77,.12); }
+  .achv-card .an { font-weight:800; font-size:15px; }
+  .achv-card .ad { font-size:12px; opacity:.85; margin-top:4px; }
+  .achv-card .badge { font-size:18px; }
+  .achv-card .grp { font-size:10px; opacity:.6; text-transform:uppercase; letter-spacing:1px; }
+  #achvToast { position:absolute; top:70px; left:50%; transform:translateX(-50%); z-index:9; display:none;
+    background:linear-gradient(90deg,#ff9a3c,#ffd34d); color:#5b3a00; font-weight:800; padding:10px 22px;
+    border-radius:24px; box-shadow:0 4px 14px rgba(0,0,0,.35); }
+
+  /* ---- 元成长 / 成瘾机制 UI ---- */
+  #menu .metaRow { display:flex; gap:18px; margin:6px 0 4px; font-size:15px; font-weight:700; }
+  #menu .metaRow .metaItem { color:#cfe8ff; }
+  #menu .metaRow .metaItem span { color:#fff; }
+  #menu .tierRow { width:280px; max-width:80vw; margin:4px auto 8px; }
+  #menu .tierName { font-size:14px; font-weight:700; color:#ffe08a; margin-bottom:4px; }
+  #menu .tierBar { width:100%; height:12px; border-radius:6px; background:rgba(255,255,255,.22); overflow:hidden; border:1px solid rgba(255,255,255,.3); }
+  #menu .tierFill { height:100%; width:0; border-radius:6px; background:linear-gradient(90deg,#7fe3d4,#1fb6c9); transition:width .3s; }
+  #menu .tierNext { font-size:11px; opacity:.8; margin-top:3px; color:#cfe8ff; }
+  #menu .metaBtns { display:flex; gap:10px; margin:2px 0 10px; }
+  #menu .metaBtns .btn { font-size:14px; padding:9px 18px; }
+
+  .runMeta { width:300px; max-width:84vw; margin:8px auto 14px; background:rgba(255,255,255,.5);
+    border-radius:12px; padding:10px 14px; font-size:14px; color:#1b3a4b; text-align:left; }
+  .runMeta .rm-title { font-weight:800; text-align:center; margin-bottom:6px; color:#1b3a4b; }
+  .runMeta .rm { display:flex; justify-content:space-between; padding:2px 0; }
+  .runMeta .rm .rm-v { font-weight:700; color:#2d7dd2; }
+  .runMeta .rm.tier .rm-v { color:#27ae60; }
+  .runMeta .rm.daily .rm-v { color:#e67e22; }
+
+  #lootbox { background:rgba(20,30,45,.82); backdrop-filter:blur(4px); z-index:8; }
+  #lootbox h2 { font-size:30px; margin-bottom:18px; }
+  #lootContent { min-height:120px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+  #lootContent .loot-rar { font-size:16px; font-weight:800; letter-spacing:2px; }
+  #lootContent .loot-amt { font-size:40px; font-weight:800; color:#7fe3d4; margin:6px 0; }
+  #lootContent .loot-skin { font-size:26px; font-weight:800; color:#ffd34d; margin:6px 0; }
+  #lootContent.pop { animation:lootPop .5s ease; }
+  @keyframes lootPop { 0%{ transform:scale(.4); opacity:0; } 60%{ transform:scale(1.12); } 100%{ transform:scale(1); opacity:1; } }
+  #lootContent .loot-empty { opacity:.7; font-size:16px; }
+
+  #daily { background:rgba(20,30,45,.82); backdrop-filter:blur(4px); z-index:8; }
+  #daily h2 { font-size:30px; margin-bottom:6px; }
+  #daily .daily-date { font-size:12px; opacity:.7; margin-bottom:10px; }
+  #daily .daily-obj { width:300px; max-width:84vw; background:rgba(255,255,255,.14); border-radius:12px;
+    padding:12px 16px; font-size:16px; font-weight:700; margin-bottom:14px; color:#ffe08a; }
+  #daily .daily-obj .do-reward { font-size:13px; color:#7fe3d4; margin-top:4px; }
+  #daily .daily-obj.done { border:1px solid #27ae60; box-shadow:0 0 12px rgba(39,174,96,.3); }
+  #daily .daily-board { width:300px; max-width:84vw; background:rgba(255,255,255,.08); border-radius:12px; padding:10px 14px; margin-bottom:14px; }
+  #daily .daily-board .db-title { font-weight:800; margin-bottom:6px; color:#fff; }
+  #daily .daily-board .db-row { display:flex; justify-content:space-between; font-size:13px; padding:2px 0; color:#cfe8ff; }
+  #daily .daily-board .db-row.me { color:#ffd34d; font-weight:700; }
+  #daily .daily-board .db-empty { font-size:13px; opacity:.6; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <div class="row">距离 <span class="score" id="dist">0</span> m</div>
+    <div class="row pts">分数 <span class="score" id="score">0</span></div>
+    <div class="row coins">金币 <span id="coins">0</span></div>
+    <div class="row">最佳 <span id="best">0</span> m</div>
+    <div class="row"><span id="comboShow" class="combo"></span></div>
+    <div id="feverBar"><div id="feverFill"></div></div>
+    <div id="questPanel" class="quest-panel"></div>
+  </div>
+  <div id="power"></div>
+
+  <div id="menu" class="panel show">
+    <h1>滑雪大冒险</h1>
+    <div class="sub">Ski Runner · 无尽滑行</div>
+    <div class="wallet">金币 <span id="menuCoins">0</span></div>
+    <div class="metaRow">
+      <div class="metaItem">💎 <span id="menuCrystal">0</span> 结晶</div>
+      <div class="metaItem">🔥 连续 <span id="menuStreak">0</span> 天</div>
+    </div>
+    <div class="tierRow">
+      <div class="tierName">段位 <span id="menuTier">雪场萌新</span> · Lv.<span id="menuTierLv">1</span></div>
+      <div class="tierBar"><div class="tierFill" id="menuTierFill"></div></div>
+      <div class="tierNext" id="menuTierNext"></div>
+    </div>
+    <button class="btn" id="startFight" style="background:#4aa3df;">❄️ 欢乐打雪仗</button>
+    <div class="modeSel">
+      <button class="modeBtn" id="modeBoard">🏂 单板</button>
+      <button class="modeBtn" id="modeSki">⛷ 双板</button>
+    </div>
+    <button class="btn" id="startBtn">开始游戏</button>
+    <button class="btn coin" id="shopBtn">商城</button>
+    <button class="btn ghost" id="achvBtn" style="background:rgba(255,211,77,.25);">🏆 成就</button>
+    <div class="metaBtns">
+      <button class="btn ghost" id="boxBtn">🎁 开宝箱 (<span id="menuBoxes">0</span>)</button>
+      <button class="btn ghost" id="dailyBtn">📅 每日挑战</button>
+    </div>
+    <div class="best">最佳距离 <span id="menuBest">0</span> m · 最高分 <span id="menuBestScore">0</span></div>
+    <div class="best" style="margin-top:4px;">皮肤收集 <span id="menuSkins">0</span>/<span id="menuSkinsTotal">0</span></div>
+  </div>
+
+  <div id="overlay" class="panel">
+    <h1 id="overTitle">😵 游戏结束！</h1>
+    <div id="newBest" class="new-best">🏆 新纪录！</div>
+    <div id="deathDetail" class="death-detail"></div>
+    <div id="deathTip" class="death-tip"></div>
+    <div class="final">本次距离 <span id="finalDist">0</span> m</div>
+    <div class="finalScore">得分 <span id="finalScore">0</span></div>
+    <div class="finalCoins">收集金币 <span id="finalCoins">0</span> 枚</div>
+    <div class="questResult" id="questResult"></div>
+    <div class="runMeta" id="runMeta"></div>
+    <div class="wallet">金币钱包 <span id="walletCoins">0</span></div>
+    <button class="btn" id="restart">再来一局</button>
+    <div style="font-size:12px;opacity:.7;margin-top:-3px;">按 R / 空格 快速重开 · 按 M 静音</div>
+    <button class="btn coin" id="overShop">商城</button>
+  </div>
+
+  <div id="pause" class="panel">
+    <h1>⏸ 已暂停</h1>
+    <button class="btn" id="resumeBtn">继续</button>
+    <button class="btn" id="pauseRestart">重新开始</button>
+    <button class="btn ghost" id="pauseMenu">回主菜单</button>
+  </div>
+
+  <div id="shop" class="panel">
+    <div class="shop-head">
+      <h2>商城</h2>
+      <div class="wallet">金币 <span id="shopCoins">0</span></div>
+      <button class="btn ghost" id="shopClose">返回</button>
+    </div>
+    <div class="shop-tabs">
+      <button data-tab="char" class="active">角色皮肤</button>
+      <button data-tab="board">滑板皮肤</button>
+    </div>
+    <div id="shopList" class="shop-list"></div>
+  </div>
+
+  <div id="tip">↑/W 跳(五段) · ↓/S 蹲 · ←/→ 切道 · P 暂停 · R 重开 · M 静音</div>
+  <div id="music" title="背景音乐开关">♪ 音乐</div>
+  <audio id="bgm" loop preload="auto"></audio>
+
+  <!-- 打雪仗屏幕控制（触屏/鼠标） -->
+  <div id="fightControls">
+    <div class="fc-row">
+      <div class="fc-move">
+        <button id="fcLeft">◀</button>
+        <button id="fcRight">▶</button>
+      </div>
+      <button id="fcThrow" class="fc-throw">❄️ 投</button>
+      <div class="fc-move">
+        <button id="fcUp" class="fc-up">升级</button>
+        <button id="fcPause" class="fc-pause">暂停</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 成就面板 -->
+  <div id="achv" class="panel">
+    <h2>🏆 成就</h2>
+    <div class="sub" id="achvProgress">已解锁 0 / 0</div>
+    <div class="achv-grid" id="achvGrid"></div>
+    <button class="btn ghost" id="achvClose">返回</button>
+  </div>
+
+  <!-- 开宝箱 -->
+  <div id="lootbox" class="panel">
+    <h2>🎁 开宝箱</h2>
+    <div id="lootContent"><div class="loot-empty">点击下方按钮开启宝箱</div></div>
+    <button class="btn" id="lootOpen">开启！</button>
+    <button class="btn ghost" id="lootClose">关闭</button>
+  </div>
+
+  <!-- 每日挑战 -->
+  <div id="daily" class="panel">
+    <h2>📅 每日挑战</h2>
+    <div class="daily-date" id="dailyDate"></div>
+    <div class="daily-obj" id="dailyObj"></div>
+    <div class="daily-board">
+      <div class="db-title">今日排行榜 Top10</div>
+      <div id="dailyBoard"></div>
+    </div>
+    <button class="btn ghost" id="dailyClose">返回</button>
+  </div>
+
+  <div id="achvToast"></div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

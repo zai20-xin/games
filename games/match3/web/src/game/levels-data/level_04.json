@@ -1,0 +1,14 @@
+{
+  "id": 4,
+  "name": "条纹的力量",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 26,
+  "obstacles": [],
+  "goals": [
+    { "type": "collect", "color": 0, "count": 15 }
+  ],
+  "stars": [600, 1200, 2000],
+  "features": ["stripe"]
+}

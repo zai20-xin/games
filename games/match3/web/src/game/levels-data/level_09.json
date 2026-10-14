@@ -1,0 +1,73 @@
+{
+  "id": 9,
+  "name": "冰封王座",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 32,
+  "obstacles": [
+    {
+      "pos": [
+        0,
+        3
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        2,
+        3
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        4,
+        3
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        6,
+        4
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        1,
+        6
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        5,
+        6
+      ],
+      "layers": 1
+    }
+  ],
+  "goals": [
+    {
+      "type": "collect",
+      "color": 4,
+      "count": 14
+    },
+    {
+      "type": "score",
+      "target": 2000
+    }
+  ],
+  "stars": [
+    2500,
+    3800,
+    5200
+  ],
+  "features": [
+    "bomb",
+    "rainbow",
+    "frost"
+  ]
+}

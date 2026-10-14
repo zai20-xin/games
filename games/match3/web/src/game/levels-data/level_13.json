@@ -1,0 +1,53 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 4,
+      "count": 18,
+      "type": "collect"
+    },
+    {
+      "target": 2200,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 13,
+  "moves": 46,
+  "name": "糖霜回廊 1",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        5
+      ]
+    }
+  ],
+  "stars": [
+    2200,
+    3190,
+    4290
+  ],
+  "width": 7
+}

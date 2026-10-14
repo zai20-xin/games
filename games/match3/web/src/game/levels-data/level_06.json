@@ -1,0 +1,28 @@
+{
+  "id": 6,
+  "name": "精打细算",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 34,
+  "obstacles": [],
+  "goals": [
+    {
+      "type": "collect",
+      "color": 2,
+      "count": 22
+    },
+    {
+      "type": "score",
+      "target": 1800
+    }
+  ],
+  "stars": [
+    2200,
+    3400,
+    4800
+  ],
+  "features": [
+    "stripe"
+  ]
+}

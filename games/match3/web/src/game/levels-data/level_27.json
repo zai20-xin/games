@@ -1,0 +1,81 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 3,
+      "count": 22,
+      "type": "collect"
+    },
+    {
+      "target": 4050,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 27,
+  "moves": 45,
+  "name": "熔岩糖果 3",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        3
+      ]
+    }
+  ],
+  "stars": [
+    4050,
+    5872,
+    7897
+  ],
+  "width": 7
+}

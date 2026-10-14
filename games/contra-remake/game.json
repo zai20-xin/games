@@ -1,0 +1,22 @@
+{
+  "id": "contra-remake",
+  "name": "魂斗罗复刻",
+  "description": "Phaser 3 + TypeScript 复刻魂斗罗第一关，工程化最完整的参考项目",
+  "status": "demo",
+  "type": "web",
+  "tags": [
+    "横版动作",
+    "phaser",
+    "typescript"
+  ],
+  "tech": [
+    "vite",
+    "phaser3",
+    "ts"
+  ],
+  "port": 4104,
+  "run": "GAME_BASE=/g/contra-remake/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

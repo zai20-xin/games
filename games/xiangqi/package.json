@@ -1,0 +1,13 @@
+{
+  "name": "xiangqi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "亲子象棋 PWA（纯静态 canvas + Service Worker，全局脚本按序加载）",
+  "scripts": {
+    "dev": "python3 -m http.server 4107",
+    "build": "node scripts/build-static.mjs",
+    "test": "node scripts/run-tests.mjs",
+    "lint": "node scripts/lint-static.mjs"
+  },
+  "devDependencies": {}
+}

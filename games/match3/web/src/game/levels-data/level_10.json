@@ -1,0 +1,67 @@
+{
+  "id": 10,
+  "name": "全面战争",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 42,
+  "obstacles": [
+    {
+      "pos": [
+        2,
+        2
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        4,
+        3
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        1,
+        5
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        5,
+        6
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        6,
+        2
+      ],
+      "layers": 1
+    }
+  ],
+  "goals": [
+    {
+      "type": "collect",
+      "color": 0,
+      "count": 18
+    },
+    {
+      "type": "score",
+      "target": 2400
+    }
+  ],
+  "stars": [
+    3000,
+    4400,
+    6000
+  ],
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ]
+}

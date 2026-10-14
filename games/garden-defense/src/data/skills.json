@@ -1,0 +1,79 @@
+[
+  {
+    "id": "slow",
+    "name": "寒露减速",
+    "tier": "common",
+    "effect": { "type": "slow", "factor": 0.5, "durationMs": 3000 },
+    "costRate": 0.9
+  },
+  {
+    "id": "stun",
+    "name": "花粉眩晕",
+    "tier": "rare",
+    "effect": { "type": "stun", "chance": 0.25, "durationMs": 1500 },
+    "costRate": 0.9
+  },
+  {
+    "id": "knockback",
+    "name": "花瓣击退",
+    "tier": "rare",
+    "effect": { "type": "knockback", "distance": 60, "chance": 0.4 },
+    "costRate": 0.95
+  },
+  {
+    "id": "pierce",
+    "name": "花刺穿透",
+    "tier": "rare",
+    "effect": { "type": "pierce", "maxTargets": 3, "damageDecay": 0.7 },
+    "costRate": 0.9
+  },
+  {
+    "id": "bounce",
+    "name": "花雨弹跳",
+    "tier": "epic",
+    "effect": { "type": "bounce", "bounces": 2, "range": 120, "damageDecay": 0.6 },
+    "costRate": 0.85
+  },
+  {
+    "id": "rapidfire",
+    "name": "密集花雨",
+    "tier": "epic",
+    "effect": { "type": "rapidfire", "count": 3, "delayMs": 100 },
+    "costRate": 0.85
+  },
+  {
+    "id": "explode",
+    "name": "花粉爆破",
+    "tier": "epic",
+    "effect": { "type": "explode", "radius": 90, "damageRate": 0.8 },
+    "costRate": 0.8
+  },
+  {
+    "id": "burn",
+    "name": "烈焰花粉",
+    "tier": "rare",
+    "effect": { "type": "burn", "damagePerTick": 8, "ticks": 5, "tickMs": 600 },
+    "costRate": 0.9
+  },
+  {
+    "id": "thorns",
+    "name": "花刺反击",
+    "tier": "rare",
+    "effect": { "type": "thorns", "pulseMs": 2000, "range": 80, "damageRate": 0.6 },
+    "costRate": 0.95
+  },
+  {
+    "id": "regen",
+    "name": "花露自愈",
+    "tier": "epic",
+    "effect": { "type": "regen", "healPerTick": 15, "tickMs": 3000 },
+    "costRate": 0.8
+  },
+  {
+    "id": "crit",
+    "name": "暴击花心",
+    "tier": "common",
+    "effect": { "type": "crit", "chance": 0.2, "multiplier": 2.0, "damageRate": 0.9 },
+    "costRate": 0.9
+  }
+]

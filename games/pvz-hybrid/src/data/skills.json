@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slow",
+    "name": "寒霜减速",
+    "tier": "common",
+    "effect": { "type": "slow", "factor": 0.5, "durationMs": 3000 },
+    "costRate": 0.9
+  },
+  {
+    "id": "stun",
+    "name": "眩晕冲击",
+    "tier": "rare",
+    "effect": { "type": "stun", "chance": 0.25, "durationMs": 1500 },
+    "costRate": 0.9
+  },
+  {
+    "id": "knockback",
+    "name": "击退风暴",
+    "tier": "rare",
+    "effect": { "type": "knockback", "distance": 60, "chance": 0.4 },
+    "costRate": 0.95
+  },
+  {
+    "id": "pierce",
+    "name": "穿刺射击",
+    "tier": "rare",
+    "effect": { "type": "pierce", "maxTargets": 3, "damageDecay": 0.7 },
+    "costRate": 0.9
+  },
+  {
+    "id": "bounce",
+    "name": "弹射闪电",
+    "tier": "epic",
+    "effect": { "type": "bounce", "bounces": 2, "range": 120, "damageDecay": 0.6 },
+    "costRate": 0.85
+  },
+  {
+    "id": "rapidfire",
+    "name": "急速射击",
+    "tier": "epic",
+    "effect": { "type": "rapidfire", "count": 3, "delayMs": 100 },
+    "costRate": 0.85
+  },
+  {
+    "id": "explode",
+    "name": "爆破炸弹",
+    "tier": "epic",
+    "effect": { "type": "explode", "radius": 90, "damageRate": 0.8 },
+    "costRate": 0.8
+  },
+  {
+    "id": "burn",
+    "name": "烈焰灼烧",
+    "tier": "rare",
+    "effect": { "type": "burn", "damagePerTick": 8, "ticks": 5, "tickMs": 600 },
+    "costRate": 0.9
+  },
+  {
+    "id": "thorns",
+    "name": "荆棘反伤",
+    "tier": "rare",
+    "effect": { "type": "thorns", "pulseMs": 2000, "range": 80, "damageRate": 0.6 },
+    "costRate": 0.95
+  },
+  {
+    "id": "regen",
+    "name": "自我修复",
+    "tier": "epic",
+    "effect": { "type": "regen", "healPerTick": 15, "tickMs": 3000 },
+    "costRate": 0.8
+  }
+]

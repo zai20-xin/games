@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="pepper" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#ff8a70"/>
+      <stop offset="55%" stop-color="#e8392b"/>
+      <stop offset="100%" stop-color="#9c1508"/>
+    </radialGradient>
+    <linearGradient id="stemg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6da83e"/>
+      <stop offset="100%" stop-color="#3f7d1e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底部阴影脚 -->
+  <ellipse cx="62" cy="118" rx="26" ry="7" fill="#3a5a1e" stroke="#26150a" stroke-width="3.5"/>
+
+  <!-- 辣椒身体：微向右倾的弯曲辣椒 -->
+  <path d="M46 108
+           C 34 96 34 72 44 54
+           C 52 39 66 32 76 38
+           C 84 43 84 56 78 64
+           C 88 66 92 78 86 90
+           C 78 106 62 116 46 108 Z"
+        fill="url(#pepper)" stroke="#26150a" stroke-width="4.5" stroke-linejoin="round"/>
+  <!-- 高光 -->
+  <path d="M50 52 C 56 42 66 38 72 42" stroke="#ffb09a" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- 怒脸 -->
+  <g stroke="#26150a" stroke-width="3.5" stroke-linecap="round">
+    <path d="M50 62 L 59 66"/>
+    <path d="M72 60 L 63 64"/>
+  </g>
+  <circle cx="55" cy="72" r="3" fill="#20120a"/>
+  <circle cx="68" cy="70" r="3" fill="#20120a"/>
+  <path d="M54 84 L 68 82" stroke="#26150a" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- 顶部茎叶 -->
+  <path d="M76 40 C 80 30 88 26 96 26" stroke="#26150a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M76 40 C 80 30 88 26 96 26" stroke="#5a9632" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="100" cy="24" rx="9" ry="5" fill="url(#stemg)" stroke="#26150a" stroke-width="3.5" transform="rotate(-16 100 24)"/>
+</svg>

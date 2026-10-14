@@ -1,0 +1,80 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 7
+    },
+    {
+      "type": "score",
+      "target": 3800
+    }
+  ],
+  "height": 8,
+  "id": 23,
+  "moves": 38,
+  "name": "风暴之眼 2",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        4
+      ]
+    }
+  ],
+  "stars": [
+    3800,
+    5510,
+    7410
+  ],
+  "width": 7
+}

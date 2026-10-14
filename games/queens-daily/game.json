@@ -1,0 +1,20 @@
+{
+  "id": "queens-daily",
+  "name": "皇后谜题·每日一题",
+  "description": "LinkedIn Queens 同类解谜：N×N 网格放 N 枚皇后，行列色区恰一枚且两两不相邻",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "解谜",
+    "每日挑战"
+  ],
+  "tech": [
+    "vite5",
+    "ts"
+  ],
+  "port": 4110,
+  "run": "GAME_BASE=/g/queens-daily/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

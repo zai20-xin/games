@@ -1,0 +1,15 @@
+{
+  "id": "infinite-evolution",
+  "name": "无限进化",
+  "description": "进化主题网页游戏，含完整设计文档与开发计划",
+  "status": "demo",
+  "type": "web",
+  "tags": [
+    "进化",
+    "设计驱动"
+  ],
+  "port": 4102,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

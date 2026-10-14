@@ -1,0 +1,182 @@
+[
+  {
+    "id": "skill_1787907559130",
+    "name": "暗影散射",
+    "effect": {
+      "id": "fx_1787907551656_0",
+      "name": "暗影散射",
+      "trajectory": "spiral",
+      "form": "spray",
+      "onHit": "explode",
+      "trail": "none",
+      "impact": "shatter",
+      "palette": "shadow",
+      "params": {
+        "damage": 24.305563198312473,
+        "speed": 9.475566536266674,
+        "size": 1.5609559523863943,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 74.81603713012244,
+        "duration": 3,
+        "trailLength": 0,
+        "burstCount": 10,
+        "rotationSpeed": 0.20167436720110055,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T08:59:19.130Z"
+  },
+  {
+    "id": "skill_1787907582454",
+    "name": "散射·血腥",
+    "effect": {
+      "id": "fx_1787907576830_3",
+      "name": "散射·血腥",
+      "trajectory": "bounce",
+      "form": "spray",
+      "onHit": "knockback",
+      "trail": "none",
+      "impact": "arc",
+      "palette": "blood",
+      "params": {
+        "damage": 33.132703023150796,
+        "speed": 8.359184347037399,
+        "size": 1.2542618241177252,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 0,
+        "duration": 3,
+        "trailLength": 0,
+        "burstCount": 8,
+        "rotationSpeed": 0,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T08:59:42.454Z"
+  },
+  {
+    "id": "skill_1787907593459",
+    "name": "闪电·暗影",
+    "effect": {
+      "id": "fx_1787907586439_4",
+      "name": "闪电·暗影",
+      "trajectory": "return",
+      "form": "bolt",
+      "onHit": "knockback",
+      "trail": "ribbon",
+      "impact": "ripple",
+      "palette": "shadow",
+      "params": {
+        "damage": 21.312224551506898,
+        "speed": 13.810798533581067,
+        "size": 1.651977302902274,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 0,
+        "duration": 3,
+        "trailLength": 5,
+        "burstCount": 8,
+        "rotationSpeed": 0.13610099834872175,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T08:59:53.459Z"
+  },
+  {
+    "id": "skill_1787907602778",
+    "name": "贴地散射",
+    "effect": {
+      "id": "fx_1787907594713_5",
+      "name": "贴地散射",
+      "trajectory": "ground",
+      "form": "spray",
+      "onHit": "knockback",
+      "trail": "smoke",
+      "impact": "arc",
+      "palette": "fire",
+      "params": {
+        "damage": 36.90616288272589,
+        "speed": 11.699773185473287,
+        "size": 1.7366823700635061,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 0,
+        "duration": 3,
+        "trailLength": 12,
+        "burstCount": 8,
+        "rotationSpeed": 0,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T09:00:02.778Z"
+  },
+  {
+    "id": "skill_1787907622530",
+    "name": "直线法球",
+    "effect": {
+      "id": "fx_1787907609139_6",
+      "name": "直线法球",
+      "trajectory": "straight",
+      "form": "orb",
+      "onHit": "explode",
+      "trail": "ribbon",
+      "impact": "shatter",
+      "palette": "lightning",
+      "params": {
+        "damage": 11.612413592105934,
+        "speed": 7.9087787328948,
+        "size": 0.7682858900555409,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 83.08705235773947,
+        "duration": 3,
+        "trailLength": 6,
+        "burstCount": 12,
+        "rotationSpeed": 0,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T09:00:22.530Z"
+  },
+  {
+    "id": "skill_1787907633880",
+    "name": "闪电·物理",
+    "effect": {
+      "id": "fx_1787907627980_8",
+      "name": "闪电·物理",
+      "trajectory": "ground",
+      "form": "bolt",
+      "onHit": "none",
+      "trail": "none",
+      "impact": "burst",
+      "palette": "physical",
+      "params": {
+        "damage": 24.954944019694917,
+        "speed": 10.28059979992604,
+        "size": 1.4807365860545296,
+        "pierceCount": 0,
+        "chainCount": 0,
+        "splitCount": 0,
+        "aoeRadius": 0,
+        "duration": 3,
+        "trailLength": 0,
+        "burstCount": 14,
+        "rotationSpeed": 0.221097663784081,
+        "waveFreq": 0,
+        "waveAmp": 0
+      }
+    },
+    "createdAt": "2026-08-28T09:00:33.880Z"
+  }
+]

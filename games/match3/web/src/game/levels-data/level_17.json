@@ -1,0 +1,66 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 5
+    },
+    {
+      "type": "score",
+      "target": 2900
+    }
+  ],
+  "height": 8,
+  "id": 17,
+  "moves": 42,
+  "name": "彩虹尽头 2",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        5
+      ]
+    }
+  ],
+  "stars": [
+    2900,
+    4205,
+    5655
+  ],
+  "width": 7
+}

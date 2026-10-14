@@ -1,0 +1,80 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 7
+    },
+    {
+      "type": "score",
+      "target": 4230
+    }
+  ],
+  "height": 8,
+  "id": 29,
+  "moves": 37,
+  "name": "星屑之路 2",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        3
+      ]
+    }
+  ],
+  "stars": [
+    4230,
+    6133,
+    8248
+  ],
+  "width": 7
+}

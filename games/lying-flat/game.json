@@ -1,0 +1,16 @@
+{
+  "id": "lying-flat",
+  "name": "躺平",
+  "description": "猛鬼宿舍式单机复刻：选房躺床产金，矿脉加成，升门造炮，抗猎梦者变身，天亮选技能",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "塔防",
+    "休闲",
+    "猛鬼宿舍"
+  ],
+  "port": 4116,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

@@ -1,0 +1,67 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 0,
+      "count": 20,
+      "type": "collect"
+    },
+    {
+      "target": 3100,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 19,
+  "moves": 42,
+  "name": "冰晶花园 1",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        5
+      ]
+    }
+  ],
+  "stars": [
+    3100,
+    4495,
+    6045
+  ],
+  "width": 7
+}

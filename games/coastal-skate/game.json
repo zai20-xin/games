@@ -1,0 +1,15 @@
+{
+  "id": "coastal-skate",
+  "name": "海岸滑板跑酷",
+  "description": "海岸滑板跑酷网页游戏（index.html + js/ ES 模块）",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "跑酷",
+    "滑板"
+  ],
+  "port": 4109,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>海岸滑板 · 冒险之旅</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<div id="flashOverlay"></div>
+
+<div id="hud" style="display:none">
+  <div id="hudLeft">
+    <div id="hearts"></div>
+    <div class="hud-item"><span>🏝️</span><span class="value" id="scoreVal">0</span></div>
+    <div class="hud-item"><span>🌊</span><span class="value" id="distVal">0m</span></div>
+  </div>
+  <div class="hud-item"><span>🐚</span><span class="value" id="shellVal">0</span></div>
+</div>
+
+<div id="comboDisplay">
+  <div class="combo-x" id="comboX">x2</div>
+  <div class="combo-label">COMBO</div>
+</div>
+
+<div id="powerupBar"></div>
+
+<button id="pauseBtn">⏸</button>
+
+<div id="startScreen" class="overlay active">
+  <div class="title-card">
+    <h1>海岸滑板</h1>
+    <div class="subtitle">冒 险 之 旅</div>
+    <div class="skill-row">
+      <div class="skill-tag">❤️ 3 生命</div>
+      <div class="skill-tag">⬆️ <b>二段跳</b></div>
+      <div class="skill-tag">💨 <b>冲刺</b> (Shift)</div>
+      <div class="skill-tag">⬇️ <b>滑铲</b> (↓/S)</div>
+      <div class="skill-tag">🎯 连击倍率</div>
+    </div>
+    <button class="play-btn" id="startBtn">开始冒险</button>
+    <div class="hint">空格/点击 跳跃（可二段跳）· ↓/S 滑铲穿过横杆 · Shift 冲刺<br>P 暂停 · R 重开 · M 静音<br>踩踏螃蟹获得分数 · 每500m里程碑奖励 · 拾取道具获得增益</div>
+  </div>
+</div>
+
+<div id="gameOverScreen" class="overlay hidden">
+  <div class="result-card">
+    <h2>冒险结束</h2>
+    <div class="tag">每一次出发，都是新的风景</div>
+    <div class="score-row">
+      <div class="score-block"><div class="label">距离</div><div class="num" id="finalDist">0m</div></div>
+      <div class="score-block"><div class="label">得分</div><div class="num" id="finalScore">0</div></div>
+      <div class="score-block"><div class="label">最大连击</div><div class="num" id="finalCombo">0</div></div>
+      <div class="score-block best"><div class="label">最佳</div><div class="num" id="bestScore">0</div></div>
+    </div>
+    <button class="play-btn" id="restartBtn">再来一次</button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

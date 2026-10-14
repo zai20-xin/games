@@ -1,0 +1,81 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 0,
+      "count": 21,
+      "type": "collect"
+    },
+    {
+      "target": 4050,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 24,
+  "moves": 40,
+  "name": "风暴之眼 3",
+  "obstacles": [
+    {
+      "layers": 2,
+      "pos": [
+        4,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        6,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        0,
+        5
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        5,
+        4
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        7,
+        5
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        0,
+        4
+      ]
+    }
+  ],
+  "stars": [
+    4050,
+    5872,
+    7897
+  ],
+  "width": 8
+}

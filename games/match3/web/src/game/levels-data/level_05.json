@@ -1,0 +1,15 @@
+{
+  "id": 5,
+  "name": "双线作战",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 34,
+  "obstacles": [],
+  "goals": [
+    { "type": "collect", "color": 1, "count": 20 },
+    { "type": "score", "target": 1500 }
+  ],
+  "stars": [1500, 2600, 3800],
+  "features": ["stripe"]
+}

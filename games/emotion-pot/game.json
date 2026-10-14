@@ -1,0 +1,17 @@
+{
+  "id": "emotion-pot",
+  "name": "情绪下锅",
+  "description": "把惹你生气的人或事扔进锅里，戳一戳、乱炖、加怪料，看它出糗出锅",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "情绪",
+    "休闲",
+    "解压",
+    "恶搞"
+  ],
+  "port": 4117,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

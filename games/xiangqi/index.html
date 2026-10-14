@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#f5e6c8">
+<title>亲子象棋 · 趣味对战</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="title">♟ 亲子象棋</div>
+    <div id="turn-info">
+      <span id="turn-dot" class="turn-dot red"></span>
+      <span id="turn-text">红方走子</span>
+      <span id="turn-check" class="hidden">⚡ 将军！</span>
+    </div>
+    <div id="top-btns">
+      <button id="btn-sound" class="icon-btn" title="音效开关">🔊</button>
+      <button id="btn-stats" class="icon-btn" title="我的战绩">📊</button>
+      <button id="btn-autoflip" class="icon-btn" title="自动翻转（面对面）">⟲ 自动翻</button>
+    </div>
+  </header>
+
+  <div id="statsbar">
+    <span id="stat-round">第 1 回合</span>
+    <span id="stat-eat">🔴红吃 0 · ⚫黑吃 0</span>
+    <span id="stat-move" class="stat-move">—</span>
+  </div>
+
+  <div id="repctrl" class="hidden">
+    <div class="rep-head">🎥 复盘回放</div>
+    <div class="rep-body">
+      <button id="rep-prev" class="rep-btn" title="上一步">⏮</button>
+      <button id="rep-play" class="rep-btn" title="播放/暂停">▶</button>
+      <button id="rep-next" class="rep-btn" title="下一步">⏭</button>
+      <input id="rep-slider" type="range" min="0" max="0" value="0" aria-label="进度">
+      <span id="rep-label">0 / 0</span>
+      <button id="rep-exit" class="rep-btn rep-exit" title="退出复盘">✕</button>
+    </div>
+  </div>
+
+  <div id="movelist" class="hidden">
+    <div class="ml-header">
+      <span>对局棋谱</span>
+      <button id="btn-close-ml" class="icon-btn">✕</button>
+    </div>
+    <div id="ml-body"></div>
+  </div>
+
+  <main id="board-wrap">
+    <div id="board">
+      <svg id="board-svg" viewBox="0 0 9 10" preserveAspectRatio="none" aria-hidden="true">
+        <!-- 外框 -->
+        <rect x="0.5" y="0.5" width="8" height="9" fill="none" stroke="#7a4a21" stroke-width="0.08"/>
+        <!-- 横线：y = 0.5 .. 9.5 共 10 条 -->
+        <line x1="0.5" y1="0.5" x2="8.5" y2="0.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="1.5" x2="8.5" y2="1.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="2.5" x2="8.5" y2="2.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="3.5" x2="8.5" y2="3.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="4.5" x2="8.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="5.5" x2="8.5" y2="5.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="6.5" x2="8.5" y2="6.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="7.5" x2="8.5" y2="7.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="8.5" x2="8.5" y2="8.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="9.5" x2="8.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <!-- 竖线：x = 0.5 .. 8.5，河区（y 4.5~5.5）断开 -->
+        <line x1="0.5" y1="0.5" x2="0.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="0.5" y1="5.5" x2="0.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="1.5" y1="0.5" x2="1.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="1.5" y1="5.5" x2="1.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="2.5" y1="0.5" x2="2.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="2.5" y1="5.5" x2="2.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="3.5" y1="0.5" x2="3.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="3.5" y1="5.5" x2="3.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="4.5" y1="0.5" x2="4.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="4.5" y1="5.5" x2="4.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="5.5" y1="0.5" x2="5.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="5.5" y1="5.5" x2="5.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="6.5" y1="0.5" x2="6.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="6.5" y1="5.5" x2="6.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="7.5" y1="0.5" x2="7.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="7.5" y1="5.5" x2="7.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="8.5" y1="0.5" x2="8.5" y2="4.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="8.5" y1="5.5" x2="8.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <!-- 九宫斜线：黑方（上） -->
+        <line x1="3.5" y1="0.5" x2="5.5" y2="2.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="5.5" y1="0.5" x2="3.5" y2="2.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <!-- 九宫斜线：红方（下） -->
+        <line x1="3.5" y1="7.5" x2="5.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <line x1="5.5" y1="7.5" x2="3.5" y2="9.5" stroke="#7a4a21" stroke-width="0.05"/>
+        <!-- 楚河 汉界 -->
+        <g fill="#7a4a21" fill-opacity="0.42" font-size="0.78" text-anchor="middle" stroke="none">
+          <text x="2.1" y="4.95">
+            <tspan x="2.1" dy="0">楚</tspan>
+            <tspan x="2.1" dy="0.72">河</tspan>
+          </text>
+          <text x="6.9" y="4.95">
+            <tspan x="6.9" dy="0">汉</tspan>
+            <tspan x="6.9" dy="0.72">界</tspan>
+          </text>
+        </g>
+      </svg>
+      <div id="promo-layer"></div>
+      <div id="pieces-layer"></div>
+      <canvas id="fx-canvas"></canvas>
+    </div>
+  </main>
+
+  <footer id="controlbar">
+    <div class="ctrl-row">
+      <button id="btn-new" class="ctrl-btn">♻️ 新局</button>
+      <button id="btn-undo" class="ctrl-btn">↩️ 悔棋</button>
+      <button id="btn-hint" class="ctrl-btn">💡 提示</button>
+      <button id="btn-flip" class="ctrl-btn">🔄 翻转</button>
+    </div>
+    <div class="ctrl-row">
+      <button id="btn-ml" class="ctrl-btn">📜 棋谱</button>
+      <button id="btn-level" class="ctrl-btn">🎯 残局</button>
+      <button id="btn-tut" class="ctrl-btn">🎓 教学</button>
+    </div>
+  </footer>
+</div>
+
+<div id="flash"></div>
+<div id="modal-root"></div>
+
+<div id="overlay" class="hidden">
+  <div class="overlay-card">
+    <div id="overlay-emoji">🏆</div>
+    <div id="overlay-title">红方获胜！</div>
+    <div id="overlay-sub">将军！绝杀！</div>
+    <div id="overlay-btns">
+      <button id="btn-restart">再来一局</button>
+      <button id="btn-replay" class="btn-secondary">▶️ 复盘</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/chess.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/features.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "football-shootout",
+  "name": "热血足球·射门挑战",
+  "description": "热血风格足球射门挑战网页小游戏，静态三件套实现",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "足球",
+    "休闲",
+    "单页"
+  ],
+  "port": 4112,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

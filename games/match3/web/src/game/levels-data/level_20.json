@@ -1,0 +1,73 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 12
+    },
+    {
+      "type": "score",
+      "target": 3350
+    }
+  ],
+  "height": 8,
+  "id": 20,
+  "moves": 40,
+  "name": "冰晶花园 2",
+  "obstacles": [
+    {
+      "layers": 2,
+      "pos": [
+        5,
+        5
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        0,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        7,
+        4
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        4
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        3,
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        4,
+        3
+      ]
+    }
+  ],
+  "stars": [
+    3350,
+    4857,
+    6532
+  ],
+  "width": 8
+}

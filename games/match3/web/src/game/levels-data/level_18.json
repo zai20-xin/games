@@ -1,0 +1,74 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 4,
+      "count": 19,
+      "type": "collect"
+    },
+    {
+      "target": 3150,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 18,
+  "moves": 44,
+  "name": "彩虹尽头 3",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        0,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        1,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        4
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        4,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        6,
+        5
+      ]
+    }
+  ],
+  "stars": [
+    3150,
+    4567,
+    6142
+  ],
+  "width": 7
+}

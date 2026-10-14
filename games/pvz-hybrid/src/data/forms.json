@@ -1,0 +1,74 @@
+[
+  {
+    "id": "base",
+    "name": "基础形态",
+    "tier": "common",
+    "statMultipliers": { "attack": 1.0, "health": 1.0, "speed": 1.0 },
+    "projectile": "pea",
+    "attackStyle": "原始攻击",
+    "texture": ""
+  },
+  {
+    "id": "flame",
+    "name": "火焰形态",
+    "tier": "rare",
+    "statMultipliers": { "attack": 1.3, "health": 0.8, "speed": 1.1 },
+    "projectile": "fireball",
+    "attackStyle": "火球溅射+灼烧",
+    "texture": "form_flame"
+  },
+  {
+    "id": "ice",
+    "name": "寒冰形态",
+    "tier": "rare",
+    "statMultipliers": { "attack": 1.1, "health": 1.2, "speed": 0.9 },
+    "projectile": "axe",
+    "attackStyle": "冰斧穿透+减速",
+    "texture": "form_ice_armor"
+  },
+  {
+    "id": "lightning",
+    "name": "雷电形态",
+    "tier": "epic",
+    "statMultipliers": { "attack": 1.2, "health": 0.7, "speed": 1.3 },
+    "projectile": "chain",
+    "attackStyle": "闪电链连锁3目标",
+    "texture": "form_berserk"
+  },
+  {
+    "id": "laser",
+    "name": "激光形态",
+    "tier": "epic",
+    "statMultipliers": { "attack": 1.5, "health": 0.6, "speed": 1.0 },
+    "projectile": "beam",
+    "attackStyle": "激光穿透全目标",
+    "texture": "form_ghost"
+  },
+  {
+    "id": "missile",
+    "name": "导弹形态",
+    "tier": "legendary",
+    "statMultipliers": { "attack": 1.8, "health": 0.5, "speed": 0.8 },
+    "projectile": "missile",
+    "attackStyle": "追踪导弹+爆炸AOE",
+    "texture": "form_toxic"
+  },
+  {
+    "id": "drone",
+    "name": "无人机形态",
+    "tier": "legendary",
+    "statMultipliers": { "attack": 2.0, "health": 0.4, "speed": 0.7 },
+    "projectile": "drone",
+    "attackStyle": "自曝无人机范围爆炸",
+    "texture": "form_berserk"
+  },
+  {
+    "id": "air",
+    "name": "天空形态",
+    "tier": "rare",
+    "statMultipliers": { "attack": 1.2, "health": 1.1, "speed": 1.3 },
+    "projectile": "spike",
+    "attackStyle": "对空攻击+穿透",
+    "texture": "form_air"
+  }
+]

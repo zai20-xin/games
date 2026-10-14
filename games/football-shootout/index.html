@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>热血足球 · 射门挑战</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage">
+  <canvas id="game"></canvas>
+  <div class="scanlines"></div>
+
+  <!-- 顶部 HUD -->
+  <div class="hud-top">
+    <div class="team-tag a">
+      <span id="team-a-name">巴西</span>
+      <span class="shot-name" id="team-a-shot">火球射门</span>
+    </div>
+    <div class="score"><span id="streak-a">0</span><i>连进</i><span id="score-b">难度 Lv.1</span></div>
+  </div>
+
+  <!-- 蓄力 -->
+  <div class="charge-wrap" id="charge-wrap">
+    <div class="charge-bar" id="charge-bar"></div>
+    <span class="charge-label">蓄力射门</span>
+  </div>
+
+  <!-- 操作提示 -->
+  <div class="controls-hint">
+    <span><b>W/S</b> 高/低弧线</span>
+    <span><b>A/D</b> 左/右瞄准</span>
+    <span><b>空格</b> 蓄力射门(满槽必杀)</span>
+    <span><b>C</b> 切换必杀技</span>
+    <span><b>P</b> 暂停</span>
+    <span><b>R</b> 重开</span>
+  </div>
+
+  <!-- 必杀特写 -->
+  <div class="super-callout" id="super-callout"></div>
+  <!-- 射门结果 -->
+  <div class="shot-msg" id="shot-msg"></div>
+
+  <!-- 开始菜单 -->
+  <div class="overlay menu show" id="menu">
+    <div class="panel">
+      <h1>热血足球</h1>
+      <p class="sub">定位球射门挑战</p>
+      <div class="team-select">
+        <label>选择射手（必杀技）<br><select id="team-user"></select></label>
+      </div>
+      <div class="mc">
+        <div id="best-streak" style="color:#FFD700;margin-bottom:6px">暂无纪录，来开第一脚！</div>
+        <div><b>目标</b> 连续进球，每进一球难度升级（守门员更快更准、球门更小）</div>
+        <div><b>空格</b> 按住蓄力，满槽放必杀射门</div>
+        <div><b>W/S</b> 调整射门高低 · <b>A/D</b> 左右瞄准</div>
+        <div><b>C</b> 局内切换必杀技 · <b>P</b> 暂停 · <b>R</b> 重开</div>
+        <div style="color:#FF5A00;margin-top:6px">⚠ 高难度下守门员连必杀也能扑出！</div>
+      </div>
+      <button id="btn-start">开始挑战</button>
+    </div>
+  </div>
+
+  <!-- 暂停 -->
+  <div class="overlay pause" id="pause">
+    <div class="panel">
+      <h2>暂停</h2>
+      <button id="btn-resume">继续</button>
+    </div>
+  </div>
+
+  <!-- 结束 -->
+  <div class="overlay gameover" id="gameover">
+    <div class="panel">
+      <h2>挑战结束</h2>
+      <div class="final-score" id="final-score">连续进球 0 球</div>
+      <div class="final-result" id="final-result">新手出发</div>
+      <button id="btn-restart">再来一局</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

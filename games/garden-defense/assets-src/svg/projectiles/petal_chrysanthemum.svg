@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 小菊瓣：细长内卷，琥珀橙 -->
+  <defs>
+    <linearGradient id="g" x1="0.15" y1="1" x2="0.55" y2="0">
+      <stop offset="0" stop-color="#d8741a"/>
+      <stop offset="0.5" stop-color="#ffa41e"/>
+      <stop offset="1" stop-color="#ffd97a"/>
+    </linearGradient>
+  </defs>
+  <path d="M14.5 30 C11 22 11 15 13.5 9 C14.5 4.5 9 3 7.5 7.5 C5.5 14 8 23 14.5 30Z" fill="url(#g)" stroke="#b35f10" stroke-width="0.9"/>
+  <path d="M16.5 30 C13.5 22 13.5 15 15.5 9 C16.5 4.5 11.5 3.5 10.5 7" fill="none" stroke="#ffd97a" stroke-width="1" opacity="0.6"/>
+  <circle cx="11" cy="7" r="1.8" fill="#fff3cf" stroke="#d8741a" stroke-width="0.7"/>
+  <ellipse cx="12" cy="20" rx="1.4" ry="3.4" fill="#b35f10" opacity="0.28" transform="rotate(-14 12 20)"/>
+</svg>

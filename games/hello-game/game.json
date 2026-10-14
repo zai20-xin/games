@@ -1,0 +1,14 @@
+{
+  "id": "hello-game",
+  "name": "示例小游戏",
+  "description": "演示模板与面板联动的样例，接球玩法",
+  "status": "prototype",
+  "type": "web",
+  "tags": [
+    "示例"
+  ],
+  "port": 4100,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

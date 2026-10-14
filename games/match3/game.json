@@ -1,0 +1,22 @@
+{
+  "id": "match3",
+  "name": "糖果连锁 Match3",
+  "description": "Phaser/TS 三消网页游戏，30 关线性 + 每日挑战模式 + 成绩卡导出（candy 主菜单、关卡内联、http 任意子路径兼容）",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "三消",
+    "phaser"
+  ],
+  "tech": [
+    "vite",
+    "phaser3",
+    "ts"
+  ],
+  "port": 4106,
+  "run": "GAME_BASE=/g/match3/ npm --prefix web run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "root": "web",
+  "cover": "cover.png"
+}

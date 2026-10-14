@@ -1,0 +1,40 @@
+{
+  "id": 7,
+  "name": "破冰之旅",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 28,
+  "obstacles": [
+    {
+      "pos": [
+        3,
+        4
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        2,
+        3
+      ],
+      "layers": 1
+    }
+  ],
+  "goals": [
+    {
+      "type": "score",
+      "target": 2000
+    }
+  ],
+  "stars": [
+    2000,
+    3200,
+    4500
+  ],
+  "features": [
+    "bomb",
+    "rainbow",
+    "frost"
+  ]
+}

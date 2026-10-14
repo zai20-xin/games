@@ -1,0 +1,28 @@
+{
+  "name": "contra-level1-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "tsc --noEmit",
+    "assets:gen": "echo 'Assets are now committed directly from CC0 sources (Kenney + synth BGM). No generation step needed.' && exit 0"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.11.0",
+    "jsdom": "^24.0.0",
+    "phaser3spectorjs": "^0.0.8",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^2.0.0"
+  }
+}

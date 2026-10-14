@@ -1,0 +1,23 @@
+{
+  "id": "pvz-hybrid",
+  "name": "植物大战僵尸·杂交版",
+  "description": "Phaser 3 杂交塔防：17 植物 + 传送带随机选卡 + 融合怪兽变异，10 类僵尸 10 波防守，僵尸预览+策略选卡，特效炸裂",
+  "status": "playable",
+  "type": "web",
+  "tags": [
+    "塔防",
+    "复刻",
+    "杂交",
+    "phaser"
+  ],
+  "tech": [
+    "vite",
+    "phaser3",
+    "ts"
+  ],
+  "port": 4114,
+  "run": "GAME_BASE=/g/pvz-hybrid/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

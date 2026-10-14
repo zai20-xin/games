@@ -1,0 +1,17 @@
+{
+  "name": "ski-adventure",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "滑雪大冒险 · Ski Adventure —— 类地铁跑酷的 3 轨滑雪无尽跑酷（HTML5 Canvas + ES Modules）",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:smoke": "vite build && node tests/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "vite": "^6.3.5"
+  }
+}

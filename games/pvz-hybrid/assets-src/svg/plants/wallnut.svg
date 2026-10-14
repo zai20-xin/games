@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="nut" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d8a05c"/>
+      <stop offset="55%" stop-color="#b97f42"/>
+      <stop offset="100%" stop-color="#8f5c2a"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M64 14 C 90 14 104 40 102 72 C 100.5 100 86 116 64 116 C 42 116 27.5 100 26 72 C 24 40 38 14 64 14 Z"
+        fill="url(#nut)" stroke="#26150a" stroke-width="4.5"/>
+
+  <!-- subtle wood-grain arcs -->
+  <path d="M40 34 Q 46 28 54 26" stroke="#7a4e22" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M88 44 Q 92 52 93 62" stroke="#7a4e22" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round"/>
+
+  <!-- worried face -->
+  <g stroke="#26150a" stroke-width="3.5">
+    <ellipse cx="52" cy="63" rx="7.6" ry="9.6" fill="#ffffff"/>
+    <ellipse cx="76" cy="63" rx="7.6" ry="9.6" fill="#ffffff"/>
+  </g>
+  <circle cx="51" cy="65.5" r="2.9" fill="#20120a"/>
+  <circle cx="75" cy="65.5" r="2.9" fill="#20120a"/>
+  <path d="M43 51 Q 49 47 56 50" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M85 51 Q 79 47 72 50" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M57 89 Q 60 87.5 62 89 Q 65 90.5 67 88.5" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

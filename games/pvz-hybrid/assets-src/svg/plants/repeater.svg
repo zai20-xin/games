@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="head" cx="38%" cy="34%" r="75%">
+      <stop offset="0%" stop-color="#8ed45e"/>
+      <stop offset="100%" stop-color="#4c9c28"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#83cf52"/>
+      <stop offset="100%" stop-color="#4d9627"/>
+    </linearGradient>
+    <linearGradient id="butt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e5483c"/>
+      <stop offset="100%" stop-color="#a22218"/>
+    </linearGradient>
+  </defs>
+
+  <!-- stem -->
+  <path d="M58 86 C 56 100 62 108 58 122" stroke="#26150a" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M58 86 C 56 100 62 108 58 122" stroke="#5aa63a" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+
+  <!-- leaves -->
+  <g stroke="#26150a" stroke-width="4">
+    <ellipse cx="39" cy="113" rx="14" ry="6.5" fill="url(#leaf)" transform="rotate(-22 39 113)"/>
+    <ellipse cx="77" cy="110" rx="14" ry="6.5" fill="url(#leaf)" transform="rotate(16 77 110)"/>
+  </g>
+
+  <!-- top sprout -->
+  <path d="M54 30 C 54 18 60 12 68 11" stroke="#26150a" stroke-width="9.5" fill="none" stroke-linecap="round"/>
+  <path d="M54 30 C 54 18 60 12 68 11" stroke="#5aa63a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="72" cy="10.5" rx="7" ry="4.5" fill="url(#leaf)" stroke="#26150a" stroke-width="3.5" transform="rotate(18 72 10.5)"/>
+
+  <!-- 双管：上下两根红色炮管 -->
+  <g stroke="#26150a" stroke-width="4.5" stroke-linejoin="round">
+    <rect x="56" y="32" width="52" height="20" rx="10" fill="url(#butt)"/>
+    <rect x="48" y="56" width="56" height="20" rx="10" fill="url(#butt)"/>
+    <ellipse cx="102" cy="42" rx="6.5" ry="10.5" fill="#5c1010"/>
+    <ellipse cx="102" cy="66" rx="6.5" ry="10.5" fill="#5c1010"/>
+  </g>
+  <!-- 双管高光 -->
+  <rect x="58" y="34" width="46" height="4" rx="2" fill="#ffb0a8" opacity="0.6"/>
+  <rect x="50" y="58" width="50" height="4" rx="2" fill="#ffb0a8" opacity="0.6"/>
+
+  <!-- tip 连接座 -->
+  <circle cx="52" cy="50" r="14" fill="#2a7a1e" stroke="#26150a" stroke-width="4"/>
+
+  <!-- head -->
+  <circle cx="46" cy="62" r="30" fill="url(#head)" stroke="#26150a" stroke-width="4.5"/>
+
+  <!-- face -->
+  <g stroke="#26150a" stroke-width="3.5">
+    <ellipse cx="39" cy="52" rx="5.6" ry="7.4" fill="#ffffff"/>
+    <ellipse cx="57" cy="50" rx="4.4" ry="6" fill="#ffffff"/>
+  </g>
+  <circle cx="41" cy="53" r="2.5" fill="#20120a"/>
+  <circle cx="58.6" cy="51.5" r="2.2" fill="#20120a"/>
+  <path d="M37 74 Q 46 78 54 75" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

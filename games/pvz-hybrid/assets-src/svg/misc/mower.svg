@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 112">
+  <defs>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff7a52"/>
+      <stop offset="100%" stop-color="#c93a1b"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8ced8"/>
+      <stop offset="100%" stop-color="#848d99"/>
+    </linearGradient>
+  </defs>
+
+  <!-- handle -->
+  <path d="M28 44 L14 14 M14 14 L26 10" stroke="#26150a" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M28 44 L14 14 M14 14 L26 10" stroke="#7a5230" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- engine -->
+  <rect x="38" y="26" width="46" height="26" rx="6" fill="url(#metal)" stroke="#26150a" stroke-width="4"/>
+  <rect x="84" y="32" width="14" height="8" rx="3" fill="#565d68" stroke="#26150a" stroke-width="3"/>
+
+  <!-- deck -->
+  <path d="M24 56 C 24 48 32 44 42 44 L118 44 C 130 44 138 52 136 62 L 132 78 L 30 78 Z"
+        fill="url(#deck)" stroke="#26150a" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M132 62 L 146 58 L 144 70 L 131 72" fill="#a82e13" stroke="#26150a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M40 52 Q 70 49 100 52" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- wheels -->
+  <g stroke="#26150a" stroke-width="4">
+    <circle cx="48" cy="86" r="15" fill="#33383f"/>
+    <circle cx="48" cy="86" r="6" fill="#9aa2ad"/>
+    <circle cx="108" cy="88" r="12" fill="#33383f"/>
+    <circle cx="108" cy="88" r="5" fill="#9aa2ad"/>
+  </g>
+</svg>

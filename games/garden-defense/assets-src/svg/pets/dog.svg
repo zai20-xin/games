@@ -1,0 +1,83 @@
+<svg width="160" height="180" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="furG" cx="0.4" cy="0.32" r="1">
+      <stop offset="0" stop-color="#c9a184"/>
+      <stop offset="0.5" stop-color="#a9826a"/>
+      <stop offset="1" stop-color="#7d5a44"/>
+    </radialGradient>
+    <radialGradient id="earG" cx="0.5" cy="0.2" r="1">
+      <stop offset="0" stop-color="#9d7a62"/>
+      <stop offset="1" stop-color="#5f4130"/>
+    </radialGradient>
+    <radialGradient id="muzzleG" cx="0.5" cy="0.35" r="0.95">
+      <stop offset="0" stop-color="#f6ead2"/>
+      <stop offset="1" stop-color="#ddc8a4"/>
+    </radialGradient>
+    <linearGradient id="chestG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecd9bc"/>
+      <stop offset="1" stop-color="#d4bb95"/>
+    </linearGradient>
+    <radialGradient id="tagG" cx="0.38" cy="0.32" r="0.9">
+      <stop offset="0" stop-color="#ffe9a8"/>
+      <stop offset="0.6" stop-color="#e8b830"/>
+      <stop offset="1" stop-color="#b8860b"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#241608" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#241608" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 投影 -->
+  <ellipse cx="80" cy="172" rx="36" ry="8" fill="url(#shadowG)"/>
+
+  <!-- 胸毛（浅色围兜） -->
+  <path d="M80 96 C52 96 40 120 42 156 C50 168 66 172 80 172 C94 172 110 168 118 156 C120 120 108 96 80 96 Z" fill="url(#chestG)"/>
+  <path d="M80 112 C64 112 56 126 56 148 C64 160 72 164 80 164 C88 164 96 160 104 148 C104 126 96 112 80 112 Z" fill="#f8eed8" opacity="0.55"/>
+  <!-- 胸前毛流 -->
+  <path d="M68 120 C70 134 70 148 67 158 M92 120 C90 134 90 148 93 158" fill="none" stroke="#c8ae86" stroke-width="1.4" opacity="0.5"/>
+
+  <!-- 项圈与骨头吊牌 -->
+  <path d="M56 100 C64 112 96 112 104 100 C102 94 98 90 80 90 C62 90 58 94 56 100 Z" fill="#3f6f4a"/>
+  <path d="M58 101 C66 112 94 112 102 101" fill="none" stroke="#2c5236" stroke-width="1.6" opacity="0.6"/>
+  <circle cx="80" cy="113" r="9.5" fill="url(#tagG)" stroke="#a3740a" stroke-width="1.4"/>
+  <path d="M75 109 L77 107 L79 109 L81 107 L83 109 L85 107 L85 109 L87 111 L85 113 L87 115 L85 117 L83 115 L81 117 L79 115 L77 117 L75 115 L77 113 L75 111 Z" fill="#8a6508" opacity="0.85"/>
+  <ellipse cx="77" cy="110" rx="2.2" ry="1.4" fill="#fff6d0" opacity="0.85"/>
+
+  <!-- 垂耳（左） -->
+  <path d="M40 52 C22 56 14 82 20 104 C24 118 36 120 42 108 C48 94 48 70 44 56 Z" fill="url(#earG)" stroke="#4a3020" stroke-width="2"/>
+  <path d="M38 62 C28 70 24 88 27 102" fill="none" stroke="#6b4a34" stroke-width="2.2" opacity="0.65"/>
+  <!-- 垂耳（右） -->
+  <path d="M120 52 C138 56 146 82 140 104 C136 118 124 120 118 108 C112 94 112 70 116 56 Z" fill="url(#earG)" stroke="#4a3020" stroke-width="2"/>
+  <path d="M122 62 C132 70 136 88 133 102" fill="none" stroke="#6b4a34" stroke-width="2.2" opacity="0.65"/>
+
+  <!-- 头部 -->
+  <circle cx="80" cy="74" r="50" fill="url(#furG)"/>
+  <!-- 眉斑 -->
+  <ellipse cx="62" cy="58" rx="12" ry="8" fill="#e8cfa8" opacity="0.55"/>
+  <ellipse cx="98" cy="58" rx="12" ry="8" fill="#e8cfa8" opacity="0.55"/>
+  <!-- 额纹 -->
+  <path d="M80 28 L80 46" stroke="#8a6850" stroke-width="4" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- 眼睛 -->
+  <ellipse cx="61" cy="68" rx="9" ry="10" fill="#fff"/>
+  <ellipse cx="99" cy="68" rx="9" ry="10" fill="#fff"/>
+  <circle cx="62" cy="68" r="5.2" fill="#2e2620"/>
+  <circle cx="100" cy="68" r="5.2" fill="#2e2620"/>
+  <circle cx="63" cy="66.5" r="1.9" fill="#fff"/>
+  <circle cx="101" cy="66.5" r="1.9" fill="#fff"/>
+
+  <!-- 浅色口鼻 -->
+  <ellipse cx="80" cy="92" rx="24" ry="19" fill="url(#muzzleG)"/>
+  <!-- 鼻 -->
+  <ellipse cx="80" cy="84" rx="8" ry="6" fill="#38271e"/>
+  <ellipse cx="78" cy="82" rx="2.6" ry="1.6" fill="#6f5546" opacity="0.7"/>
+  <!-- 嘴 -->
+  <path d="M80 90 L80 96 M80 96 Q74 102 68 98 M80 96 Q86 102 92 98" fill="none" stroke="#4e382a" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- 吐舌 -->
+  <path d="M76 100 C76 108 84 108 84 100 C84 104 76 104 76 100 Z" fill="#ff8a80"/>
+  <path d="M76.5 102 C78 106 82 106 83.5 102" fill="none" stroke="#e07068" stroke-width="1" opacity="0.7"/>
+
+  <!-- 鼻梁高光 -->
+  <ellipse cx="68" cy="76" rx="6" ry="3" fill="#f6ead2" opacity="0.4" transform="rotate(-14 68 76)"/>
+</svg>

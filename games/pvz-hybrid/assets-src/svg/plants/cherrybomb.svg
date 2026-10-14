@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="cherry" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#ff8a72"/>
+      <stop offset="55%" stop-color="#e8392b"/>
+      <stop offset="100%" stop-color="#a81708"/>
+    </radialGradient>
+    <linearGradient id="stem" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6da83e"/>
+      <stop offset="100%" stop-color="#3f7d1e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- stems -->
+  <path d="M46 48 C 48 32 56 24 66 20 M84 42 C 82 31 75 24 66 20" stroke="#26150a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M46 48 C 48 32 56 24 66 20 M84 42 C 82 31 75 24 66 20" stroke="#5a9632" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="72" cy="18" rx="9" ry="5" fill="url(#stem)" stroke="#26150a" stroke-width="3.5" transform="rotate(-14 72 18)"/>
+
+  <!-- back cherry -->
+  <circle cx="85" cy="66" r="24.5" fill="url(#cherry)" stroke="#26150a" stroke-width="4.5"/>
+  <!-- front cherry -->
+  <circle cx="45" cy="73" r="27" fill="url(#cherry)" stroke="#26150a" stroke-width="4.5"/>
+
+  <!-- angry faces -->
+  <g stroke="#26150a" stroke-width="3.5" stroke-linecap="round">
+    <path d="M36 62 L 45 66"/>
+    <path d="M54 66 L 45 62" transform="translate(9 4)"/>
+  </g>
+  <g fill="#20120a">
+    <circle cx="38" cy="72" r="2.7"/>
+    <circle cx="53" cy="72" r="2.7"/>
+  </g>
+  <path d="M39 84 L 52 82" stroke="#26150a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M43 83 L 43 87 M48 82.5 L 48 86.5" stroke="#26150a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <g stroke="#26150a" stroke-width="3" stroke-linecap="round">
+    <path d="M77 56 L 84 59"/>
+    <path d="M93 58 L 86 55"/>
+  </g>
+  <g fill="#20120a">
+    <circle cx="79" cy="65" r="2.4"/>
+    <circle cx="91" cy="65" r="2.4"/>
+  </g>
+  <path d="M80 75 L 90 73.5" stroke="#26150a" stroke-width="3" stroke-linecap="round"/>
+</svg>

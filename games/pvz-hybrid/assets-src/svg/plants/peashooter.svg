@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="head" cx="38%" cy="34%" r="75%">
+      <stop offset="0%" stop-color="#8ed45e"/>
+      <stop offset="100%" stop-color="#4c9c28"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#83cf52"/>
+      <stop offset="100%" stop-color="#4d9627"/>
+    </linearGradient>
+  </defs>
+
+  <!-- stem -->
+  <path d="M58 86 C 56 100 62 108 58 122" stroke="#26150a" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M58 86 C 56 100 62 108 58 122" stroke="#5aa63a" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+
+  <!-- leaves -->
+  <g stroke="#26150a" stroke-width="4">
+    <ellipse cx="39" cy="113" rx="14" ry="6.5" fill="url(#leaf)" transform="rotate(-22 39 113)"/>
+    <ellipse cx="77" cy="110" rx="14" ry="6.5" fill="url(#leaf)" transform="rotate(16 77 110)"/>
+  </g>
+
+  <!-- top sprout -->
+  <path d="M56 28 C 56 16 62 11 70 10" stroke="#26150a" stroke-width="9.5" fill="none" stroke-linecap="round"/>
+  <path d="M56 28 C 56 16 62 11 70 10" stroke="#5aa63a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="74" cy="9.5" rx="7" ry="4.5" fill="url(#leaf)" stroke="#26150a" stroke-width="3.5" transform="rotate(18 74 9.5)"/>
+
+  <!-- snout -->
+  <g stroke="#26150a" stroke-width="4.5" stroke-linejoin="round">
+    <rect x="72" y="43" width="42" height="28" rx="13.5" fill="url(#head)"/>
+    <ellipse cx="112.5" cy="57" rx="7" ry="13.5" fill="#1d4511"/>
+  </g>
+
+  <!-- head -->
+  <circle cx="55" cy="58" r="31" fill="url(#head)" stroke="#26150a" stroke-width="4.5"/>
+
+  <!-- face -->
+  <g stroke="#26150a" stroke-width="3.5">
+    <ellipse cx="49" cy="49" rx="6.2" ry="7.8" fill="#ffffff"/>
+    <ellipse cx="67" cy="47" rx="5.6" ry="7.2" fill="#ffffff"/>
+  </g>
+  <circle cx="51.2" cy="50" r="2.6" fill="#20120a"/>
+  <circle cx="68.8" cy="48" r="2.4" fill="#20120a"/>
+  <path d="M50 70 Q 58 75 66 71" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

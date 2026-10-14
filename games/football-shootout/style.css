@@ -1,0 +1,128 @@
+/* ==================== 基础 ==================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  height: 100%; background: #000; overflow: hidden;
+  font-family: 'Courier New', monospace;
+  -webkit-font-smoothing: none;
+}
+.stage {
+  position: relative; width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: #000;
+}
+#game {
+  width: min(100vw, 133.3vh);   /* 4:3 正确比例 */
+  height: min(75vw, 100vh);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #0A0A0B;
+  display: block;
+}
+/* 扫描线 */
+.scanlines {
+  position: absolute; inset: 0; pointer-events: none; z-index: 5;
+  background: repeating-linear-gradient(
+    to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.18) 3px, rgba(0,0,0,0.18) 3px);
+  mix-blend-mode: multiply;
+}
+
+/* ==================== HUD ==================== */
+.hud-top {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: min(100vw, 133.3vh);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 6px 10px; z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+  color: #fff; font-weight: bold; letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000;
+}
+.team-tag {
+  font-size: 14px; padding: 2px 8px; border: 2px solid #fff; background: #222;
+  display: flex; flex-direction: column; align-items: center; line-height: 1.2;
+}
+.team-tag.a { border-color: #FFD400; }
+.team-tag .shot-name { font-size: 9px; color: #FFE000; }
+.score { font-size: 22px; color: #FFE000; display: flex; align-items: center; gap: 6px; }
+.score i { margin: 0 4px; font-style: normal; font-size: 12px; color: #fff; }
+.score #score-b { font-size: 12px; color: #39FF14; }
+.timer { font-size: 14px; color: #39FF14; margin-left: 8px; }
+.poss { font-size: 11px; color: #aaa; margin-left: 8px; }
+
+/* 射门结果提示（GOAL/扑出/射偏） */
+.shot-msg {
+  position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 20; font-size: 30px; font-weight: bold; color: #FFE000;
+  text-shadow: 3px 3px 0 #000, 0 0 12px currentColor;
+  opacity: 0; transition: opacity 0.15s; pointer-events: none; white-space: nowrap;
+}
+.shot-msg.show { opacity: 1; animation: pop 0.3s; }
+@keyframes pop { 0% { transform: translate(-50%,-50%) scale(0.4); } 100% { transform: translate(-50%,-50%) scale(1); } }
+
+/* 体力 */
+.bottom-left { position: absolute; bottom: 8px; left: 12px; z-index: 10; display: flex; align-items: center; gap: 6px; }
+.stamina { width: 90px; height: 8px; border: 2px solid #fff; background: #222; }
+.stamina-fill { height: 100%; width: 100%; background: #39FF14; transition: width 0.1s; }
+.stamina-label { color: #fff; font-size: 10px; text-shadow: 1px 1px 0 #000; }
+
+/* 蓄力条 */
+.charge-wrap {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: none; flex-direction: column; align-items: center; gap: 2px;
+}
+.charge-wrap.show { display: flex; }
+.charge-bar { width: 120px; height: 10px; border: 2px solid #fff; background: #222; }
+.charge-bar > div, #charge-bar {
+  height: 100%; width: 0%; background: #39FF14; transition: width 0.05s;
+}
+.charge-bar.super > div, #charge-bar.super { background: #FF5A00; box-shadow: 0 0 8px #FF5A00; }
+.charge-label { color: #fff; font-size: 9px; text-shadow: 1px 1px 0 #000; }
+
+/* 操作提示 */
+.controls-hint {
+  position: absolute; bottom: 6px; right: 10px; z-index: 10;
+  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 10px; max-width: 40%;
+  color: #ddd; font-size: 9px; text-shadow: 1px 1px 0 #000;
+}
+.controls-hint b { color: #39FF14; }
+
+/* 必杀特写 */
+.super-callout {
+  position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 20; font-size: 28px; font-weight: bold; color: #FFE000;
+  text-shadow: 3px 3px 0 #000, 0 0 12px currentColor;
+  opacity: 0; transition: opacity 0.15s; pointer-events: none; white-space: nowrap;
+}
+.super-callout.show { opacity: 1; animation: pop 0.3s; }
+@keyframes pop { 0% { transform: translate(-50%,-50%) scale(0.4); } 100% { transform: translate(-50%,-50%) scale(1); } }
+
+/* ==================== 覆盖层 ==================== */
+.overlay {
+  position: absolute; inset: 0; z-index: 30;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.78);
+}
+.overlay.show { display: flex; }
+.panel {
+  background: #111; border: 4px solid #fff; padding: 24px 32px; text-align: center;
+  color: #fff; min-width: 320px; box-shadow: 0 0 0 4px #000, 8px 8px 0 rgba(0,0,0,0.6);
+}
+.panel h1 { font-size: 34px; color: #FFE000; text-shadow: 3px 3px 0 #C8102E; letter-spacing: 4px; }
+.panel h2 { font-size: 24px; color: #FFE000; margin-bottom: 12px; }
+.panel .sub { color: #39FF14; font-size: 12px; margin: 4px 0 16px; letter-spacing: 2px; }
+.team-select { display: flex; gap: 18px; justify-content: center; margin-bottom: 16px; }
+.team-select label { font-size: 11px; color: #aaa; }
+.team-select select {
+  margin-top: 4px; font-family: monospace; font-size: 12px; padding: 4px;
+  background: #222; color: #fff; border: 2px solid #fff;
+}
+.mc { font-size: 11px; color: #ccc; line-height: 1.7; margin-bottom: 18px; text-align: left; }
+.mc b { color: #39FF14; }
+.panel button {
+  font-family: monospace; font-size: 16px; font-weight: bold; padding: 10px 28px;
+  background: #FFE000; color: #111; border: 3px solid #fff; cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+}
+.panel button:hover { background: #fff; }
+.panel button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
+.final-score { font-size: 20px; color: #fff; margin: 10px 0; }
+.final-result { font-size: 26px; color: #39FF14; margin-bottom: 16px; font-weight: bold; }

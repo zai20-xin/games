@@ -1,0 +1,60 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "color": 2,
+      "count": 19,
+      "type": "collect"
+    },
+    {
+      "target": 2650,
+      "type": "score"
+    }
+  ],
+  "height": 8,
+  "id": 16,
+  "moves": 44,
+  "name": "彩虹尽头 1",
+  "obstacles": [
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        4
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        6,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        1,
+        3
+      ]
+    },
+    {
+      "layers": 2,
+      "pos": [
+        2,
+        3
+      ]
+    }
+  ],
+  "stars": [
+    2650,
+    3842,
+    5167
+  ],
+  "width": 7
+}

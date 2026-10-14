@@ -1,0 +1,20 @@
+{
+  "id": "star-defense",
+  "name": "星际防线",
+  "description": "太空科幻风 Canvas 塔防：多路径、元素克制、塔组合、对战模式",
+  "status": "demo",
+  "type": "web",
+  "tags": [
+    "塔防",
+    "canvas"
+  ],
+  "tech": [
+    "vite6",
+    "vanilla-js"
+  ],
+  "port": 4105,
+  "run": "GAME_BASE=/g/star-defense/ npm run dev -- --port {port}",
+  "prefix": true,
+  "entry": "/",
+  "cover": "cover.png"
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>躺平 · 宿舍夜防</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="hud" class="hud hidden">
+      <div class="hud-left">
+        <span class="chip gold">💰 <b id="hud-gold">0</b></span>
+        <span class="chip">🌙 第 <b id="hud-night">1</b>/5 夜</span>
+        <span class="chip" id="hud-phase">白天</span>
+      </div>
+      <div class="hud-mid">
+        <div class="ghost-bar-wrap">
+          <span class="ghost-label">猎梦者</span>
+          <div class="bar"><div id="ghost-hp-bar" class="bar-fill danger"></div></div>
+          <span id="hud-ghost-hp" class="mono"></span>
+        </div>
+      </div>
+      <div class="hud-right">
+        <button id="btn-pause" class="icon-btn" title="暂停 (P)">⏸</button>
+        <button id="btn-mute" class="icon-btn" title="静音 (M)">🔊</button>
+        <button id="btn-restart" class="icon-btn" title="重开 (R)">↻</button>
+      </div>
+    </header>
+
+    <main id="stage">
+      <canvas id="map" width="720" height="540" aria-label="宿舍地图"></canvas>
+
+      <aside id="shop" class="shop hidden">
+        <div class="shop-title">我的房间 <span id="room-tag" class="mono"></span></div>
+
+        <section class="panel">
+          <h3>门</h3>
+          <div class="row">
+            <div>
+              <div>Lv <b id="door-lv">1</b></div>
+              <div class="sub mono" id="door-hp">0/0</div>
+              <div class="mini-bar"><div id="door-hp-bar" class="bar-fill door"></div></div>
+            </div>
+            <button id="btn-up-door" class="btn primary">升级</button>
+          </div>
+          <div class="cost mono" id="door-cost"></div>
+        </section>
+
+        <section class="panel">
+          <h3>床</h3>
+          <div class="row">
+            <div>
+              <div>Lv <b id="bed-lv">1</b></div>
+              <div class="sub mono" id="bed-rate">+0/s</div>
+            </div>
+            <button id="btn-up-bed" class="btn primary">升级</button>
+          </div>
+          <div class="cost mono" id="bed-cost"></div>
+        </section>
+
+        <section class="panel grow">
+          <h3>建筑 <span class="sub">点地图空槽建造</span></h3>
+          <div id="turret-list" class="turret-list"></div>
+          <div class="hint" id="shop-hint">选中空槽后点「建造」</div>
+        </section>
+
+        <section class="panel stats">
+          <div class="stat-line">矿脉 <b id="stat-mine">—</b></div>
+          <div class="stat-line">技能 <b id="stat-buffs">—</b></div>
+          <div class="stat-line">输出 <b id="stat-dmg">0</b></div>
+          <div class="stat-line">室友 <b id="stat-alive">0</b></div>
+        </section>
+      </aside>
+    </main>
+
+    <div id="overlay" class="overlay">
+      <div class="modal" id="modal">
+        <h1 id="modal-title">躺平</h1>
+        <p id="modal-body"></p>
+        <div id="modal-extra"></div>
+        <div class="modal-actions">
+          <button id="modal-primary" class="btn primary big">开始</button>
+          <button id="modal-secondary" class="btn ghost hidden">重开</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

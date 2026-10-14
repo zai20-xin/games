@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="nut" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cf9350"/>
+      <stop offset="55%" stop-color="#ad7238"/>
+      <stop offset="100%" stop-color="#82501f"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M64 14 C 90 14 104 40 102 72 C 100.5 100 86 116 64 116 C 42 116 27.5 100 26 72 C 24 40 38 14 64 14 Z"
+        fill="url(#nut)" stroke="#26150a" stroke-width="4.5"/>
+
+  <!-- cracks -->
+  <g stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M78 16 L 69 33 L 80 41 L 71 55 L 78 61"/>
+    <path d="M40 22 L 48 40 L 42 48"/>
+    <path d="M30 74 L 42 70 L 38 82 L 48 84" opacity="0.9"/>
+  </g>
+  <ellipse cx="73" cy="37" rx="7" ry="10" fill="#5f3a15" opacity="0.45" transform="rotate(18 73 37)"/>
+
+  <!-- pained face -->
+  <g stroke="#26150a" stroke-width="3.5">
+    <ellipse cx="52" cy="66" rx="7" ry="8.6" fill="#ffffff"/>
+    <ellipse cx="75" cy="66" rx="7" ry="8.6" fill="#ffffff"/>
+  </g>
+  <circle cx="51" cy="68" r="2.8" fill="#20120a"/>
+  <circle cx="74" cy="68" r="2.8" fill="#20120a"/>
+  <path d="M44 55 Q 50 52 56 54" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M84 55 Q 78 52 72 54" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M56 91 Q 64 86 72 91" stroke="#26150a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

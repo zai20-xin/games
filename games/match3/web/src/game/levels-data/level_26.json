@@ -1,0 +1,80 @@
+{
+  "colors": 5,
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ],
+  "goals": [
+    {
+      "type": "frost",
+      "target": 7
+    },
+    {
+      "type": "score",
+      "target": 3825
+    }
+  ],
+  "height": 8,
+  "id": 26,
+  "moves": 39,
+  "name": "熔岩糖果 2",
+  "obstacles": [
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        3,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        2
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        3
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        2,
+        5
+      ]
+    },
+    {
+      "layers": 1,
+      "pos": [
+        5,
+        4
+      ]
+    }
+  ],
+  "stars": [
+    3825,
+    5546,
+    7458
+  ],
+  "width": 7
+}

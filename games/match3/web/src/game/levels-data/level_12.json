@@ -1,0 +1,93 @@
+{
+  "id": 12,
+  "name": "终局试炼",
+  "width": 8,
+  "height": 8,
+  "colors": 5,
+  "moves": 40,
+  "obstacles": [
+    {
+      "pos": [
+        1,
+        2
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        3,
+        3
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        5,
+        2
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        7,
+        4
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        0,
+        5
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        4,
+        6
+      ],
+      "layers": 1
+    },
+    {
+      "pos": [
+        6,
+        6
+      ],
+      "layers": 2
+    },
+    {
+      "pos": [
+        2,
+        0
+      ],
+      "layers": 1
+    }
+  ],
+  "goals": [
+    {
+      "type": "collect",
+      "color": 2,
+      "count": 18
+    },
+    {
+      "type": "collect",
+      "color": 4,
+      "count": 14
+    },
+    {
+      "type": "score",
+      "target": 3000
+    }
+  ],
+  "stars": [
+    4000,
+    5600,
+    7500
+  ],
+  "features": [
+    "stripe",
+    "bomb",
+    "rainbow",
+    "frost"
+  ]
+}

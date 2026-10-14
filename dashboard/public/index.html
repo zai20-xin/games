@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>games · 游戏面板</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #171a21;
+    --line: #242936;
+    --text: #e8ebf2;
+    --muted: #8b93a7;
+    --accent: #4c8dff;
+    --green: #35c46f;
+    --amber: #e8a33d;
+    --red: #e05656;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    min-height: 100vh;
+    padding: 28px clamp(16px, 4vw, 48px);
+  }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 22px; }
+  header h1 { font-size: 22px; letter-spacing: 0.5px; margin-right: 6px; }
+  header h1 span { color: var(--accent); }
+  .stats { color: var(--muted); font-size: 13px; display: flex; gap: 14px; }
+  .stats b { color: var(--text); }
+  header .hint { color: var(--muted); font-size: 12px; }
+  header .hint code { background: var(--card); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line); }
+  .spacer { flex: 1; }
+  .view-toggle { display: flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+  .view-toggle button { border: none; border-radius: 0; background: transparent; padding: 7px 16px; font-size: 13px; color: var(--muted); }
+  .view-toggle button.active { background: var(--accent); color: #fff; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; max-width: 1400px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-2px); border-color: #35405a; }
+  .card.archived { opacity: 0.55; }
+  .cover {
+    height: 130px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; font-weight: 700; color: rgba(255,255,255,0.85);
+    background: linear-gradient(135deg, #26314e, #1b2130);
+    position: relative;
+  }
+  .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .badge {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    background: rgba(15,17,21,0.75); backdrop-filter: blur(4px);
+  }
+  .run-dot {
+    position: absolute; top: 12px; right: 12px; z-index: 2;
+    width: 9px; height: 9px; border-radius: 50%; background: #444c5c;
+  }
+  .run-dot.on { background: var(--green); box-shadow: 0 0 0 0 rgba(53,196,111,0.5); animation: pulse 1.8s infinite; }
+  .warn-badge {
+    position: absolute; bottom: 10px; right: 10px; z-index: 2;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(232,163,61,0.92); color: #1a1206;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; cursor: help;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .issue-list { list-style: none; margin-top: 6px; }
+  .issue-list li { font-size: 12.5px; line-height: 1.8; padding-left: 4px; }
+  .issue-list li.err { color: var(--red); }
+  .issue-list li.warn { color: var(--amber); }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 8px rgba(53,196,111,0); }
+    100% { box-shadow: 0 0 0 0 rgba(53,196,111,0); }
+  }
+  .body { padding: 14px 16px 6px; flex: 1; }
+  .title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .title-row h2 { font-size: 16px; }
+  .port-chip { font-size: 11px; color: var(--muted); background: #10131a; border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; font-family: ui-monospace, monospace; }
+  .desc { color: var(--muted); font-size: 13px; line-height: 1.55; min-height: 20px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .next-hint { margin-top: 8px; font-size: 12px; color: var(--amber); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .next-hint::before { content: "▸ 下一步 "; color: var(--muted); }
+  .tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
+  .foot { display: flex; gap: 8px; padding: 14px 16px 16px; align-items: center; }
+  button {
+    cursor: pointer; border-radius: 8px; border: 1px solid var(--line);
+    background: #1d222d; color: var(--text); font-size: 13px; padding: 7px 14px;
+    transition: background 0.12s;
+  }
+  button:hover { background: #273043; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.primary:hover { filter: brightness(1.12); }
+  button.danger { color: var(--red); border-color: #4a2b2b; }
+  button.danger:hover { background: #2a1d1d; }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  table.track { width: 100%; max-width: 1400px; border-collapse: collapse; font-size: 13px; }
+  table.track th {
+    text-align: left; color: var(--muted); font-weight: 500; font-size: 12px;
+    padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap;
+  }
+  table.track td { padding: 10px 12px; border-bottom: 1px solid #1c212c; vertical-align: top; }
+  table.track tr:hover td { background: #181d27; }
+  table.track tr.archived td { opacity: 0.5; }
+  .gname { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .gname img { width: 52px; height: 30px; object-fit: cover; border-radius: 5px; border: 1px solid var(--line); }
+  .gname b { font-weight: 600; }
+  .gname small { color: var(--muted); font-family: ui-monospace, monospace; }
+  ul.next-list { list-style: none; }
+  ul.next-list li { position: relative; padding-left: 16px; line-height: 1.7; }
+  ul.next-list li::before { content: "▸"; position: absolute; left: 0; color: var(--amber); }
+  ul.next-list li.done { color: var(--muted); text-decoration: line-through; }
+  .devlog-cell { color: var(--muted); font-size: 12px; max-width: 260px; }
+  .devlog-cell b { color: var(--text); font-weight: 500; display: block; margin-bottom: 2px; }
+
+  #modal-back {
+    display: none; position: fixed; inset: 0; z-index: 50;
+    background: rgba(5,7,10,0.72); backdrop-filter: blur(3px);
+  }
+  #modal-back.show { display: block; }
+  #modal {
+    position: fixed; z-index: 51; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: min(680px, 92vw); max-height: 84vh; overflow-y: auto;
+    background: var(--card); border: 1px solid #303a52; border-radius: 16px; padding: 26px 28px;
+  }
+  #modal h2 { font-size: 20px; margin-bottom: 4px; }
+  #modal .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  #modal section { margin-top: 18px; }
+  #modal h3 { font-size: 13px; color: var(--muted); font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
+  #modal pre.devlog {
+    background: #10131a; border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; font-size: 12.5px; line-height: 1.75; color: #c3cad9;
+    white-space: pre-wrap; font-family: inherit;
+  }
+  #modal .meta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+  #modal-close { float: right; background: transparent; border: none; font-size: 20px; color: var(--muted); padding: 2px 8px; }
+
+  .empty { color: var(--muted); padding: 60px 0; text-align: center; line-height: 2; }
+  .empty code { background: var(--card); padding: 2px 8px; border-radius: 4px; }
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #2a1d1d; color: #ffb4b4; border: 1px solid #54302f;
+    padding: 10px 18px; border-radius: 10px; font-size: 13px;
+    opacity: 0; transition: opacity 0.25s; pointer-events: none; max-width: 80vw;
+  }
+  #toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎮 games<span>·</span>游戏面板</h1>
+  <div class="view-toggle">
+    <button id="tab-cards" class="active" onclick="setView('cards')">卡片</button>
+    <button id="tab-track" onclick="setView('track')">跟进</button>
+  </div>
+  <div class="stats">
+    <span>共 <b id="st-total">0</b></span>
+    <span>可玩 <b id="st-playable">0</b></span>
+    <span>运行中 <b id="st-running">0</b></span>
+  </div>
+  <span class="spacer"></span>
+  <div class="hint">新建：<code>node tools/new.mjs &lt;id&gt; --name 名称</code></div>
+</header>
+
+<div class="grid" id="grid"></div>
+<div id="track-view" style="display:none"></div>
+<div class="empty" id="empty" style="display:none">
+  还没有注册任何游戏<br />
+  运行 <code>node tools/new.mjs my-first-game --name 我的小游戏</code> 创建第一个
+</div>
+
+<div id="modal-back" onclick="if(event.target===this)closeModal()">
+  <div id="modal"></div>
+</div>
+<div id="toast"></div>
+
+<script>
+const STATUS_META = {
+  idea:      { label: "💡 构想",   color: "#8b93a7" },
+  prototype: { label: "🧪 原型",   color: "#4c8dff" },
+  demo:      { label: "🎬 Demo",  color: "#e8a33d" },
+  playable:  { label: "✅ 可玩",   color: "#35c46f" },
+  archived:  { label: "🗄️ 归档",   color: "#666f80" },
+};
+
+let view = "cards";
+let gamesData = [];
+const devlogCache = new Map();
+let toastTimer = null;
+
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), 3500);
+}
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok || data.error) throw new Error(data.error || `HTTP ${r.status}`);
+  return data;
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function statusBadge(status) {
+  const meta = STATUS_META[status] || STATUS_META.prototype;
+  return `<span class="badge" style="color:${meta.color}">${meta.label}</span>`;
+}
+
+function actionButtons(g) {
+  const isWeb = g.type !== "native";
+  const entry = g.entry || "/";
+  return `
+    ${g.running
+      ? `<button class="danger" onclick="event.stopPropagation();doStop('${esc(g.id)}')">停止</button>`
+      : g.runnable === false
+        ? `<button disabled title="game.json 未配置 run 启动命令">启动</button>`
+        : `<button class="primary" onclick="event.stopPropagation();doStart('${esc(g.id)}')">启动</button>`}
+    ${isWeb
+      ? `<button onclick="event.stopPropagation();window.open('/g/${esc(g.id)}${entry === "/" ? "/" : entry}','_blank')" ${g.running ? "" : "disabled"}>打开</button>`
+      : ""}`;
+}
+
+function cardHTML(g) {
+  const next0 = (g.next || [])[0];
+  return `
+  <article class="card ${g.status === "archived" ? "archived" : ""}" id="card-${esc(g.id)}" onclick="openDetail('${esc(g.id)}')">
+    <div class="cover">
+      ${statusBadge(g.status)}
+      <span class="run-dot ${g.running ? "on" : ""}" title="${g.running ? "运行中" : "未运行"}"></span>
+      ${g.hasCover ? `<img src="/cover/${esc(g.id)}" onerror="this.remove()" alt="" />` : esc((g.name || g.id)[0])}
+      ${(g.issues || []).length ? `<span class="warn-badge" title="${esc(g.issues.join("\n"))}">⚠</span>` : ""}
+    </div>
+    <div class="body">
+      <div class="title-row">
+        <h2>${esc(g.name || g.id)}</h2>
+        ${g.type !== "native" && g.port ? `<span class="port-chip">:${g.port}</span>` : ""}
+      </div>
+      <p class="desc">${esc(g.description)}</p>
+      ${next0 ? `<div class="next-hint">${esc(next0)}</div>` : ""}
+      <div class="tags">${(g.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+    </div>
+    <div class="foot">${actionButtons(g)}</div>
+  </article>`;
+}
+
+async function loadDevlogs(ids) {
+  await Promise.all(
+    ids.filter((id) => !devlogCache.has(id)).map(async (id) => {
+      try {
+        devlogCache.set(id, await api(`/api/games/${id}/devlog`));
+      } catch {
+        devlogCache.set(id, null);
+      }
+    })
+  );
+}
+
+function renderTrack(games) {
+  if (!games.length) return "<p class='empty'>无游戏</p>";
+  const rows = games.map((g) => {
+    const d = devlogCache.get(g.id);
+    const nextItems = (g.next || []).length
+      ? `<ul class="next-list">${g.next.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`
+      : "<span style='color:var(--muted)'>—</span>";
+    return `
+    <tr class="${g.status === "archived" ? "archived" : ""}">
+      <td><span class="gname" onclick="openDetail('${esc(g.id)}')">
+        ${g.hasCover ? `<img src="/cover/${esc(g.id)}" />` : ""}
+        <span><b>${esc(g.name || g.id)}</b><br /><small>${esc(g.id)}</small></span>
+      </span></td>
+      <td>${statusBadge(g.status)}${(g.issues || []).length ? ` <span title="${esc(g.issues.join("\n"))}" style="color:var(--amber)">⚠${g.issues.length}</span>` : ""}</td>
+      <td>${g.type === "native" ? "native" : `:${g.port}`}</td>
+      <td>${nextItems}</td>
+      <td class="devlog-cell">${d ? `<b>${esc(d.title)}</b>${esc(d.body.split("\n")[0].replace(/^-\s*/, ""))}` : "—"}</td>
+      <td style="white-space:nowrap"><span class="run-dot ${g.running ? "on" : ""}" style="position:static;display:inline-block;margin-right:8px"></span>${actionButtons(g)}</td>
+    </tr>`;
+  });
+  return `
+  <table class="track">
+    <thead><tr><th>游戏</th><th>状态</th><th>端口</th><th style="width:34%">迭代方向</th><th>最近动态</th><th>操作</th></tr></thead>
+    <tbody>${rows.join("")}</tbody>
+  </table>`;
+}
+
+function renderDetail(g) {
+  const d = devlogCache.get(g.id);
+  const isWeb = g.type !== "native";
+  const entry = g.entry || "/";
+  return `
+  <button id="modal-close" onclick="closeModal()">✕</button>
+  <h2>${esc(g.name || g.id)}</h2>
+  <div class="sub">${statusBadge(g.status).replace('class="badge"', 'class="badge" style="position:static;display:inline-block"')} ${esc(g.description)}</div>
+  <section>
+    <h3>信息</h3>
+    <div class="meta-row">
+      <span class="tag">id: ${esc(g.id)}</span>
+      ${isWeb ? `<span class="port-chip">端口 :${g.port}</span>` : '<span class="tag">native 窗口程序</span>'}
+      ${(g.tech || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
+      ${(g.tags || []).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}
+    </div>
+    ${isWeb ? `<div class="meta-row"><span class="hint">入口 /g/${esc(g.id)}${entry === "/" ? "/" : entry}</span></div>` : ""}
+  </section>
+  <section>
+    <h3>契约健康</h3>
+    ${(g.issues || []).length
+      ? `<ul class="issue-list">${g.issues.map((i) => `<li class="${i.startsWith("✗") ? "err" : "warn"}">${esc(i)}</li>`).join("")}</ul>`
+      : "<p style='color:var(--green);font-size:13px'>✓ 契约校验通过</p>"}
+  </section>
+  <section>
+    <h3>迭代方向（完成一项删一项）</h3>
+    ${(g.next || []).length
+      ? `<ul class="next-list">${g.next.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`
+      : "<p style='color:var(--muted);font-size:13px'>暂未规划，可在 game.json 的 next 字段补充</p>"}
+  </section>
+  <section>
+    <h3>最近动态（docs/devlog.md）</h3>
+    ${d ? `<pre class="devlog">${esc(d.body)}</pre>` : "<p style='color:var(--muted);font-size:13px'>暂无记录，收工时在 docs/devlog.md 写三行</p>"}
+  </section>
+  <div class="meta-row" style="margin-top:22px">${actionButtons(g)}
+    ${isWeb ? `<button onclick="window.open('/g/${esc(g.id)}${entry === "/" ? "/" : entry}','_blank')" ${g.running ? "" : "disabled"}>打开游玩</button>` : ""}
+  </div>`;
+}
+
+function setView(v) {
+  view = v;
+  document.getElementById("tab-cards").classList.toggle("active", v === "cards");
+  document.getElementById("tab-track").classList.toggle("active", v === "track");
+  document.getElementById("grid").style.display = v === "cards" ? "" : "none";
+  document.getElementById("track-view").style.display = v === "track" ? "" : "none";
+  if (v === "track") loadDevlogs(gamesData.map((g) => g.id)).then(refresh);
+}
+
+function render() {
+  const games = gamesData;
+  document.getElementById("st-total").textContent = games.length;
+  document.getElementById("st-playable").textContent = games.filter((g) => g.status === "playable").length;
+  document.getElementById("st-running").textContent = games.filter((g) => g.running).length;
+  document.getElementById("grid").innerHTML = games.map(cardHTML).join("");
+  document.getElementById("track-view").innerHTML = renderTrack(games);
+  document.getElementById("empty").style.display = games.length ? "none" : "";
+}
+
+function refresh() {
+  render();
+}
+
+async function poll() {
+  try {
+    gamesData = await api("/api/games");
+    refresh();
+  } catch (e) {
+    console.error(e.message);
+  }
+}
+
+async function doStart(id) {
+  try {
+    const r = await api(`/api/games/${id}/start`, { method: "POST" });
+    toast(r?.killed?.length ? `✅ ${id} 已就绪（自动清理端口占用 pid=${r.killed.join(",")}）` : `✅ ${id} 已就绪`);
+  } catch (e) {
+    toast(`⚠️ ${id}: ${e.message}`);
+  }
+  poll();
+}
+
+async function doStop(id) {
+  try {
+    const r = await api(`/api/games/${id}/stop`, { method: "POST" });
+    toast(r?.note ? `⚠️ ${id} 已停止，但 ${r.note}` : `已停止 ${id}`);
+  } catch (e) {
+    toast(`⚠️ ${id}: ${e.message}`);
+  }
+  poll();
+}
+
+function openDetail(id) {
+  const g = gamesData.find((x) => x.id === id);
+  if (!g) return;
+  if (!devlogCache.has(id)) loadDevlogs([id]).then(() => {
+    document.getElementById("modal").innerHTML = renderDetail(gamesData.find((x) => x.id === id));
+  });
+  document.getElementById("modal").innerHTML = renderDetail(g);
+  document.getElementById("modal-back").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modal-back").classList.remove("show");
+}
+
+addEventListener("keydown", (e) => e.key === "Escape" && closeModal());
+
+poll();
+setInterval(poll, 3000);
+</script>
+</body>
+</html>

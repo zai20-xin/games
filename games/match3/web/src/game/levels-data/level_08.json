@@ -1,0 +1,21 @@
+{
+  "id": 8,
+  "name": "寒冰阵",
+  "width": 7,
+  "height": 8,
+  "colors": 5,
+  "moves": 30,
+  "obstacles": [
+    { "pos": [1, 2], "layers": 1 },
+    { "pos": [3, 2], "layers": 2 },
+    { "pos": [5, 3], "layers": 1 },
+    { "pos": [2, 5], "layers": 1 },
+    { "pos": [4, 5], "layers": 2 },
+    { "pos": [6, 6], "layers": 1 }
+  ],
+  "goals": [
+    { "type": "collect", "color": 3, "count": 18 }
+  ],
+  "stars": [1400, 2400, 3600],
+  "features": ["bomb", "rainbow", "frost"]
+}

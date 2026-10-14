@@ -1,0 +1,15 @@
+{
+  "id": "roguelite-dressup",
+  "name": "Roguelite 换装",
+  "description": "Roguelite×换装玩法网页游戏，多模块 JS 实现，含设计文档",
+  "status": "prototype",
+  "type": "web",
+  "tags": [
+    "roguelite",
+    "换装"
+  ],
+  "port": 4108,
+  "run": "python3 -m http.server {port}",
+  "entry": "/",
+  "cover": "cover.png"
+}

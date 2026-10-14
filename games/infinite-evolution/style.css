@@ -1,0 +1,60 @@
+/* ============================================
+   无限进化 V2.0 — 全局样式
+   - 黑色背景 + 居中舞台 + 等比缩放
+   - 像素风：禁用平滑、禁用浏览器触摸手势
+   ============================================ */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  touch-action: none;
+  cursor: pointer;
+  background: #0a0e1a;
+  /* 默认 1280x720，外层 #stage 由 CSS 容器查询或 JS 计算缩放 */
+  transform-origin: center center;
+}
+
+/* 启动遮罩（可选） */
+.loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  background: #000;
+  z-index: 100;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.loading.hidden { opacity: 0; }
